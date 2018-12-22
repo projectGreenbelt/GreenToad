@@ -8,7 +8,7 @@
 
 ### Learning Objectives
 
-* Mark: Increase React proficiency by building react components as part of the View in our site
+* Mark: Increase React proficiency by building react components as part of the View in our site.
 * James: Increase React proficiency, as well as better understand coding skill set pertaining to user authentication and real-time interaction between application users.
 
 ### MVP
