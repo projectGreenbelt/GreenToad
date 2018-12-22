@@ -39,6 +39,9 @@ c. Allow user to start their own thread, which can in turn be viewed by other us
   
 <b>Deployment</b>
 - [Heroku](https://projectgreenbelt.herokuapp.com/)
+
+<b>Project Management</b>
+We will be using Github flow to manage this project. We will use an interactive project board to track issues that will be resolved through pull requests.
   
 ### Team Members
 1. [James Tobey](https://github.com/jctobey)
