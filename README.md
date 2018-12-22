@@ -22,7 +22,7 @@
 - Express
   
 <b>Deployment</b>
-- [Heroku](https://offthechain-app.herokuapp.com/)
+- [Heroku](https://projectgreenbelt.herokuapp.com/)
   
 ## Team Members
 1. [James Tobey](https://github.com/jctobey)
