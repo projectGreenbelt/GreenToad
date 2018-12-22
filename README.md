@@ -6,7 +6,10 @@
 
 > As local Austinites and nature lovers we felt that there needed to be a comprehensive app that fellow Greenbelters could use to be informed in real-time and in advance what the current situations going down at each public access point are. Stats to include would be water levels, weather, parking, as well as brief descriptions of each location and instructions for access. 
 
-###
+### Learning Objectives
+
+* Mark: Increase React proficiency by building react components as part of the View in our site
+* James: Increase React proficiency, as well as better understand coding skill set pertaining to user authentication and real-time interaction between application users.
 
 ### MVP
 
