@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Nav from './components/Nav/Nav';
-import Card from './components/Card/Card';
-import Paper from './components/Paper/Paper';
+import Nav from '../components/Nav/Nav';
+import Card from '../components/Card/Card';
+import Paper from '../components/Paper/Paper';
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps";
-import './App.css';
+import '../App.css';
 
 const Map = withScriptjs(
   withGoogleMap(props => (
