@@ -87,7 +87,7 @@ const Map = withScriptjs(
 );
 
 
-class App extends Component {
+class Main extends Component {
   componentDidMount() {
     window.scrollTo(0, 0);
     document.body.scrollTop = 0;
@@ -124,4 +124,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Main

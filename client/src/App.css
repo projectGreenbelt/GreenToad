@@ -1,0 +1,27 @@
+.Map {
+    height: 55vh;
+    max-height: 550px;
+    width: 100%;
+    display: block;
+    margin-top: .5%;
+}
+
+.Card {
+    display: inline-block;
+    vertical-align: middle;
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    transition-duration: 0.3s;
+    transition-property: transform;
+}
+
+.Card:hover,
+.Card:focus,
+.Card:active {
+    transform: scale(1.1);
+}
+
+
+
