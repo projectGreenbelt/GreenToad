@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import Widget from '../Widget/Widget';
 import Typography from '@material-ui/core/Typography';
+
 
 const styles = theme => ({
   root: {
@@ -17,15 +19,14 @@ const styles = theme => ({
   paper: {
     margin: `${theme.spacing.unit}px auto`,
     padding: theme.spacing.unit * 2,
-    maxWidth: 600,
-    minWidth: 275,
-    
+    maxWidth: 300,
+    minwidth: 275
   },
 });
 
 
 function PaperSheet(props) {
-  const { classes, description } = props;
+  const { classes, } = props;
 
   return (
     <div>
@@ -33,12 +34,20 @@ function PaperSheet(props) {
         <Grid container wrap="nowrap" spacing={16} >
           <Grid item xs>
             <Typography variant="h5" component="h3">
-              Location Description
+                Current Status:
             </Typography>
             <hr/>
-            <Typography component="p">
-              {description}
-            </Typography>
+            <div className="Widget">
+                <Widget />
+            </div>
+            <br />
+            <div className="Widget">
+                <Widget />
+            </div>
+            <br />
+            <div className="Widget">
+                <Widget />
+            </div>
           </Grid>
         </Grid>
       </Paper>
