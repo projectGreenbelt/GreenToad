@@ -8,33 +8,33 @@ import CardMedia from '@material-ui/core/CardMedia';
 
 const styles = {
   card: {
-    minWidth: 275,
-    maxWidth: 500,
+    minWidth: 245,
+    maxWidth: 300,
   },
   media: {
     objectFit: 'cover',
   },
 };
 
-function ImgMediaCard(props) {
-  const { classes, image, name } = props;
+function Widget(props) {
+  const { classes, } = props;
   return (
-    <Card className={classes.card}>
+    <Card className={classes.card} elevation={20}>
       <CardActionArea>
         <CardMedia
           component="img"
-          alt={name}
+          alt="widget"
           className={classes.media}
-          image={image}
-          title={name}
+          image="https://dairydoo.com/wp-content/uploads/2018/03/Placeholder.png"
+          title="widget"
         />
       </CardActionArea>
     </Card>
   );
 }
 
-ImgMediaCard.propTypes = {
+Widget.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(ImgMediaCard);
+export default withStyles(styles)(Widget);

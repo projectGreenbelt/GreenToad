@@ -4,6 +4,9 @@ import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
+import Description from '../Paper/Paper';
+import Column from '../Column/Column';
+import Card from '../Card/Card';
 
 const styles = theme => ({
   root: {
@@ -17,28 +20,36 @@ const styles = theme => ({
   paper: {
     margin: `${theme.spacing.unit}px auto`,
     padding: theme.spacing.unit * 2,
-    maxWidth: 600,
-    minWidth: 275,
-    
   },
 });
 
 
 function PaperSheet(props) {
-  const { classes, description } = props;
-
+  const { classes, accessPoint } = props;
+  const { address, description, image, name } = accessPoint
+  
   return (
     <div>
       <Paper className={classes.paper} elevation={20}>
         <Grid container wrap="nowrap" spacing={16} >
-          <Grid item xs>
-            <Typography variant="h5" component="h3">
-              Location Description
-            </Typography>
-            <hr/>
-            <Typography component="p">
-              {description}
-            </Typography>
+          <Grid item xs className="container">
+            <div className="col1">
+              <Paper className={classes.paper} elevation={20}>
+                <Typography variant="h4" component="h3">
+                  {name}
+                </Typography>
+                <Typography variant="h6" component="h5">
+                  {address}
+                </Typography>
+                <div className="Card">
+                    <Card image={image} elevation={15}/>
+                </div>
+              </Paper>
+              <div className="Card">
+                <Description description={description} />
+              </div>
+            </div>
+            <Column />
           </Grid>
         </Grid>
       </Paper>
