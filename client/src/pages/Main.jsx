@@ -1,8 +1,13 @@
-import React, { Component } from 'react';
-import Nav from '../components/Nav/Nav';
-import Container from '../components/Container/Container';
-import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps";
-import './../App.css';
+import React, { Component } from "react";
+import Nav from "../components/Nav/Nav";
+import Container from "../components/Container/Container";
+import {
+  withScriptjs,
+  withGoogleMap,
+  GoogleMap,
+  Marker
+} from "react-google-maps";
+import "./../App.css";
 import points from "../cards";
 
 //Google Maps
@@ -76,54 +81,57 @@ const Map = withScriptjs(
         ]
       }}
     >
-      <Marker 
-        onClick={() => props.handleMarkerClick(1)} 
-        position={{ lat: 30.264173, lng: -97.773195 }} 
+      <Marker
+        onClick={() => props.handleMarkerClick(1)}
+        position={{ lat: 30.264173, lng: -97.773195 }}
         title="Trail Head"
-        
+
         /* icon="https://i0.wp.com/naturenearby.org/wp-content/uploads/2016/08/ico-feature_hiking.png?ssl=1" */
         /* options={{ icon: { url: 'https://i0.wp.com/naturenearby.org/wp-content/uploads/2016/08/ico-feature_hiking.png?ssl=1'} }} */
       />
-      <Marker 
-        onClick={() => props.handleMarkerClick(2)} 
-        position={{ lat: 30.257926, lng: -97.787518 }} 
-        title="Spyglass" 
+      <Marker
+        onClick={() => props.handleMarkerClick(2)}
+        position={{ lat: 30.257926, lng: -97.787518 }}
+        title="Spyglass"
       />
-      <Marker 
-        onClick={() => props.handleMarkerClick(3)} 
-        position={{ lat: 30.255326, lng: -97.783981 }} 
-        title="Barton Hills" 
+      <Marker
+        onClick={() => props.handleMarkerClick(3)}
+        position={{ lat: 30.255326, lng: -97.783981 }}
+        title="Barton Hills"
       />
-      <Marker 
-        onClick={() => props.handleMarkerClick(4)} 
-        position={{ lat: 30.249326, lng: -97.795150 }} 
-        title="Gus Fruh" 
+      <Marker
+        onClick={() => props.handleMarkerClick(4)}
+        position={{ lat: 30.249326, lng: -97.79515 }}
+        title="Gus Fruh"
       />
-      <Marker 
-        onClick={() => props.handleMarkerClick(5)} 
-        position={{ lat: 30.243766, lng: -97.800123 }} 
-        title="Loop 360" 
+      <Marker
+        onClick={() => props.handleMarkerClick(5)}
+        position={{ lat: 30.243766, lng: -97.800123 }}
+        title="Loop 360"
       />
-      <Marker 
+      <Marker
         onClick={() => props.handleMarkerClick(6)}
-        position={{ lat: 30.244221, lng: -97.809666 }} 
-        title="Gaines/Twin Falls" 
+        position={{ lat: 30.244221, lng: -97.809666 }}
+        title="Gaines/Twin Falls"
       />
-      <Marker 
-        onClick={() => props.handleMarkerClick(7)} 
-        position={{ lat: 30.275147, lng: -97.825273 }} 
-        title="Trail's End" 
+      <Marker
+        onClick={() => props.handleMarkerClick(7)}
+        position={{ lat: 30.275147, lng: -97.825273 }}
+        title="Trail's End"
       />
     </GoogleMap>
-  ))
+  )),
+  function handleClick(e) {
+    e.preventDefault();
+    console.log("The marker was clicked.");
+  }
 );
-
 
 class Main extends Component {
   // Constructor and state
   state = {
-    currentAccessPoint : {}
-  }
+    currentAccessPoint: {}
+  };
   // Lifecycle function
   componentDidMount() {
     window.scrollTo(0, 0);
@@ -134,26 +142,23 @@ class Main extends Component {
   // Custom function
   handleMarkerClick = number => {
     let point = {};
-    
+
     // Grab the proper access point from the json
     for (let i = 0; i < points.length; i++) {
-      if (
-        number === points[i].id
-      ) {
-        point = points[i]
+      if (number === points[i].id) {
+        point = points[i];
       }
     }
 
     // Setting access point information in the state
     this.setState({
-      currentAccessPoint : point
-    })
-  }
-
+      currentAccessPoint: point
+    });
+  };
 
   // Render function
   render() {
-    const { currentAccessPoint } = this.state
+    const { currentAccessPoint } = this.state;
     return (
       <div>
         <Nav />
@@ -180,4 +185,4 @@ class Main extends Component {
   }
 }
 
-export default Main
+export default Main;
