@@ -1,13 +1,13 @@
 import React from "react";
-import Books from "./pages/Books";
-import Nav from "./components/Nav";
-import Search from "./components/Search";
+import Main from "./pages/Main";
+import "./App.css";
+import Authentication from "./components/Authentication/Authentication";
+
 function App() {
   return (
     <div>
-      <Search />
-      <Nav />
-      <Books />
+      <Main />
+      <Authentication />
     </div>
   );
 }
