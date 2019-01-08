@@ -1,0 +1,73 @@
+.Map {
+    height: 55vh;
+    max-height: 550px;
+    width: 100%;
+    display: block;
+    margin-top: .5%;
+}
+
+.Card {
+    margin-top: 1%;
+    display: inline-block;
+    vertical-align: middle;
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    transition-duration: 0.3s;
+    transition-property: transform;
+}
+
+.Card:hover,
+.Card:focus,
+.Card:active {
+    transform: scale(1.1);
+}
+
+.Widget {
+    margin-top: 4%;
+    display: inline-block;
+    vertical-align: middle;
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    transition-duration: 0.3s;
+    transition-property: transform;
+}
+
+.Widget:hover,
+.Widget:focus,
+.Widget:active {
+    transform: scale(1.1);
+}
+
+
+ .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+.col1 {
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 700px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: flex-start;
+    }
+}
+
+
+
+
+
+
+
+

@@ -1,15 +1,13 @@
-import React from "react";
-import Books from "./pages/Books";
-import Nav from "./components/Nav";
-import Search from "./components/Search";
+import React from 'react';
+import Main from './pages/Main';
+import './App.css';
+
 function App() {
   return (
     <div>
-      <Search />
-      <Nav />
-      <Books />
+      <Main />
     </div>
-  );
+  )
 }
 
 export default App;
