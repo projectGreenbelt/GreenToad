@@ -1,6 +1,6 @@
 # projectGreenbelt
 
-> The all in one app for status updates and current breakdowns of all public access points on the Austin Greebbelt!
+> The all in one app for status updates and current breakdowns of all public access points on the Austin Greenbelt!
 
 ## Motivation
 
