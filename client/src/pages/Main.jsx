@@ -1,9 +1,14 @@
-import React, { Component } from 'react';
-import Nav from '../components/Nav/Nav';
-import Card from '../components/Card/Card';
-import Paper from '../components/Paper/Paper';
-import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps";
-import '../App.css';
+import React, { Component } from "react";
+import Nav from "../components/Nav/Nav";
+import Card from "../components/Card/Card";
+import Paper from "../components/Paper/Paper";
+import {
+  withScriptjs,
+  withGoogleMap,
+  GoogleMap,
+  Marker
+} from "react-google-maps";
+import "../App.css";
 
 const Map = withScriptjs(
   withGoogleMap(props => (
@@ -75,17 +80,23 @@ const Map = withScriptjs(
         ]
       }}
     >
-      <Marker position={{ lat: 30.264173, lng: -97.773195 }} className="trailhead" />
+      <Marker
+        position={{ lat: 30.264173, lng: -97.773195 }}
+        className="trailhead"
+      />
       <Marker position={{ lat: 30.257926, lng: -97.787518 }} spyglass />
       <Marker position={{ lat: 30.255326, lng: -97.783981 }} bartonHills />
-      <Marker position={{ lat: 30.249326, lng: -97.795150 }} gusFruh />
+      <Marker position={{ lat: 30.249326, lng: -97.79515 }} gusFruh />
       <Marker position={{ lat: 30.243766, lng: -97.800123 }} loop360 />
       <Marker position={{ lat: 30.244221, lng: -97.809666 }} twinFalls />
       <Marker position={{ lat: 30.275147, lng: -97.825273 }} trailsEnd />
     </GoogleMap>
-  ))
+  )),
+  function handleClick(e) {
+    e.preventDefault();
+    console.log("The marker was clicked.");
+  }
 );
-
 
 class Main extends Component {
   componentDidMount() {
@@ -116,7 +127,7 @@ class Main extends Component {
         <div className="Card">
           <Card />
         </div>
-        <Paper /> 
+        <Paper />
         <Paper />
         <Paper />
       </div>
@@ -124,4 +135,4 @@ class Main extends Component {
   }
 }
 
-export default Main
+export default Main;
