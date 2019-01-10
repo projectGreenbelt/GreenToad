@@ -16,6 +16,7 @@
 1. Show users the list of greenbelt locations in Austin, along with Austin weather information.
 2. Allow them to select a location from the list of greenbelt locations.
 3. Once a greenbelt location is selected, the following functionality will be available:
+![user_post_alt](https://user-images.githubusercontent.com/41517616/50718048-9b92df00-1051-11e9-9183-ecb042bddf1b.png)
 * View threads/posts from other users who have selected this location. 
 * View directions on how to get to the selected Greenbelt location.
 * Allow user to start their own thread, which can in turn be viewed by other users.
