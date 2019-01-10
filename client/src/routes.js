@@ -18,10 +18,29 @@ const NoMatch = () => <h3>No match</h3>;
 export const makeMainRoutes = () => {
   return (
     <Router history={history}>
-      <Route path="/home" render={props => <Home auth={auth} {...props} />} />
-      <Route path="/" render={props => <App auth={auth} {...props} />} />
-      <Route component={NoMatch} />
-      {/* <Route exact path='/callback' render={props => <Callback {...props} handleAuthentication={handleAuthentication(props)}} */}
+      <div>
+        <Switch>
+          <Route
+            exact
+            path="/home"
+            render={props => <Home auth={auth} {...props} />}
+          />
+          <Route
+            exact
+            path="/"
+            render={props => <App auth={auth} {...props} />}
+          />
+          <Route
+            exact
+            path="/callback"
+            render={props => {
+              handleAuthentication(props);
+              return <Callback {...props} />;
+            }}
+          />
+          <Route component={NoMatch} />
+        </Switch>
+      </div>
     </Router>
   );
 };
