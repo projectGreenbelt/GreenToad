@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Router, Switch } from "react-router-dom";
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import App from "./App";
 // import NoMatch from "./components/NoMatch/NoMatch";
 import Home from "./components/Home/Home";
@@ -18,17 +18,29 @@ const NoMatch = () => <h3>No match</h3>;
 export const makeMainRoutes = () => {
   return (
     <Router history={history}>
-      <div>
-        <Route path="/home" render={props => <App auth={auth} {...props} />} />
-        <Route path="/" render={props => <App auth={auth} {...props} />} />
+      <Switch>
         <Route
+          exact
+          path="/"
+          render={props => <App auth={auth} {...props} />}
+        />
+        <Route
+          exact
+          path="/home"
+          render={props => <App auth={auth} {...props} />}
+        />
+        {/* <Route exact path="/" render={props => <App auth={auth} {...props} />} /> */}
+        <Route
+          exact
           path="/callback"
           render={props => {
             handleAuthentication(props);
             return <Callback {...props} />;
           }}
         />
-      </div>
+        <Route component={NoMatch} />
+        {/* <Route exact path='/callback' render={props => <Callback {...props} handleAuthentication={handleAuthentication(props)}} */}
+      </Switch>
     </Router>
   );
 };
