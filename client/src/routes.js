@@ -1,7 +1,7 @@
 import React from "react";
-import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+import { Route, Router } from "react-router-dom";
 import App from "./App";
-// import NoMatch from "./components/NoMatch/NoMatch";
+import Main from "./pages/Main";
 import Home from "./components/Home/Home";
 import Callback from "./components/Callback/Callback";
 import Auth from "./components/Authorization/Authorization";
@@ -14,32 +14,20 @@ const handleAuthentication = ({ location }) => {
     auth.handleAuthentication();
   }
 };
-const NoMatch = () => <h3>No match</h3>;
+
 export const makeMainRoutes = () => {
   return (
     <Router history={history}>
       <div>
-        <Switch>
-          <Route
-            exact
-            path="/home"
-            render={props => <Home auth={auth} {...props} />}
-          />
-          <Route
-            exact
-            path="/"
-            render={props => <App auth={auth} {...props} />}
-          />
-          <Route
-            exact
-            path="/callback"
-            render={props => {
-              handleAuthentication(props);
-              return <Callback {...props} />;
-            }}
-          />
-          <Route component={NoMatch} />
-        </Switch>
+        <Route path="/home" render={props => <Home auth={auth} {...props} />} />
+        <Route path="/" render={props => <App auth={auth} {...props} />} />
+        <Route
+          path="/callback"
+          render={props => {
+            handleAuthentication(props);
+            return <Callback {...props} />;
+          }}
+        />
       </div>
     </Router>
   );
