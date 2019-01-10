@@ -19,11 +19,11 @@ export const makeMainRoutes = () => {
   return (
     <Router history={history}>
       <Switch>
-        <Route
+        {/* <Route
           exact
           path="/"
           render={props => <Home auth={auth} {...props} />}
-        />
+        /> */}
         <Route
           exact
           path="/home"
