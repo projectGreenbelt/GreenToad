@@ -19,8 +19,16 @@ export const makeMainRoutes = () => {
   return (
     <Router history={history}>
       <div>
-        <Route path="/home" render={props => <App auth={auth} {...props} />} />
-        {/* <Route path="/" render={props => <App auth={auth} {...props} />} /> */}
+        <Route
+          exact
+          path="/home"
+          render={props => <App auth={auth} {...props} />}
+        />
+        <Route
+          exact
+          path="/"
+          render={props => <App auth={auth} {...props} />}
+        />
         <Route
           path="/callback"
           render={props => {
