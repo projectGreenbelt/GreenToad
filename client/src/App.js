@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { Navbar, Button } from "react-bootstrap";
+import { Navbar } from "react-bootstrap";
 import Main from "./pages/Main";
 import "./App.css";
+import Button from '@material-ui/core/Button'
 
 class App extends Component {
   goTo(route) {
