@@ -10,7 +10,7 @@ const style = {
   bottom: 0,
   left: 0,
   right: 0,
-  backgroundColor: "white"
+  backgroundColor: "green"
 };
 
 class Callback extends Component {

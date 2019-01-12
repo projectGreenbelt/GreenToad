@@ -1,8 +1,6 @@
 import React from "react";
 import { Route, Router } from "react-router-dom";
 import App from "./App";
-import Main from "./pages/Main";
-import Home from "./components/Home/Home";
 import Callback from "./components/Callback/Callback";
 import Auth from "./components/Authorization/Authorization";
 import history from "./history";
@@ -24,6 +22,7 @@ const theme = createMuiTheme({
     }
   }
 });
+
 const auth = new Auth();
 
 const handleAuthentication = ({ location }) => {
