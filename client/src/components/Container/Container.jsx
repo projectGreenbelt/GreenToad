@@ -47,14 +47,17 @@ function PaperSheet(props) {
               </Paper>
               <div className="Card">
                 <Description description={description} />
-                <Button
-                  onClick={() => props.handleCheckIn()}
-                  className="Button"
-                  id={id}
-                  onClick
-                >
-                  Check in at {name}
-                </Button>
+                {accessPoint.name !== undefined ? (
+                  <Button
+                    onClick={() => props.handleCheckIn()}
+                    className="Button"
+                    id={id}
+                  >
+                    Check in at {name}
+                  </Button>
+                ) : (
+                  ""
+                )}
               </div>
             </div>
             <Column />
