@@ -9,6 +9,7 @@ import {
 } from "react-google-maps";
 import "./../App.css";
 import points from "../cards";
+import { Button } from "@material-ui/core";
 
 //Google Maps
 const Map = withScriptjs(
@@ -123,20 +124,20 @@ const Map = withScriptjs(
   )),
   function handleClick(e) {
     e.preventDefault();
-    console.log("The marker was clicked.");
   }
 );
 
 class Main extends Component {
   // Constructor and state
   state = {
-    currentAccessPoint: {}
+    currentAccessPoint: {},
+    checkInLocation: {}
   };
   // Lifecycle function
   componentDidMount() {
     window.scrollTo(0, 0);
     document.body.scrollTop = 0;
-    console.log(points);
+    // console.log(points); removed this console log because it throws every time I run Jest test.
   }
 
   // Custom function
@@ -155,13 +156,19 @@ class Main extends Component {
       currentAccessPoint: point
     });
   };
+  handleCheckIn = () => {
+    // Setting access point information in the state
+    this.setState({
+      checkInLocation: this.state.currentAccessPoint
+    });
+  };
 
   // Render function
   render() {
     const { currentAccessPoint } = this.state;
     return (
       <div>
-        <Nav />
+        {/* <Nav /> */}
         <div className="Map">
           <Map
             handleMarkerClick={this.handleMarkerClick}
@@ -179,7 +186,10 @@ class Main extends Component {
             mapElement={<div style={{ height: `100%` }} />}
           />
         </div>
-        <Container accessPoint={currentAccessPoint} />
+        <Container
+          accessPoint={currentAccessPoint}
+          handleCheckIn={this.handleCheckIn}
+        />
       </div>
     );
   }

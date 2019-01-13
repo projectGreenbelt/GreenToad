@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Router } from "react-router-dom";
+import { Route, Router, Switch } from "react-router-dom";
 import App from "./App";
 import Callback from "./components/Callback/Callback";
 import Auth from "./components/Authorization/Authorization";
@@ -30,12 +30,13 @@ const handleAuthentication = ({ location }) => {
     auth.handleAuthentication();
   }
 };
+const NoMatch = () => <h3>No match</h3>;
 
 export const makeMainRoutes = () => {
   return (
     <MuiThemeProvider theme={theme}>
       <Router history={history}>
-        <div>
+        <Switch>
           <Route
             exact
             path="/home"
@@ -47,13 +48,16 @@ export const makeMainRoutes = () => {
             render={props => <App auth={auth} {...props} />}
           />
           <Route
+            exact
             path="/callback"
             render={props => {
               handleAuthentication(props);
               return <Callback {...props} />;
             }}
           />
-        </div>
+
+          <Route component={NoMatch} />
+        </Switch>
       </Router>
     </MuiThemeProvider>
   );
