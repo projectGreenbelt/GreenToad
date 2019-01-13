@@ -136,7 +136,7 @@ class Main extends Component {
   componentDidMount() {
     window.scrollTo(0, 0);
     document.body.scrollTop = 0;
-    console.log(points);
+    // console.log(points); removed this console log because it throws every time I run Jest test.
   }
 
   // Custom function
@@ -161,7 +161,7 @@ class Main extends Component {
     const { currentAccessPoint } = this.state;
     return (
       <div>
-        <Nav />
+        {/* <Nav /> */}
         <div className="Map">
           <Map
             handleMarkerClick={this.handleMarkerClick}
