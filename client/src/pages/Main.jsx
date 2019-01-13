@@ -9,6 +9,7 @@ import {
 } from "react-google-maps";
 import "./../App.css";
 import points from "../cards";
+import { Button } from "@material-ui/core";
 
 //Google Maps
 const Map = withScriptjs(
@@ -123,14 +124,14 @@ const Map = withScriptjs(
   )),
   function handleClick(e) {
     e.preventDefault();
-    console.log("The marker was clicked.");
   }
 );
 
 class Main extends Component {
   // Constructor and state
   state = {
-    currentAccessPoint: {}
+    currentAccessPoint: {},
+    checkInLocation: {}
   };
   // Lifecycle function
   componentDidMount() {
@@ -153,6 +154,12 @@ class Main extends Component {
     // Setting access point information in the state
     this.setState({
       currentAccessPoint: point
+    });
+  };
+  handleCheckIn = () => {
+    // Setting access point information in the state
+    this.setState({
+      checkInLocation: this.state.currentAccessPoint
     });
   };
 
@@ -179,7 +186,10 @@ class Main extends Component {
             mapElement={<div style={{ height: `100%` }} />}
           />
         </div>
-        <Container accessPoint={currentAccessPoint} />
+        <Container
+          accessPoint={currentAccessPoint}
+          handleCheckIn={this.handleCheckIn}
+        />
       </div>
     );
   }
