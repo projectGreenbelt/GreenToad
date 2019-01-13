@@ -30,7 +30,7 @@ function ButtonAppBar(props) {
       <AppBar position="static">
         <Toolbar className="theme">
           <Typography variant="h6" color="inherit" className={classes.grow}>
-            Project GreenBelt
+            Project Greenbelt
           </Typography>
           <Button color="inherit">Login</Button>
           <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
