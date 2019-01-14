@@ -6,6 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import Widget from '../Widget/Widget';
 import Typography from '@material-ui/core/Typography';
 import Weather from '../Weather/Weather';
+import Water from '../Water/Water';
 
 
 const styles = theme => ({
@@ -38,12 +39,22 @@ function PaperSheet(props) {
                 Current Status:
             </Typography>
             <hr/>
+            <Typography variant="h6" component="h3">
+                Weather:
+            </Typography>
             <div className="Widget">
+              <Paper className="WeatherBorder" elevation={20}>
                 <Weather />
+              </Paper>
             </div>
-            <br />
+            <br /><br />
+            <Typography variant="h6" component="h3">
+                Water Flow:
+            </Typography>
             <div className="Widget">
-                <Widget />
+              <Paper elevation={20}>
+                <Water />
+              </Paper>
             </div>
             <br />
             <div className="Widget">
