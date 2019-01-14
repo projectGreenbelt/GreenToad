@@ -1,12 +1,20 @@
 var React = require('react');
-var Forecast = require('react-forecast');
- 
-var Weather = React.createClass({
-  render: function() {
-    return (
-      <Forecast latitude={34.05} longitude={118.25} name='Los Angeles' />
-    );
-  }
-});
+
+function Weather() {
+  return (
+      <div className="Weather" elevation={20}>
+        <a
+          class="weatherwidget-io" 
+          href="https://forecast7.com/en/30d27n97d74/austin/?unit=us" 
+          data-label_1="Greenbelt" 
+          data-label_2="WEATHER" 
+          data-font="Roboto" 
+          data-icons="Climacons Animated" 
+          data-days="3" 
+          data-theme="weather_one" >Greenbelt Weather
+        </a>
+      </div> 
+  );
+}
 
 export default Weather;

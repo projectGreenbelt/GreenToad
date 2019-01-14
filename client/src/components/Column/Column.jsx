@@ -5,6 +5,7 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Widget from '../Widget/Widget';
 import Typography from '@material-ui/core/Typography';
+import Weather from '../Weather/Weather';
 
 
 const styles = theme => ({
@@ -38,7 +39,7 @@ function PaperSheet(props) {
             </Typography>
             <hr/>
             <div className="Widget">
-                <Widget />
+                <Weather />
             </div>
             <br />
             <div className="Widget">
