@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Nav from "../components/Nav/Nav";
 import Container from "../components/Container/Container";
 import {
   withScriptjs,
@@ -9,7 +8,7 @@ import {
 } from "react-google-maps";
 import "./../App.css";
 import points from "../cards";
-import { Button } from "@material-ui/core";
+
 
 //Google Maps
 const Map = withScriptjs(
