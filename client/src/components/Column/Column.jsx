@@ -42,10 +42,8 @@ function PaperSheet(props) {
             <Typography variant="h6" component="h3">
                 Weather:
             </Typography>
-            <div className="Widget">
-              <Paper className="WeatherBorder" elevation={20}>
+            <div className="Widget" elevation={20}>
                 <Weather />
-              </Paper>
             </div>
             <br /><br />
             <Typography variant="h6" component="h3">

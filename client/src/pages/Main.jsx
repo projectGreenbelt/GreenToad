@@ -4,7 +4,9 @@ import {
   withScriptjs,
   withGoogleMap,
   GoogleMap,
-  Marker
+  Marker,
+  BicyclingLayer,
+  TrafficLayer,
 } from "react-google-maps";
 import "./../App.css";
 import points from "../cards";
@@ -85,9 +87,7 @@ const Map = withScriptjs(
         onClick={() => props.handleMarkerClick(1)}
         position={{ lat: 30.264173, lng: -97.773195 }}
         title="Trail Head"
-
-        /* icon="https://i0.wp.com/naturenearby.org/wp-content/uploads/2016/08/ico-feature_hiking.png?ssl=1" */
-        /* options={{ icon: { url: 'https://i0.wp.com/naturenearby.org/wp-content/uploads/2016/08/ico-feature_hiking.png?ssl=1'} }} */
+        mouseOver
       />
       <Marker
         onClick={() => props.handleMarkerClick(2)}
@@ -119,6 +119,8 @@ const Map = withScriptjs(
         position={{ lat: 30.275147, lng: -97.825273 }}
         title="Trail's End"
       />
+      <BicyclingLayer autoUpdate />
+      {/* <TrafficLayer autoUpdate /> */}
     </GoogleMap>
   )),
   function handleClick(e) {

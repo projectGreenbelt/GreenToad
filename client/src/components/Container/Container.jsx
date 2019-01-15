@@ -69,25 +69,26 @@ function PaperSheet(props) {
               
               
                 <Paper className={classes.paper} elevation={20}>
-                {accessPoint.name !== undefined ? 
+                {accessPoint.name !== undefined ?
                   (
-                    <Button
-                      varient="contained"
-                      color="primary"
-                      size="large"
-                      className="Button"
-                      onClick={() => props.handleCheckIn()}
-                      id={id}
-                    >
-                      <CheckIn className={classes.leftIcon} />
-                      Check in at: {name}
-                    </Button>
+                    <div>
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        size="large"
+                        className={classes.button}
+                        onClick={() => props.handleCheckIn()}
+                        id={id}
+                      >
+                        <CheckIn className={classes.leftIcon} />
+                        Check in at: {name}
+                      </Button>
+                    </div>
                   ) : (
                   ""
                   )
                 }
                 </Paper>
-              
             </div>
             <Column />
           </Grid>

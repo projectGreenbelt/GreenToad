@@ -6,7 +6,7 @@ function Weather() {
         <a
           class="weatherwidget-io" 
           href="https://forecast7.com/en/30d27n97d74/austin/?unit=us" 
-          data-label_1="Greenbelt" 
+          data-label_1="Barton Creek" 
           data-label_2="WEATHER" 
           data-font="Roboto" 
           data-icons="Climacons Animated" 
