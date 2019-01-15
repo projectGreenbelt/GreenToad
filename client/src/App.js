@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 // import { Navbar, Button } from "react-bootstrap";
 // import Auth from "./components/Authorization/Authorization";
 import Main from "./pages/Main";
+import Social from "./pages/Social";
 import "./App.css";
 import { withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
