@@ -4,7 +4,6 @@ import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
 
 const styles = theme => ({
   root: {
@@ -18,7 +17,7 @@ const styles = theme => ({
   paper: {
     margin: `${theme.spacing.unit}px auto`,
     padding: theme.spacing.unit * 2,
-    maxWidth: 600,
+    maxWidth: 275,
     minWidth: 275,
     
   },
@@ -26,7 +25,7 @@ const styles = theme => ({
 
 
 function PaperSheet(props) {
-  const { classes } = props;
+  const { classes, description } = props;
 
   return (
     <div>
@@ -34,7 +33,7 @@ function PaperSheet(props) {
         <Grid container wrap="nowrap" spacing={16} >
           <Grid item xs>
             <Typography variant="h6" component="h3">
-              Add A Post
+              Location Current Posts
             </Typography>
           </Grid>
         </Grid>

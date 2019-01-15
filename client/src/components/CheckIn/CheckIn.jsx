@@ -18,7 +18,7 @@ const styles = theme => ({
   paper: {
     margin: `${theme.spacing.unit}px auto`,
     padding: theme.spacing.unit * 2,
-    maxWidth: 600,
+    maxWidth: 300,
     minWidth: 275,
     
   },
@@ -34,7 +34,7 @@ function PaperSheet(props) {
         <Grid container wrap="nowrap" spacing={16} >
           <Grid item xs>
             <Typography variant="h6" component="h3">
-              Add A Post
+              Check In
             </Typography>
           </Grid>
         </Grid>

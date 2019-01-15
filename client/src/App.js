@@ -191,8 +191,9 @@ class App extends Component {
           {/* <Nav /> */}
         </div>
         {isAuthenticated() && <Main />}
+        <Social />
       </div>
-    );
+    )
   }
 }
 

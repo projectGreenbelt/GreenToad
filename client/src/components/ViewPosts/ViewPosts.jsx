@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import Widget from '../Widget/Widget';
 import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
+import ViewPostsTitle from "../ViewPostsTitle/ViewPostsTitle";
 
 const styles = theme => ({
   root: {
@@ -18,24 +19,43 @@ const styles = theme => ({
   paper: {
     margin: `${theme.spacing.unit}px auto`,
     padding: theme.spacing.unit * 2,
-    maxWidth: 600,
-    minWidth: 275,
-    
+    maxWidth: 400,
+    minwidth: 275
   },
 });
 
 
 function PaperSheet(props) {
-  const { classes } = props;
+  const { classes, } = props;
 
   return (
     <div>
       <Paper className={classes.paper} elevation={20}>
         <Grid container wrap="nowrap" spacing={16} >
           <Grid item xs>
+            <ViewPostsTitle />
+            <hr/>
             <Typography variant="h6" component="h3">
-              Add A Post
+                User Post
             </Typography>
+            <div className="Widget">
+              <Paper elevation={20}>
+                User Post
+              </Paper>
+            </div>
+            <br /><br />
+            <Typography variant="h6" component="h3">
+                User Post
+            </Typography>
+            <div className="Widget">
+              <Paper elevation={20}>
+                User Post
+              </Paper>
+            </div>
+            <br />
+            <div className="Widget">
+                <Widget />
+            </div>
           </Grid>
         </Grid>
       </Paper>
