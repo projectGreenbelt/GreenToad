@@ -1,8 +1,7 @@
 import React from "react";
-import { Route, Router, Switch } from "react-router-dom";
+import { Route, Router, Switch, Redirect } from "react-router-dom";
 import App from "./App";
-import Main from "./pages/Main";
-import Home from "./components/Home/Home";
+import Profile from "./components/Profile/Profile";
 import Callback from "./components/Callback/Callback";
 import Auth from "./components/Authorization/Authorization";
 import history from "./history";
@@ -47,6 +46,11 @@ export const makeMainRoutes = () => {
             exact
             path="/"
             render={props => <App auth={auth} {...props} />}
+          />
+          <Route
+            exact
+            path="/profile"
+            render={props => <Profile auth={auth} {...props} />}
           />
           <Route
             exact

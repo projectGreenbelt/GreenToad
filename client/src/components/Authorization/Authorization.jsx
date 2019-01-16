@@ -1,91 +1,82 @@
-import history from "../../history";
-import auth0 from "auth0-js";
+import Auth0Lock from "auth0-lock";
 import { AUTH_CONFIG } from "./auth0-variables";
+import history from "../../history";
+var options = {
+  theme: {
+    logo:
+      "https://vignette.wikia.nocookie.net/wii/images/6/66/Blurb_1up_mushroom_20090220-1-.png/revision/latest?cb=20100427010802"
+  },
+  languageDictionary: {
+    title: "Log In to GreenToad"
+  }
+};
 
 export default class Auth {
-  accessToken;
-  idToken;
-  expiresAt;
-
-  auth0 = new auth0.WebAuth({
-    domain: AUTH_CONFIG.domain,
-    clientID: AUTH_CONFIG.clientId,
-    redirectUri: AUTH_CONFIG.callbackUrl,
-    responseType: "token id_token",
-    scope: "openid"
+  lock = new Auth0Lock(AUTH_CONFIG.clientId, AUTH_CONFIG.domain, {
+    autoclose: true,
+    auth: {
+      redirectUrl: AUTH_CONFIG.callbackUrl,
+      responseType: "token id_token",
+      params: {
+        scope: "openid profile"
+      }
+    }
   });
 
   constructor() {
+    this.handleAuthentication();
+    // binds functions to keep this context
     this.login = this.login.bind(this);
     this.logout = this.logout.bind(this);
-    this.handleAuthentication = this.handleAuthentication.bind(this);
     this.isAuthenticated = this.isAuthenticated.bind(this);
-    this.getAccessToken = this.getAccessToken.bind(this);
-    this.getIdToken = this.getIdToken.bind(this);
-    this.renewSession = this.renewSession.bind(this);
   }
 
   login() {
-    this.auth0.authorize();
+    // Call the show method to display the widget.
+    this.lock.show();
   }
 
   handleAuthentication() {
-    this.auth0.parseHash((err, authResult) => {
-      if (authResult && authResult.accessToken && authResult.idToken) {
-        this.setSession(authResult);
-      } else if (err) {
-        history.replace("/home");
-        console.log(err);
-        alert(`Error: ${err.error}. Check the console for further details.`);
-      }
+    // Add a callback for Lock's `authenticated` event
+    this.lock.on("authenticated", this.setSession.bind(this));
+
+    // Add a callback for Lock's `authorization_error` event
+    this.lock.on("authorization_error", err => {
+      console.log(err);
+      alert(`Error: ${err.error}. Check the console for further details.`);
+      history.replace("/home");
     });
-  }
-
-  getAccessToken() {
-    return this.accessToken;
-  }
-
-  getIdToken() {
-    return this.idToken;
   }
 
   setSession(authResult) {
-    // Set isLoggedIn flag in localStorage
-    localStorage.setItem("isLoggedIn", "true");
+    if (authResult && authResult.accessToken && authResult.idToken) {
+      // Set the time that the access token will expire at
+      let expiresAt = JSON.stringify(
+        authResult.expiresIn * 1000 + new Date().getTime()
+      );
 
-    // Set the time that the access token will expire at
-    let expiresAt = authResult.expiresIn * 1000 + new Date().getTime();
-    this.accessToken = authResult.accessToken;
-    this.idToken = authResult.idToken;
-    this.expiresAt = expiresAt;
+      this.lock.getUserInfo(authResult.accessToken, function(error, profile) {
+        if (error) {
+          return;
+        }
+        console.log(profile);
+        localStorage.setItem("profile", JSON.parse(profile));
+        console.log("hey");
+      });
 
-    // navigate to the home route
-    history.replace("/home");
-  }
-
-  renewSession() {
-    this.auth0.checkSession({}, (err, authResult) => {
-      if (authResult && authResult.accessToken && authResult.idToken) {
-        this.setSession(authResult);
-      } else if (err) {
-        this.logout();
-        console.log(err);
-        alert(
-          `Could not get a new token (${err.error}: ${err.error_description}).`
-        );
-      }
-    });
+      localStorage.setItem("access_token", authResult.accessToken);
+      localStorage.setItem("id_token", authResult.idToken);
+      localStorage.setItem("expires_at", expiresAt);
+      // navigate to the home route
+      history.replace("/home");
+    }
   }
 
   logout() {
-    // Remove tokens and expiry time
-    this.accessToken = null;
-    this.idToken = null;
-    this.expiresAt = 0;
-
-    // Remove isLoggedIn flag from localStorage
-    localStorage.removeItem("isLoggedIn");
-
+    // Clear access token and ID token from local storage
+    localStorage.removeItem("access_token");
+    localStorage.removeItem("id_token");
+    localStorage.removeItem("expires_at");
     // navigate to the home route
     history.replace("/home");
   }
@@ -93,7 +84,7 @@ export default class Auth {
   isAuthenticated() {
     // Check whether the current time is past the
     // access token's expiry time
-    let expiresAt = this.expiresAt;
+    let expiresAt = JSON.parse(localStorage.getItem("expires_at"));
     return new Date().getTime() < expiresAt;
   }
 }

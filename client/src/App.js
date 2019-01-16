@@ -3,6 +3,7 @@ import Nav from "./components/Nav/Nav";
 // import { Navbar, Button } from "react-bootstrap";
 // import Auth from "./components/Authorization/Authorization";
 import Main from "./pages/Main";
+import Profile from "./components/Profile/Profile";
 import "./App.css";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
@@ -26,13 +27,13 @@ class App extends Component {
     this.props.auth.logout();
   }
 
-  componentDidMount() {
-    const { renewSession } = this.props.auth;
+  // componentDidMount() {
+  //   const { renewSession } = this.props.auth;
 
-    if (localStorage.getItem("isLoggedIn") === "true") {
-      renewSession();
-    }
-  }
+  //   if (localStorage.getItem("isLoggedIn") === "true") {
+  //     renewSession();
+  //   }
+  // }
 
   //1.send isAuthenticated as a default prop to my test that will generate JWT (token)
   //if sending as a default prop, would have to be a function that
