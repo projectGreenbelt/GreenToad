@@ -55,6 +55,17 @@
     flex-direction: column;
 }
 
+.Weather {
+    width: 297px;
+}
+
+
+/* .Button:hover,
+.Button:focus,
+.Button:active {
+    transform: scale(1.1);
+} */
+
 @media screen and (max-width: 700px) {
     .container {
         display: flex;
@@ -63,6 +74,7 @@
         align-items: flex-start;
     }
 }
+
 
 
 

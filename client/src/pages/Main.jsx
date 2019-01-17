@@ -1,14 +1,16 @@
 import React, { Component } from "react";
-import Nav from "../components/Nav/Nav";
 import Container from "../components/Container/Container";
 import {
   withScriptjs,
   withGoogleMap,
   GoogleMap,
-  Marker
+  Marker,
+  BicyclingLayer,
+  TrafficLayer,
 } from "react-google-maps";
 import "./../App.css";
 import points from "../cards";
+
 
 //Google Maps
 const Map = withScriptjs(
@@ -85,9 +87,7 @@ const Map = withScriptjs(
         onClick={() => props.handleMarkerClick(1)}
         position={{ lat: 30.264173, lng: -97.773195 }}
         title="Trail Head"
-
-        /* icon="https://i0.wp.com/naturenearby.org/wp-content/uploads/2016/08/ico-feature_hiking.png?ssl=1" */
-        /* options={{ icon: { url: 'https://i0.wp.com/naturenearby.org/wp-content/uploads/2016/08/ico-feature_hiking.png?ssl=1'} }} */
+        mouseOver
       />
       <Marker
         onClick={() => props.handleMarkerClick(2)}
@@ -119,24 +119,26 @@ const Map = withScriptjs(
         position={{ lat: 30.275147, lng: -97.825273 }}
         title="Trail's End"
       />
+      <BicyclingLayer autoUpdate />
+      {/* <TrafficLayer autoUpdate /> */}
     </GoogleMap>
   )),
   function handleClick(e) {
     e.preventDefault();
-    console.log("The marker was clicked.");
   }
 );
 
 class Main extends Component {
   // Constructor and state
   state = {
-    currentAccessPoint: {}
+    currentAccessPoint: {},
+    checkInLocation: {}
   };
   // Lifecycle function
   componentDidMount() {
     window.scrollTo(0, 0);
     document.body.scrollTop = 0;
-    console.log(points);
+    // console.log(points); removed this console log because it throws every time I run Jest test.
   }
 
   // Custom function
@@ -155,13 +157,19 @@ class Main extends Component {
       currentAccessPoint: point
     });
   };
+  handleCheckIn = () => {
+    // Setting access point information in the state
+    this.setState({
+      checkInLocation: this.state.currentAccessPoint
+    });
+  };
 
   // Render function
   render() {
     const { currentAccessPoint } = this.state;
     return (
       <div>
-        <Nav />
+        {/* <Nav /> */}
         <div className="Map">
           <Map
             handleMarkerClick={this.handleMarkerClick}
@@ -179,7 +187,10 @@ class Main extends Component {
             mapElement={<div style={{ height: `100%` }} />}
           />
         </div>
-        <Container accessPoint={currentAccessPoint} />
+        <Container
+          accessPoint={currentAccessPoint}
+          handleCheckIn={this.handleCheckIn}
+        />
       </div>
     );
   }
