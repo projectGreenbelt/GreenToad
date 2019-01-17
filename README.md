@@ -16,9 +16,15 @@
 1. Show users the list of greenbelt locations in Austin, along with Austin weather information.
 2. Allow them to select a location from the list of greenbelt locations.
 3. Once a greenbelt location is selected, the following functionality will be available:
+
 * View threads/posts from other users who have selected this location. 
 * View directions on how to get to the selected Greenbelt location.
 * Allow user to start their own thread, which can in turn be viewed by other users.
+
+### Wireframes
+
+User Posts Page:
+![user_post_alt](https://user-images.githubusercontent.com/41517616/50718048-9b92df00-1051-11e9-9183-ecb042bddf1b.png)
 
 ### Tech/framework used
 
@@ -41,7 +47,7 @@
 - [Heroku](https://projectgreenbelt.herokuapp.com/)
 
 <b>Project Management</b>
-We will be using Github flow to manage this project. We will use an interactive project board to track issues that will be resolved through pull requests.
+- We will be using Github flow to manage this project. We will use an interactive project board to track issues that will be resolved through pull requests.
   
 ### Team Members
 1. [James Tobey](https://github.com/jctobey)
