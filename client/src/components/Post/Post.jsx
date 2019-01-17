@@ -4,7 +4,9 @@ import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
+import Button from '@material-ui/core/Button';
+
+import TextField from '@material-ui/core/TextField';
 
 const styles = theme => ({
   root: {
@@ -19,8 +21,25 @@ const styles = theme => ({
     margin: `${theme.spacing.unit}px auto`,
     padding: theme.spacing.unit * 2,
     maxWidth: 600,
-    minWidth: 275,
-    
+    minWidth: 275, 
+  },
+  container: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  textField: {
+    marginLeft: theme.spacing.unit,
+    marginRight: theme.spacing.unit,
+  },
+  dense: {
+    marginTop: 16,
+  },
+  menu: {
+    maxWidth: 800,
+    minWidth: 200
+  },
+  button: {
+    margin: theme.spacing.unit,
   },
 });
 
@@ -34,8 +53,29 @@ function PaperSheet(props) {
         <Grid container wrap="nowrap" spacing={16} >
           <Grid item xs>
             <Typography variant="h6" component="h3">
-              Add A Post
+              {/* <Paper elevation={20}> */}
+                Add A Post
+              {/* </Paper> */}
             </Typography>
+            <TextField
+              id="outlined-multiline-static"
+              label="Post Current Status Here!"
+              multiline
+              fullWidth
+              rows="4"
+              defaultValue=""
+              className={classes.textField}
+              margin="normal"
+              variant="outlined"
+            />
+            <Button
+              variant="contained"
+              color="primary"
+              size="large"
+              className={classes.button}
+            >
+              Submit
+            </Button>
           </Grid>
         </Grid>
       </Paper>

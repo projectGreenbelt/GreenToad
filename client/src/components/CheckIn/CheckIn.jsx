@@ -4,7 +4,11 @@ import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
+
+//Font Awesome Icons
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTwitterSquare } from '@fortawesome/free-solid-svg-icons';
+
 
 const styles = theme => ({
   root: {
@@ -36,6 +40,13 @@ function PaperSheet(props) {
             <Typography variant="h6" component="h3">
               Check In
             </Typography>
+            <Paper 
+              className={classes.paper} 
+              elevation={20}
+              color="primary"
+            >
+              <FontAwesomeIcon icon={['fab', 'apple']} />
+            </Paper>
           </Grid>
         </Grid>
       </Paper>

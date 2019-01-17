@@ -21,6 +21,8 @@ import ListItemText from '@material-ui/core/ListItemText';
 import AccountBalance from "@material-ui/icons/AccountBalance";
 import LocationOn from "@material-ui/icons/LocationOn";
 import Fingerprint from "@material-ui/icons/Fingerprint";
+import Person from "@material-ui/icons/Person";
+
 
 const styles = theme => ({
   menuItem: {
@@ -161,6 +163,14 @@ class App extends Component {
                 open={Boolean(anchorEl)}
                 onClose={this.handleClose}
               >
+                <MenuItem 
+                  onClick={this.handleClose} 
+                  className={classes.menuItem}>
+                  <ListItemIcon className={classes.icon}>
+                    <Person />
+                  </ListItemIcon>
+                  <ListItemText classes={{ primary: classes.primary }} inset primary="Profile" />
+                </MenuItem>
                 <MenuItem 
                   onClick={this.handleClose} 
                   className={classes.menuItem}>
