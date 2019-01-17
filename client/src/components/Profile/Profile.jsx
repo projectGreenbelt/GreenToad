@@ -8,13 +8,8 @@ class Profile extends Component {
     hello: "hello!"
   };
   componentDidMount() {
-    // this.setState({ profile: {} });
     const { userProfile, getUserInfo, userInfo } = this.props.auth;
-    // console.log(userInfo);
-    // // console.log(userProfile);
-    // console.log(this.props.auth.lock.getUserInfo);
     if (!userProfile) {
-      // (localStorage.getItem("accessToken"), profile)
       let oldToken = localStorage.getItem("access_token");
       let newProfile;
       this.props.auth.lock.getUserInfo(oldToken, (err, profile) => {
@@ -35,7 +30,7 @@ class Profile extends Component {
     return (
       <div className="container">
         <div className="profile-area">
-          <h1>{profile.name}</h1> */} /*{" "}
+          <h1>{profile.name}</h1>
           <Panel header="Profile">
             <img src={profile.picture} alt="profile" />
             <div>
