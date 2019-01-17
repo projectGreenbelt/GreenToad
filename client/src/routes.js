@@ -16,13 +16,14 @@ const theme = createMuiTheme({
       contrastText: "#fff"
     },
     secondary: {
-      light: "#ff7961",
+      light: "#6fbf73",
       main: "#f44336",
       dark: "#ba000d",
       contrastText: "#000"
     }
   }
 });
+
 const auth = new Auth();
 
 const handleAuthentication = ({ location }) => {

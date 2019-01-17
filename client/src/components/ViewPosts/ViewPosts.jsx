@@ -5,9 +5,7 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Widget from '../Widget/Widget';
 import Typography from '@material-ui/core/Typography';
-import Weather from '../Weather/Weather';
-import Water from '../Water/Water';
-
+import ViewPostsTitle from "../ViewPostsTitle/ViewPostsTitle";
 
 const styles = theme => ({
   root: {
@@ -21,7 +19,7 @@ const styles = theme => ({
   paper: {
     margin: `${theme.spacing.unit}px auto`,
     padding: theme.spacing.unit * 2,
-    maxWidth: 300,
+    maxWidth: 400,
     minwidth: 275
   },
 });
@@ -35,25 +33,23 @@ function PaperSheet(props) {
       <Paper className={classes.paper} elevation={20}>
         <Grid container wrap="nowrap" spacing={16} >
           <Grid item xs>
-            <Typography variant="h5" component="h3">
-                Current Status:
-            </Typography>
+            <ViewPostsTitle />
             <hr/>
             <Typography variant="h6" component="h3">
-                Weather:
+                User Post
             </Typography>
             <div className="Widget">
               <Paper elevation={20}>
-                <Weather />
+                User Post
               </Paper>
             </div>
             <br /><br />
             <Typography variant="h6" component="h3">
-                Water Flow:
+                User Post
             </Typography>
             <div className="Widget">
               <Paper elevation={20}>
-                <Water />
+                User Post
               </Paper>
             </div>
             <br />
