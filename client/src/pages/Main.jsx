@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
-import Loading from "../components/Loading/Loading";
 import Container from "../components/Container/Container";
 import {
   withScriptjs,

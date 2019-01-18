@@ -19,7 +19,6 @@
     "react-forecast": "^0.0.7",
     "react-google-maps": "^9.4.5",
     "react-liquid-gauge": "^1.2.4",
-    "react-loading": "^2.0.3",
     "react-router-dom": "^4.3.1",
     "react-scripts": "^2.1.1"
   },
