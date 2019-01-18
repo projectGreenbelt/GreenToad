@@ -4,11 +4,8 @@ import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-
-//Font Awesome Icons
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTwitterSquare } from '@fortawesome/free-solid-svg-icons';
-
+import IconButton from '@material-ui/core/IconButton';
+import '../../App.css';
 
 const styles = theme => ({
   root: {
@@ -24,14 +21,25 @@ const styles = theme => ({
     padding: theme.spacing.unit * 2,
     maxWidth: 300,
     minWidth: 275,
-    
   },
+  signin: {
+    margin: `${theme.spacing.unit}px auto`,
+    padding: theme.spacing.unit * 2,
+    maxWidth: 300,
+    minWidth: 275,
+    backgroundColor: '#4caf50' 
+  },
+  iconButtons: {
+    marginRight: "3px !important",
+    marginLeft: "3px !important",
+  },
+  
 });
 
 
 function PaperSheet(props) {
   const { classes } = props;
-
+  
   return (
     <div>
       <Paper className={classes.paper} elevation={20}>
@@ -41,11 +49,38 @@ function PaperSheet(props) {
               Check In
             </Typography>
             <Paper 
-              className={classes.paper} 
+              className={classes.signin} 
               elevation={20}
-              color="primary"
+              classes={{ paper: classes.paper }}
             >
-              <FontAwesomeIcon icon={['fab', 'apple']} />
+              <br /><br />
+              <div className="IconButton">
+                <IconButton
+                  color="secondary"
+                  justIcon
+                  className={classes.iconButtons}
+                  onClick={e => e.preventDefault()}
+                >
+                  <i className="fab fa-twitter-square" aria-hidden="false" />
+                </IconButton>
+                <IconButton
+                  justIcon
+                  color="secondary"
+                  className={classes.iconButtons}
+                  onClick={e => e.preventDefault()}
+                >
+                  <i className="fab fa-facebook-square" aria-hidden="true" color="secondary" />
+                </IconButton>
+                <IconButton
+                  justIcon
+                  color="secondary"
+                  className={classes.iconButtons}
+                  onClick={e => e.preventDefault()}
+                >
+                  <i className="fab fa-google-plus-square" aria-hidden="true" />
+                </IconButton>
+              </div>
+              <br /><br />
             </Paper>
           </Grid>
         </Grid>

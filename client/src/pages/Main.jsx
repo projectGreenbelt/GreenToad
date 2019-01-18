@@ -6,7 +6,7 @@ import {
   GoogleMap,
   Marker,
   BicyclingLayer,
-  TrafficLayer,
+  //TrafficLayer,
 } from "react-google-maps";
 import "./../App.css";
 import points from "../cards";

@@ -42,7 +42,7 @@ const styles = theme => ({
 
 function PaperSheet(props) {
   const { classes, accessPoint } = props;
-  const { address, description, image, name, id } = accessPoint;
+  const { address, description, image, name, id, location } = accessPoint;
 
   return (
     <div>
@@ -90,7 +90,7 @@ function PaperSheet(props) {
                 }
                 </Paper>
             </div>
-            <Column />
+            <Column accessPoint={accessPoint} />
           </Grid>
         </Grid>
       </Paper>

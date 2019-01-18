@@ -28,8 +28,8 @@ const styles = theme => ({
 
 
 function PaperSheet(props) {
-  const { classes, } = props;
-
+  const { classes, accessPoint } = props;
+  
   return (
     <div>
       <Paper className={classes.paper} elevation={20}>
@@ -53,7 +53,7 @@ function PaperSheet(props) {
             </Typography>
             <div className="Widget">
               <Paper elevation={20}>
-                <Water />
+                <Water location={accessPoint.location} />
               </Paper>
             </div>
             <br />
