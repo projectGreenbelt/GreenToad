@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 import Container from "../components/Container/Container";
 import {
   withScriptjs,
@@ -6,11 +7,10 @@ import {
   GoogleMap,
   Marker,
   BicyclingLayer,
-  TrafficLayer,
+  TrafficLayer
 } from "react-google-maps";
 import "./../App.css";
 import points from "../cards";
-
 
 //Google Maps
 const Map = withScriptjs(
@@ -132,8 +132,11 @@ class Main extends Component {
   // Constructor and state
   state = {
     currentAccessPoint: {},
-    checkInLocation: {}
+    checkInLocation: {},
+    checkedIn: false,
+    toPosts: false
   };
+
   // Lifecycle function
   componentDidMount() {
     window.scrollTo(0, 0);
@@ -160,12 +163,19 @@ class Main extends Component {
   handleCheckIn = () => {
     // Setting access point information in the state
     this.setState({
-      checkInLocation: this.state.currentAccessPoint
+      checkInLocation: this.state.currentAccessPoint,
+      checkedIn: true
     });
+    this.handleRedirect = setTimeout(() => {
+      this.setState(() => ({ toPosts: true }));
+    }, 2000);
   };
 
   // Render function
   render() {
+    if (this.state.toPosts === true) {
+      return <Redirect to="/social" />;
+    }
     const { currentAccessPoint } = this.state;
     return (
       <div>
@@ -187,9 +197,11 @@ class Main extends Component {
             mapElement={<div style={{ height: `100%` }} />}
           />
         </div>
+
         <Container
           accessPoint={currentAccessPoint}
           handleCheckIn={this.handleCheckIn}
+          checkedIn={this.state.checkedIn}
         />
       </div>
     );

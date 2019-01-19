@@ -1,11 +1,15 @@
 import React, { Component } from "react";
+<<<<<<< HEAD
 import PropTypes from "prop-types";
+=======
+// import Nav from "./components/Nav/Nav";
+>>>>>>> d21e15a55a58a8b7a2ec5bcd9e3d9eaa1884fbe3
 // import { Navbar, Button } from "react-bootstrap";
 // import Auth from "./components/Authorization/Authorization";
 import Main from "./pages/Main";
 import Profile from "./components/Profile/Profile";
-import Social from "./pages/Social";
 import "./App.css";
+import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -13,6 +17,7 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
+<<<<<<< HEAD
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
@@ -60,6 +65,10 @@ class App extends Component {
     this.setState({ anchorEl: null });
   };
 
+=======
+
+class App extends Component {
+>>>>>>> d21e15a55a58a8b7a2ec5bcd9e3d9eaa1884fbe3
   goTo(route) {
     this.props.history.replace(`/${route}`);
   }
@@ -98,7 +107,6 @@ class App extends Component {
     const { isAuthenticated } = this.props.auth;
     console.log(isAuthenticated());
     const { classes } = this.props;
-    const { anchorEl } = this.state;
 
     return (
       <div>
@@ -137,20 +145,28 @@ class App extends Component {
           </Navbar.Header>
         </Navbar> */}
         {withStyles}
-
-        <div className={classes.root}>
+        <div className={styles.root}>
           <AppBar position="static">
             <Toolbar className="theme">
-              <Typography variant="h6" color="inherit" className={classes.grow}>
+              <Typography variant="h6" color="inherit" className={styles.grow}>
                 Project GreenBelt
               </Typography>
-              <Button onClick={this.login.bind(this)} color="inherit">
-                Login
-              </Button>
+              {isAuthenticated() && (
+                <Button onClick={this.logout.bind(this)} color="inherit">
+                  Logout
+                </Button>
+              )}
+              {!isAuthenticated() && (
+                <Button onClick={this.login.bind(this)} color="inherit">
+                  Login
+                </Button>
+              )}
+
               <IconButton
                 className={styles.menuButton}
                 color="inherit"
                 aria-label="Menu"
+<<<<<<< HEAD
                 aria-owns={anchorEl ? "simple-menu" : undefined}
                 aria-haspopup="true"
                 onClick={this.handleClick}
@@ -216,18 +232,26 @@ class App extends Component {
                   />
                 </MenuItem>
               </Menu>
+=======
+              >
+                <MenuIcon />
+              </IconButton>
+>>>>>>> d21e15a55a58a8b7a2ec5bcd9e3d9eaa1884fbe3
             </Toolbar>
           </AppBar>
         </div>
         {isAuthenticated() && <Main />}
-        <Social />
       </div>
     );
   }
 }
 
+<<<<<<< HEAD
 App.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(App);
+=======
+export default App;
+>>>>>>> d21e15a55a58a8b7a2ec5bcd9e3d9eaa1884fbe3
