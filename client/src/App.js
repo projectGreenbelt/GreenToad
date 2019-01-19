@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 // import { Navbar, Button } from "react-bootstrap";
 // import Auth from "./components/Authorization/Authorization";
 import Main from "./pages/Main";
@@ -98,7 +97,7 @@ class App extends Component {
     };
     const { isAuthenticated } = this.props.auth;
     console.log(isAuthenticated());
-    const { classes } = this.props;
+    const { classes, anchorEl } = this.props;
 
     return (
       <div>
