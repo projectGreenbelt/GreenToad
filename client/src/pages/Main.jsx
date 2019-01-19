@@ -120,7 +120,7 @@ const Map = withScriptjs(
         title="Trail's End"
       />
       <BicyclingLayer autoUpdate />
-      {/* <TrafficLayer autoUpdate /> */}
+      <TrafficLayer autoUpdate />
     </GoogleMap>
   )),
   function handleClick(e) {
