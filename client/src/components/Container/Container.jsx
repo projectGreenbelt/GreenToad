@@ -79,9 +79,9 @@ function PaperSheet(props) {
                       <CheckIn className={classes.leftIcon} />
                       Check in at: {name}
                     </Button>
-                    {console.log(props)}
+
                     {props.checkedIn && (
-                      <img src="https://media1.tenor.com/images/e5a6c8fff7422d5a137feade378401ac/tenor.gif?itemid=5530137" />
+                      <img src="https://scholasticadministrator.typepad.com/.a/6a00e54f8c25c988340133f11acceb970b-800wi" />
                     )}
                   </div>
                 ) : (

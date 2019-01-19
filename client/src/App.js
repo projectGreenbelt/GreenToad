@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 // import { Navbar, Button } from "react-bootstrap";
 // import Auth from "./components/Authorization/Authorization";
 import Main from "./pages/Main";
 import Profile from "./components/Profile/Profile";
+import { Redirect } from "react-router-dom";
 import "./App.css";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
@@ -49,7 +49,8 @@ const styles = theme => ({
 
 class App extends Component {
   state = {
-    anchorEl: null
+    anchorEl: null,
+    toProfile: false
   };
 
   handleClick = event => {
@@ -58,6 +59,10 @@ class App extends Component {
 
   handleClose = () => {
     this.setState({ anchorEl: null });
+  };
+
+  handleProfile = () => {
+    this.setState({ toProfile: true });
   };
 
   goTo(route) {
@@ -98,48 +103,17 @@ class App extends Component {
     const { isAuthenticated } = this.props.auth;
     console.log(isAuthenticated());
     const { classes } = this.props;
-
+    const { anchorEl } = this.state;
+    if (this.state.toProfile === true) {
+      return <Redirect to="/profile" />;
+    }
     return (
       <div>
-        {/* <Navbar fluid>
-          <Navbar.Header>
-            <Navbar.Brand>
-              <a href="#">Auth0 - React</a>
-            </Navbar.Brand>
-            <Button
-              bsStyle="primary"
-              className="btn-margin"
-              onClick={this.goTo.bind(this, "home")}
-            >
-              Home
-            </Button>
-            {!isAuthenticated() && (
-              <Button
-                id="qsLoginBtn"
-                bsStyle="primary"
-                className="btn-margin"
-                onClick={this.login.bind(this)}
-              >
-                Log In
-              </Button>
-            )}
-            {isAuthenticated() && (
-              <Button
-                id="qsLogoutBtn"
-                bsStyle="primary"
-                className="btn-margin"
-                onClick={this.logout.bind(this)}
-              >
-                Log Out
-              </Button>
-            )}
-          </Navbar.Header>
-        </Navbar> */}
         {withStyles}
         <div className={styles.root}>
           <AppBar position="static">
             <Toolbar className="theme">
-              <Typography variant="h6" color="inherit" className={styles.grow}>
+              <Typography variant="h6" color="inherit" className={classes.grow}>
                 Project GreenBelt
               </Typography>
               {isAuthenticated() && (
@@ -169,19 +143,24 @@ class App extends Component {
                 open={Boolean(anchorEl)}
                 onClose={this.handleClose}
               >
-                <MenuItem
-                  onClick={this.handleClose}
-                  className={classes.menuItem}
-                >
-                  <ListItemIcon className={classes.icon}>
-                    <Person />
-                  </ListItemIcon>
-                  <ListItemText
-                    classes={{ primary: classes.primary }}
-                    inset
-                    primary="Profile"
-                  />
-                </MenuItem>
+                {isAuthenticated() && (
+                  <MenuItem
+                    onClick={this.handleClose}
+                    className={classes.menuItem}
+                  >
+                    <ListItemIcon className={classes.icon}>
+                      <Person />
+                    </ListItemIcon>
+
+                    <ListItemText
+                      classes={{ primary: classes.primary }}
+                      inset
+                      primary="Profile"
+                      onClick={() => this.handleProfile()}
+                    />
+                  </MenuItem>
+                )}
+
                 <MenuItem
                   onClick={this.handleClose}
                   className={classes.menuItem}
@@ -225,7 +204,7 @@ class App extends Component {
             </Toolbar>
           </AppBar>
         </div>
-        {isAuthenticated() && <Main />}
+        <Main />
       </div>
     );
   }

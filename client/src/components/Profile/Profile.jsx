@@ -1,15 +1,16 @@
 import React, { Component } from "react";
 import { Panel, ControlLabel, Glyphicon } from "react-bootstrap";
+import { Redirect } from "react-router-dom";
 // import "./Profile.css";
 
 class Profile extends Component {
   state = {
-    profile: {},
-    hello: "hello!"
+    profile: {}
   };
+
   componentDidMount() {
     const { userProfile, getUserInfo, userInfo } = this.props.auth;
-    if (!userProfile) {
+    if (this.props.auth.isAuthenticated()) {
       let oldToken = localStorage.getItem("access_token");
       let newProfile;
       this.props.auth.lock.getUserInfo(oldToken, (err, profile) => {
@@ -17,15 +18,19 @@ class Profile extends Component {
         newProfile = profile;
         this.setState({ profile: newProfile });
       });
-    } else {
-      this.setState({ profile: userProfile });
-    }
+    } //else {
+    //this.setState({ profile: userProfile });
+    //}
   }
   //With arrow functions as opposed to standard functions, the context of 'this' points to Profile instead of the getUserInfo function.
 
   //class Profile calls getUserInfo- with standard function, 'this' is associated with getUserInfo. with Arrow function, 'this' is bound to the object that called it OR it's bound to the window if it's not called by a function.
   //With react, you always want to have access to the state of the component (object), which is why arrow functions are so prevalent.
   render() {
+    if (!this.props.auth.isAuthenticated()) {
+      alert("you gotta log in, bro");
+      return <Redirect to="/home" />;
+    }
     const { profile } = this.state;
     return (
       <div className="container">
