@@ -25,7 +25,7 @@ const styles = theme => ({
   list : {
     margin: `${theme.spacing.unit}px auto`,
     padding: theme.spacing.unit * 2,
-    maxWidth: 400,
+    maxWidth: 500,
     minwidth: 275,
     height: 600
   }

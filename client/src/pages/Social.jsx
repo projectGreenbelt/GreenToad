@@ -12,7 +12,6 @@ class Social extends Component {
   render() {
     return (
       <div>
-        User Posts Page Components Workspace:
         <br />
         <CheckIn />
         <Post />

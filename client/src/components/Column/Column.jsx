@@ -3,11 +3,9 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import Widget from '../Widget/Widget';
 import Typography from '@material-ui/core/Typography';
 import Weather from '../Weather/Weather';
 import Water from '../Water/Water';
-
 
 const styles = theme => ({
   root: {
@@ -21,7 +19,7 @@ const styles = theme => ({
   paper: {
     margin: `${theme.spacing.unit}px auto`,
     padding: theme.spacing.unit * 2,
-    maxWidth: 800,
+    maxWidth: 700,
     minwidth: 275
   },
 
