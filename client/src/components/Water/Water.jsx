@@ -8,22 +8,24 @@ import axios from "axios";
 
 class Water extends Component {
     state = {
-        value: 0
+        value: 50
     };
     startColor = '#6495ed'; // cornflowerblue
     endColor = '#6495ed'; // crimson
  
     componentWillReceiveProps () {
         // water.runQuery(this.props.location)
-          axios.get("https://waterservices.usgs.gov/nwis/iv/", {
+        axios.get("https://waterservices.usgs.gov/nwis/iv/", {
             params: {
                 site: this.props.location,
                 format: "json",
                 parameterCd: "00065,00060",
-                siteStatus: "active"
+                siteStatus: "active" 
             }
-        }).then(response => this.setState({ value: response.data.value.timeSeries[0].values[0].value[0].value})).catch(console.log)  
+        }).then(response => this.setState({ value: response.data.value.timeSeries[0].values[0].value[0].value})).catch()  
     }
+
+    
     render() {
         
         /* const radius = 200; */
