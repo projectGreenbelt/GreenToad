@@ -1,9 +1,5 @@
 import React, { Component } from "react";
-<<<<<<< HEAD
 import PropTypes from "prop-types";
-=======
-// import Nav from "./components/Nav/Nav";
->>>>>>> d21e15a55a58a8b7a2ec5bcd9e3d9eaa1884fbe3
 // import { Navbar, Button } from "react-bootstrap";
 // import Auth from "./components/Authorization/Authorization";
 import Main from "./pages/Main";
@@ -17,7 +13,6 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
-<<<<<<< HEAD
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
@@ -65,10 +60,6 @@ class App extends Component {
     this.setState({ anchorEl: null });
   };
 
-=======
-
-class App extends Component {
->>>>>>> d21e15a55a58a8b7a2ec5bcd9e3d9eaa1884fbe3
   goTo(route) {
     this.props.history.replace(`/${route}`);
   }
@@ -166,7 +157,6 @@ class App extends Component {
                 className={styles.menuButton}
                 color="inherit"
                 aria-label="Menu"
-<<<<<<< HEAD
                 aria-owns={anchorEl ? "simple-menu" : undefined}
                 aria-haspopup="true"
                 onClick={this.handleClick}
@@ -232,11 +222,6 @@ class App extends Component {
                   />
                 </MenuItem>
               </Menu>
-=======
-              >
-                <MenuIcon />
-              </IconButton>
->>>>>>> d21e15a55a58a8b7a2ec5bcd9e3d9eaa1884fbe3
             </Toolbar>
           </AppBar>
         </div>
@@ -246,12 +231,8 @@ class App extends Component {
   }
 }
 
-<<<<<<< HEAD
 App.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(App);
-=======
-export default App;
->>>>>>> d21e15a55a58a8b7a2ec5bcd9e3d9eaa1884fbe3
