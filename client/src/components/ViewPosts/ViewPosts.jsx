@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import Widget from '../Widget/Widget';
 import Typography from '@material-ui/core/Typography';
-import ViewPostsTitle from "../ViewPostsTitle/ViewPostsTitle";
+import { List, ListItem } from '../PostsList/PostsList';
+
 
 const styles = theme => ({
   root: {
@@ -19,9 +19,16 @@ const styles = theme => ({
   paper: {
     margin: `${theme.spacing.unit}px auto`,
     padding: theme.spacing.unit * 2,
-    maxWidth: 400,
+    maxWidth: 300,
     minwidth: 275
   },
+  list : {
+    margin: `${theme.spacing.unit}px auto`,
+    padding: theme.spacing.unit * 2,
+    maxWidth: 400,
+    minwidth: 275,
+    height: 600
+  }
 });
 
 
@@ -33,29 +40,17 @@ function PaperSheet(props) {
       <Paper className={classes.paper} elevation={20}>
         <Grid container wrap="nowrap" spacing={16} >
           <Grid item xs>
-            <ViewPostsTitle />
+            <Typography variant="h5" component="h3">
+                Current Location Updates:
+            </Typography>
             <hr/>
-            <Typography variant="h6" component="h3">
-                User Post
-            </Typography>
-            <div className="Widget">
-              <Paper elevation={20}>
-                User Post
-              </Paper>
-            </div>
-            <br /><br />
-            <Typography variant="h6" component="h3">
-                User Post
-            </Typography>
-            <div className="Widget">
-              <Paper elevation={20}>
-                User Post
-              </Paper>
-            </div>
-            <br />
-            <div className="Widget">
-                <Widget />
-            </div>
+            <Paper className={classes.list} elevation={20}>
+              <List>
+                <ListItem>
+
+                </ListItem>
+              </List>
+            </Paper>
           </Grid>
         </Grid>
       </Paper>

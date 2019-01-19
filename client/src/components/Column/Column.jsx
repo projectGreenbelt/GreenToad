@@ -21,15 +21,16 @@ const styles = theme => ({
   paper: {
     margin: `${theme.spacing.unit}px auto`,
     padding: theme.spacing.unit * 2,
-    maxWidth: 300,
+    maxWidth: 800,
     minwidth: 275
   },
+
 });
 
 
 function PaperSheet(props) {
-  const { classes, } = props;
-
+  const { classes, accessPoint } = props;
+  
   return (
     <div>
       <Paper className={classes.paper} elevation={20}>
@@ -53,12 +54,31 @@ function PaperSheet(props) {
             </Typography>
             <div className="Widget">
               <Paper elevation={20}>
-                <Water />
+                <Water location={accessPoint.location} />
               </Paper>
             </div>
-            <br />
+            <br /><br />
+            <Typography variant="h6" component="h3">
+              Trails:
+            </Typography>
             <div className="Widget">
-                <Widget />
+              <Paper elevation={20}>
+                <div 
+                  className="TrailforksWidgetMap" 
+                  data-w="295px" 
+                  data-h="400px" 
+                  data-rid="13781" 
+                  data-maptype="trailforks" 
+                  data-trailstyle="difficulty" 
+                  data-controls="1" data-list="0" 
+                  data-dml="1" 
+                  data-layers="labels,poi,polygon,directory,region" 
+                  data-z="" 
+                  data-lat=""  
+                  data-lon="" 
+                  data-hideunsanctioned="0">
+                </div>
+              </Paper>
             </div>
           </Grid>
         </Grid>
