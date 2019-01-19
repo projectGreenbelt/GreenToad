@@ -59,6 +59,13 @@
     width: 297px;
 }
 
+.IconButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
 
 /* .Button:hover,
 .Button:focus,

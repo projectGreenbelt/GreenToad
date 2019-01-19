@@ -18,7 +18,6 @@ class Social extends Component {
         <Post />
         <ViewPosts />
       </div>
-      
     ) 
   }
 }

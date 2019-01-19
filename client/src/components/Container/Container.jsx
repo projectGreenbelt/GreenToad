@@ -41,8 +41,9 @@ const styles = theme => ({
 });
 
 function PaperSheet(props) {
-  const { classes, accessPoint, checkedIn } = props;
-  const { address, description, image, name, id } = accessPoint;
+  const { classes, accessPoint } = props;
+  const { address, description, image, name, id, location } = accessPoint;
+
   return (
     <div>
       <Paper className={classes.paper} elevation={20}>
@@ -89,8 +90,7 @@ function PaperSheet(props) {
                 )}
               </Paper>
             </div>
-
-            <Column />
+            <Column accessPoint={accessPoint} />
           </Grid>
         </Grid>
       </Paper>
