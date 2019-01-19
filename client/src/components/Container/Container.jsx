@@ -8,10 +8,10 @@ import Description from "../Paper/Paper";
 import Column from "../Column/Column";
 import Card from "../Card/Card";
 import { Button } from "@material-ui/core";
-import '../../App.css'
+import "../../App.css";
 
 //Material UI Icon
-import CheckIn from '@material-ui/icons/CheckCircleOutline'
+import CheckIn from "@material-ui/icons/CheckCircleOutline";
 
 const styles = theme => ({
   root: {
@@ -27,30 +27,34 @@ const styles = theme => ({
     padding: theme.spacing.unit * 2
   },
   button: {
-    margin: theme.spacing.unit,
+    margin: theme.spacing.unit
   },
   leftIcon: {
-    marginRight: theme.spacing.unit,
+    marginRight: theme.spacing.unit
   },
   rightIcon: {
-    marginLeft: theme.spacing.unit,
+    marginLeft: theme.spacing.unit
   },
   iconSmall: {
-    fontSize: 20,
-  },
+    fontSize: 20
+  }
 });
 
 function PaperSheet(props) {
+<<<<<<< HEAD
   const { classes, accessPoint } = props;
   const { address, description, image, name, id, location } = accessPoint;
 
+=======
+  const { classes, accessPoint, checkedIn } = props;
+  const { address, description, image, name, id } = accessPoint;
+>>>>>>> 448a1d32f7cad688d5d8dcbede02878213e7cbf0
   return (
     <div>
       <Paper className={classes.paper} elevation={20}>
         <Grid container wrap="nowrap" spacing={16}>
           <Grid item xs className="container">
             <div className="col1">
-              
               <Paper className={classes.paper} elevation={20}>
                 <Typography variant="h4" component="h3">
                   {name}
@@ -62,35 +66,41 @@ function PaperSheet(props) {
                   <Card image={image} elevation={15} />
                 </div>
               </Paper>
-              
+
               <div className="Card">
                 <Description description={description} />
               </div>
-              
-              
-                <Paper className={classes.paper} elevation={20}>
-                {accessPoint.name !== undefined ?
-                  (
-                    <div>
-                      <Button
-                        variant="contained"
-                        color="primary"
-                        size="large"
-                        className={classes.button}
-                        onClick={() => props.handleCheckIn()}
-                        id={id}
-                      >
-                        <CheckIn className={classes.leftIcon} />
-                        Check in at: {name}
-                      </Button>
-                    </div>
-                  ) : (
+
+              <Paper className={classes.paper} elevation={20}>
+                {name !== undefined ? (
+                  <div>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      size="large"
+                      className={classes.button}
+                      onClick={() => props.handleCheckIn()}
+                      // onClick={() => props.handleLoading()}
+                    >
+                      <CheckIn className={classes.leftIcon} />
+                      Check in at: {name}
+                    </Button>
+                    {console.log(props)}
+                    {props.checkedIn && (
+                      <img src="https://media1.tenor.com/images/e5a6c8fff7422d5a137feade378401ac/tenor.gif?itemid=5530137" />
+                    )}
+                  </div>
+                ) : (
                   ""
-                  )
-                }
-                </Paper>
+                )}
+              </Paper>
             </div>
+<<<<<<< HEAD
             <Column accessPoint={accessPoint} />
+=======
+
+            <Column />
+>>>>>>> 448a1d32f7cad688d5d8dcbede02878213e7cbf0
           </Grid>
         </Grid>
       </Paper>

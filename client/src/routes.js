@@ -4,6 +4,7 @@ import App from "./App";
 import Profile from "./components/Profile/Profile";
 import Callback from "./components/Callback/Callback";
 import Auth from "./components/Authorization/Authorization";
+import Social from "./pages/Social";
 import history from "./history";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 
@@ -26,7 +27,6 @@ const theme = createMuiTheme({
     }
   }
 });
-
 const auth = new Auth();
 
 const handleAuthentication = ({ location }) => {
@@ -55,6 +55,11 @@ export const makeMainRoutes = () => {
             exact
             path="/profile"
             render={props => <Profile auth={auth} {...props} />}
+          />
+          <Route
+            exact
+            path="/social"
+            render={props => <Social auth={auth} {...props} />}
           />
           <Route
             exact
