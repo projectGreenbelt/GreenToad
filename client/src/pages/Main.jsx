@@ -168,7 +168,7 @@ class Main extends Component {
     });
     this.handleRedirect = setTimeout(() => {
       this.setState(() => ({ toPosts: true }));
-    }, 2000);
+    }, 1750);
   };
 
   // Render function
