@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 // import { Navbar, Button } from "react-bootstrap";
 // import Auth from "./components/Authorization/Authorization";
 import Main from "./pages/Main";
@@ -99,6 +98,7 @@ class App extends Component {
     const { isAuthenticated } = this.props.auth;
     console.log(isAuthenticated());
     const { classes } = this.props;
+    const { anchorEl } = this.state;
 
     return (
       <div>
@@ -137,10 +137,10 @@ class App extends Component {
           </Navbar.Header>
         </Navbar> */}
         {withStyles}
-        <div className={styles.root}>
+        <div className={classes.root}>
           <AppBar position="static">
             <Toolbar className="theme">
-              <Typography variant="h6" color="inherit" className={styles.grow}>
+              <Typography variant="h6" color="inherit" className={classes.grow}>
                 Project GreenBelt
               </Typography>
               {isAuthenticated() && (
