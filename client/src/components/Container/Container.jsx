@@ -41,14 +41,9 @@ const styles = theme => ({
 });
 
 function PaperSheet(props) {
-<<<<<<< HEAD
   const { classes, accessPoint } = props;
   const { address, description, image, name, id, location } = accessPoint;
 
-=======
-  const { classes, accessPoint, checkedIn } = props;
-  const { address, description, image, name, id } = accessPoint;
->>>>>>> 448a1d32f7cad688d5d8dcbede02878213e7cbf0
   return (
     <div>
       <Paper className={classes.paper} elevation={20}>
@@ -85,9 +80,9 @@ function PaperSheet(props) {
                       <CheckIn className={classes.leftIcon} />
                       Check in at: {name}
                     </Button>
-                    {console.log(props)}
+
                     {props.checkedIn && (
-                      <img src="https://media1.tenor.com/images/e5a6c8fff7422d5a137feade378401ac/tenor.gif?itemid=5530137" />
+                      <img src="https://scholasticadministrator.typepad.com/.a/6a00e54f8c25c988340133f11acceb970b-800wi" />
                     )}
                   </div>
                 ) : (
@@ -95,12 +90,7 @@ function PaperSheet(props) {
                 )}
               </Paper>
             </div>
-<<<<<<< HEAD
             <Column accessPoint={accessPoint} />
-=======
-
-            <Column />
->>>>>>> 448a1d32f7cad688d5d8dcbede02878213e7cbf0
           </Grid>
         </Grid>
       </Paper>
