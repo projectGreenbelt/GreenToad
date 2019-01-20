@@ -1,4 +1,5 @@
 module.exports = {
   Points: require("./points"),
-  User: require("./user")
+  User: require("./user"),
+  Posts: require("./posts")
 };

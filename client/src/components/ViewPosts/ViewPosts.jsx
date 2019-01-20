@@ -1,11 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import { List, ListItem } from '../PostsList/PostsList';
-
+import React from "react";
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
+import Paper from "@material-ui/core/Paper";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+import { List, ListItem } from "../PostsList/PostsList";
 
 const styles = theme => ({
   root: {
@@ -14,7 +13,7 @@ const styles = theme => ({
     paddingBottom: theme.spacing.unit * 2,
     marginTop: theme.spacing.unit * 2,
     flexGrow: 1,
-    overflow: 'hidden',
+    overflow: "hidden"
   },
   paper: {
     margin: `${theme.spacing.unit}px auto`,
@@ -22,7 +21,7 @@ const styles = theme => ({
     maxWidth: 300,
     minwidth: 275
   },
-  list : {
+  list: {
     margin: `${theme.spacing.unit}px auto`,
     padding: theme.spacing.unit * 2,
     maxWidth: 400,
@@ -31,24 +30,24 @@ const styles = theme => ({
   }
 });
 
-
 function PaperSheet(props) {
-  const { classes, } = props;
+  const { classes } = props;
 
   return (
     <div>
       <Paper className={classes.paper} elevation={20}>
-        <Grid container wrap="nowrap" spacing={16} >
+        <Grid container wrap="nowrap" spacing={16}>
           <Grid item xs>
             <Typography variant="h5" component="h3">
-                Current Location Updates:
+              Current Location Updates:
             </Typography>
-            <hr/>
+            <hr />
             <Paper className={classes.list} elevation={20}>
+              {console.log(props)}
               <List>
-                <ListItem>
-
-                </ListItem>
+                {props.otherPosts.map(post => {
+                  return <ListItem key={post._id}>{post.post}</ListItem>;
+                })}
               </List>
             </Paper>
           </Grid>
@@ -59,7 +58,7 @@ function PaperSheet(props) {
 }
 
 PaperSheet.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(PaperSheet);

@@ -2,8 +2,8 @@ import axios from "axios";
 
 export default {
   // Gets all books
-  getBooks: function() {
-    return axios.get("/api/books");
+  getPosts: function() {
+    return axios.get("/api/posts");
   },
   // Gets the book with the given id
   getBook: function(id) {
@@ -14,7 +14,7 @@ export default {
     return axios.delete("/api/books/" + id);
   },
   // Saves a book to the database
-  saveBook: function(bookData) {
-    return axios.post("/api/books", bookData);
+  savePost: function(postData) {
+    return axios.post("/api/posts", postData);
   }
 };
