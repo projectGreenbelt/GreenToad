@@ -45,7 +45,7 @@ function getModalStyle() {
     position: `absolute`,
     float: `left`,
     top: `50%`,
-    left: `45%`,
+    left: `50%`,
     transform: `translate(-50%, -50%)`
   };
 }
@@ -98,7 +98,13 @@ function PaperSheet(props) {
                     >
                       <div style={getModalStyle()} className={classes.paper}>
                         <Typography variant="h6" id="modal-title">
-                          <img src="https://scholasticadministrator.typepad.com/.a/6a00e54f8c25c988340133f11acceb970b-800wi" />
+                          <h1>Checking in at {name}...</h1>
+                          <span>
+                            <img
+                              className="mario"
+                              src="https://scholasticadministrator.typepad.com/.a/6a00e54f8c25c988340133f11acceb970b-800wi"
+                            />
+                          </span>
                         </Typography>
 
                         <SimpleModalWrapped />
