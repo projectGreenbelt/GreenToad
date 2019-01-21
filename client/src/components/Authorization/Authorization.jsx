@@ -61,7 +61,6 @@ export default class Auth {
         }
         console.log(profile);
         localStorage.setItem("profile", JSON.parse(profile));
-        console.log("hey");
       });
 
       localStorage.setItem("access_token", authResult.accessToken);
