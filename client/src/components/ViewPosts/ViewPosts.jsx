@@ -43,7 +43,6 @@ function PaperSheet(props) {
             </Typography>
             <hr />
             <Paper className={classes.list} elevation={20}>
-              {console.log(props)}
               <List>
                 {props.otherPosts.map(post => {
                   return <ListItem key={post._id}>{post.post}</ListItem>;
