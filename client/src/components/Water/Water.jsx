@@ -14,25 +14,27 @@ class Water extends Component {
   endColor = "#6495ed"; // crimson
 
   componentWillReceiveProps(newProps) {
-    console.log(newProps);
     // water.runQuery(this.props.location)
-    axios
-      .get("https://waterservices.usgs.gov/nwis/iv/", {
-        params: {
-          site: newProps.location,
-          format: "json",
-          parameterCd: "00065,00060",
-          siteStatus: "active"
-        }
-      })
-      .then(response =>
-        this.setState({
-          value: response.data.value.timeSeries[0].values[0].value[0].value
-        })
-      )
-      .catch();
-  }
 
+    if (newProps.location !== undefined) {
+      console.log(newProps.location);
+      axios
+        .get("https://waterservices.usgs.gov/nwis/iv/", {
+          params: {
+            site: newProps.location,
+            format: "json",
+            parameterCd: "00065,00060",
+            siteStatus: "active"
+          }
+        })
+        .then(response =>
+          this.setState({
+            value: response.data.value.timeSeries[0].values[0].value[0].value
+          })
+        )
+        .catch();
+    }
+  }
   render() {
     /* const radius = 200; */
     const interpolate = interpolateRgb(this.startColor, this.endColor);
