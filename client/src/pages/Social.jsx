@@ -75,7 +75,10 @@ class Social extends Component {
       date,
       userName
     })
-      .then(res => alert(`Your post has been added to Green Toad.`))
+      .then(
+        res => alert(`Your post has been added to Green Toad.`),
+        window.location.reload()
+      )
       .catch(err => console.log(err));
   };
   getPosts = props => {
