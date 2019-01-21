@@ -17,7 +17,6 @@ class Water extends Component {
     // water.runQuery(this.props.location)
 
     if (newProps.location !== undefined) {
-      console.log(newProps.location);
       axios
         .get("https://waterservices.usgs.gov/nwis/iv/", {
           params: {
