@@ -8,6 +8,7 @@ import Description from "../Paper/Paper";
 import Column from "../Column/Column";
 import Card from "../Card/Card";
 import { Button } from "@material-ui/core";
+import Modal from "@material-ui/core/Modal";
 import "../../App.css";
 
 //Material UI Icon
@@ -39,6 +40,15 @@ const styles = theme => ({
     fontSize: 20
   }
 });
+function getModalStyle() {
+  return {
+    position: `absolute`,
+    float: `left`,
+    top: `50%`,
+    left: `45%`,
+    transform: `translate(-50%, -50%)`
+  };
+}
 
 function PaperSheet(props) {
   const { classes, accessPoint } = props;
@@ -81,9 +91,19 @@ function PaperSheet(props) {
                       Check in at: {name}
                     </Button>
 
-                    {props.checkedIn && (
-                      <img src="https://scholasticadministrator.typepad.com/.a/6a00e54f8c25c988340133f11acceb970b-800wi" />
-                    )}
+                    <Modal
+                      aria-labelledby="simple-modal-title"
+                      aria-describedby="simple-modal-description"
+                      open={props.checkedIn}
+                    >
+                      <div style={getModalStyle()} className={classes.paper}>
+                        <Typography variant="h6" id="modal-title">
+                          <img src="https://scholasticadministrator.typepad.com/.a/6a00e54f8c25c988340133f11acceb970b-800wi" />
+                        </Typography>
+
+                        <SimpleModalWrapped />
+                      </div>
+                    </Modal>
                   </div>
                 ) : (
                   ""
@@ -101,5 +121,6 @@ function PaperSheet(props) {
 PaperSheet.propTypes = {
   classes: PropTypes.object.isRequired
 };
+const SimpleModalWrapped = withStyles(styles)(Modal);
 
 export default withStyles(styles)(PaperSheet);
