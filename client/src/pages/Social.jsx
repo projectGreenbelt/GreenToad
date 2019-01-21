@@ -69,9 +69,7 @@ class Social extends Component {
   }
   handleFormSubmit = event => {
     const { post, date } = this.state;
-    // const { user } = this.state.currentUser.nickname;
     let userName = this.state.currentUser.nickname;
-    console.log(userName);
     API.savePost({
       post,
       date,
