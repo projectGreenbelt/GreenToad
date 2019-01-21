@@ -39,7 +39,19 @@ class Social extends Component {
     otherPosts: [],
     post: "",
     // emailInput: "", //set name of input taking in email to name='emailInput'
-    date: Date.now()
+    date: Date.now(),
+    currentUser: {}
+  };
+  getUserInfo = user => {
+    let token;
+    token = localStorage.getItem("access_token");
+    this.props.auth.lock.getUserInfo(token, (err, profile) => {
+      if (err) {
+        console.log("problem with getting user data");
+      } else {
+        this.setState({ currentUser: profile });
+      }
+    });
   };
 
   handleInputChange = e => {
@@ -53,10 +65,11 @@ class Social extends Component {
     document.body.scrollTop = 0;
 
     this.getPosts();
+    this.getUserInfo();
   }
   handleFormSubmit = event => {
     // event.preventDefault();
-    const { post, date } = this.state;
+    const { post, date, user } = this.state;
     API.savePost({
       post,
       date
@@ -68,6 +81,7 @@ class Social extends Component {
     API.getPosts()
       .then(res => this.setState({ otherPosts: res.data }))
       .catch(err => console.log(err));
+    console.log(this.props);
   };
   render() {
     return (
@@ -89,7 +103,13 @@ class Social extends Component {
               <Paper className={styles.list} elevation={20}>
                 <List>
                   {this.state.otherPosts.map(post => {
-                    return <ListItem key={post._id}>{post.post}</ListItem>;
+                    return (
+                      <ListItem key={post._id}>
+                        {this.state.currentUser.nickname}
+                        <br />
+                        {post.post}
+                      </ListItem>
+                    );
                   })}
                 </List>
               </Paper>
