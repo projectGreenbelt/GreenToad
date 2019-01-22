@@ -4,11 +4,10 @@ import React, { Component } from "react";
 import LiquidFillGauge from "react-liquid-gauge";
 // import water from "../../utils/WaterAPI";
 import axios from "axios";
-// const water = require("../../utils/WaterAPI")
 
 class WaterLevel extends Component {
   state = {
-    value: 0.0
+    value: 0.0 
   };
   startColor = "#6495ed"; // cornflowerblue
   endColor = "#6495ed"; // crimson
@@ -69,7 +68,6 @@ class WaterLevel extends Component {
           style={{ margin: "0 auto" }}
           width={147.5}
           height={147.5}
-          padding={295}
           value={this.state.value}
           percent={"ft"}
           textSize={0.8}
