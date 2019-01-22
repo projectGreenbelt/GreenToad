@@ -68,13 +68,17 @@ class Social extends Component {
     this.getUserInfo();
   }
   handleFormSubmit = event => {
-    // event.preventDefault();
-    const { post, date, user } = this.state;
+    const { post, date } = this.state;
+    let userName = this.state.currentUser.nickname;
     API.savePost({
       post,
-      date
+      date,
+      userName
     })
-      .then(res => alert(`Your post has been added to Green Toad.`))
+      .then(
+        res => alert(`Your post has been added to Green Toad.`),
+        window.location.reload()
+      )
       .catch(err => console.log(err));
   };
   getPosts = props => {
@@ -105,8 +109,10 @@ class Social extends Component {
                   {this.state.otherPosts.map(post => {
                     return (
                       <ListItem key={post._id}>
-                        {this.state.currentUser.nickname}
+                        {post.userName}
                         <br />
+                        {post.date}
+                        <hr />
                         {post.post}
                       </ListItem>
                     );
