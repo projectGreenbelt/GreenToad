@@ -2,7 +2,6 @@ import React, { Component } from "react";
 // import { Navbar, Button } from "react-bootstrap";
 // import Auth from "./components/Authorization/Authorization";
 import Main from "./pages/Main";
-import Profile from "./components/Profile/Profile";
 import { Redirect } from "react-router-dom";
 import "./App.css";
 import PropTypes from "prop-types";
@@ -88,18 +87,6 @@ class App extends Component {
   //1.send isAuthenticated as a default prop to my test that will generate JWT (token)
   //if sending as a default prop, would have to be a function that
   render() {
-    const styles = {
-      root: {
-        flexGrow: 1
-      },
-      grow: {
-        flexGrow: 1
-      },
-      menuButton: {
-        marginLeft: -10,
-        marginRight: 0
-      }
-    };
     const { isAuthenticated } = this.props.auth;
     console.log(isAuthenticated());
     const { classes } = this.props;
