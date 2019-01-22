@@ -102,12 +102,12 @@ class Social extends Component {
       .catch(err => console.log(err));
     console.log(this.props);
   };
+
   render() {
     const { classes } = this.props;
     return (
       <div>
         {withStyles}
-        
         <Paper className={classes.paper} elevation={20}>
           <CheckIn />
           <Post
@@ -158,16 +158,21 @@ class Social extends Component {
           <div>
             <List>
               <ListItem>
-                <IconButton
-                  justIcon
-                  color="primary"
-                >
-                  <i className="fab fa-github-square" aria-hidden="true" color="primary" />
-                </IconButton>
                 <div>
                   &copy; {1900 + new Date().getYear()} ,{" "}
                   Project Greenbelt
                 </div>
+                <IconButton
+                  justIcon
+                  color="primary"
+                >
+                  <a 
+                    href="https://github.com/projectGreenbelt/projectGreenbelt"
+                    classname="iconButton"
+                  >
+                    <i className="fab fa-github-square" id="icon" aria-hidden="true" color="secondary" />
+                  </a>
+                </IconButton>
               </ListItem>
             </List>
           </div>

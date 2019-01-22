@@ -98,6 +98,14 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
     color: #43a047;
  }
+
+
+
+ #icon {
+       color:  #43a047;
+       text-decoration: none;
+ }
+
 /* .Button:hover,
 .Button:focus,
 .Button:active {

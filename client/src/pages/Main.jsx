@@ -220,16 +220,21 @@ class Main extends Component {
           <div>
             <List>
               <ListItem>
-                <IconButton
-                  justIcon
-                  color="primary"
-                >
-                  <i className="fab fa-github-square" aria-hidden="true" color="primary" />
-                </IconButton>
                 <div>
                   &copy; {1900 + new Date().getYear()} ,{" "}
                   Project Greenbelt
                 </div>
+                <IconButton
+                  justIcon
+                  color="primary"
+                >
+                  <a 
+                    href="https://github.com/projectGreenbelt/projectGreenbelt"
+                    classname="iconButton"
+                  >
+                    <i className="fab fa-github-square" id="icon" aria-hidden="true" color="secondary" />
+                  </a>
+                </IconButton>
               </ListItem>
             </List>
           </div>
