@@ -4,6 +4,7 @@ import App from "./App";
 import Profile from "./components/Profile/Profile";
 import Callback from "./components/Callback/Callback";
 import Auth from "./components/Authorization/Authorization";
+import Landing from "./pages/Landing";
 import Social from "./pages/Social";
 import history from "./history";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
@@ -41,6 +42,11 @@ export const makeMainRoutes = () => {
     <MuiThemeProvider theme={theme}>
       <Router history={history}>
         <Switch>
+          <Route
+            exact
+            path="/landing"
+            render={props => <Landing auth={auth} {...props} />}
+          />
           <Route
             exact
             path="/home"
