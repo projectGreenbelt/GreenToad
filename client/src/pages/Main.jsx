@@ -7,15 +7,16 @@ import {
   GoogleMap,
   Marker,
   BicyclingLayer,
-  TrafficLayer
+  TrafficLayer,
+  /* InfoWindow */
 } from "react-google-maps";
 import "./../App.css";
 import points from "../cards";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
-import Footer from "../components/Footer/Footer";
 import IconButton from '@material-ui/core/IconButton';
 import { withStyles } from "@material-ui/core";
+
 
 const styles = theme => ({
   iconButtons: {
@@ -24,12 +25,13 @@ const styles = theme => ({
   }
 });
 
+
 //Google Maps
 const Map = withScriptjs(
   withGoogleMap(props => (
     <GoogleMap
       defaultZoom={12.8}
-      defaultCenter={{ lat: 30.256073, lng: -97.804777 }}
+      defaultCenter={{ lat: 30.259100, lng: -97.801777 }}
       defaultOptions={{
         scrollwheel: false,
         zoomControl: true,
@@ -96,40 +98,90 @@ const Map = withScriptjs(
       }}
     >
       <Marker
+        classname="marker"
+        icon= {{
+          url: "https://image.flaticon.com/icons/svg/1397/1397883.svg",
+          scaledSize: { height: 50, width: 50 },
+          fixedRotation: true 
+        }}
         onClick={() => props.handleMarkerClick(1)}
-        position={{ lat: 30.264173, lng: -97.773195 }}
+        position={{ lat: 30.264143, lng: -97.773334 }}
         title="Trail Head"
-        mouseOver
+        /* defaultLabel="Trail Head" */
+
       />
       <Marker
+        icon= {{
+          url: "https://image.flaticon.com/icons/svg/1397/1397883.svg",
+          scaledSize: { height: 50, width: 50 },
+          fixedRotation: true 
+        }}
         onClick={() => props.handleMarkerClick(2)}
         position={{ lat: 30.257926, lng: -97.787518 }}
         title="Spyglass"
+        /* defaultLabel="Spyglass" */
       />
       <Marker
+        icon= {{
+          url: "https://image.flaticon.com/icons/svg/1397/1397883.svg",
+          scaledSize: { height: 50, width: 50 },
+          fixedRotation: true 
+        }}
         onClick={() => props.handleMarkerClick(3)}
         position={{ lat: 30.255326, lng: -97.783981 }}
         title="Barton Hills"
+        /* defaultLabel="Barton Hills" */
       />
       <Marker
+        icon= {{
+          url: "https://image.flaticon.com/icons/svg/1397/1397883.svg",
+          scaledSize: { height: 50, width: 50 },
+          fixedRotation: true 
+        }}
         onClick={() => props.handleMarkerClick(4)}
         position={{ lat: 30.249326, lng: -97.79515 }}
         title="Gus Fruh"
+        /* defaultLabel="Gus Fruh" */
       />
       <Marker
+        icon= {{
+          url: "https://image.flaticon.com/icons/svg/1397/1397883.svg",
+          scaledSize: { height: 50, width: 50 },
+          fixedRotation: true 
+        }}
         onClick={() => props.handleMarkerClick(5)}
         position={{ lat: 30.243766, lng: -97.800123 }}
         title="Loop 360"
-      />
+        /* defaultLabel="Loop 360" */
+      >
+        {/* <InfoWindow>
+          <div>
+            {" "}
+            Loop 360
+          </div>
+        </InfoWindow> */}
+      </Marker>
       <Marker
+        icon= {{
+          url: "https://image.flaticon.com/icons/svg/1397/1397883.svg",
+          scaledSize: { height: 50, width: 50 },
+          fixedRotation: true 
+        }}
         onClick={() => props.handleMarkerClick(6)}
         position={{ lat: 30.244221, lng: -97.809666 }}
-        title="Gaines/Twin Falls"
+        title="Gaines"
+        /* defaultLabel="Gaines" */
       />
       <Marker
+        icon= {{
+          url: "https://image.flaticon.com/icons/svg/1397/1397883.svg",
+          scaledSize: { height: 50, width: 50 },
+          fixedRotation: true 
+        }}
         onClick={() => props.handleMarkerClick(7)}
         position={{ lat: 30.275147, lng: -97.825273 }}
         title="Trail's End"
+        /* defaultLabel="Trail's End" */
       />
       <BicyclingLayer autoUpdate />
       <TrafficLayer autoUpdate />
