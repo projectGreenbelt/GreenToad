@@ -3,9 +3,9 @@ const Schema = mongoose.Schema;
 
 const pointsSchema = new Schema({
   id: Number,
-  name: { type: String, required: true },
+  name: { type: String, required: true, unique: true },
   image: String,
-  description: String, 
+  description: String,
   address: String,
   location: String,
   date: { type: Date, default: Date.now }

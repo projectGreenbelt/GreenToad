@@ -7,10 +7,10 @@ import { withStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import Avatar from '@material-ui/core/Avatar';
-import IconButton from '@material-ui/core/IconButton';
+import ListItemText from "@material-ui/core/ListItemText";
+import ListItemAvatar from "@material-ui/core/ListItemAvatar";
+import Avatar from "@material-ui/core/Avatar";
+import IconButton from "@material-ui/core/IconButton";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 
@@ -41,12 +41,12 @@ const styles = theme => ({
     padding: theme.spacing.unit * 2
   },
   inline: {
-    display: 'inline',
+    display: "inline"
   },
   postStyle: {
-    width: '100%',
+    width: "100%",
     maxWidth: 500,
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: theme.palette.background.paper
   }
 });
 class Social extends Component {
@@ -90,10 +90,8 @@ class Social extends Component {
       date,
       userName
     })
-      .then(
-        res => alert(`Your post has been added to Green Toad.`),
-        window.location.reload()
-      )
+      .then(res => alert(`Your post has been added to Green Toad.`))
+      .then(window.location.reload())
       .catch(err => console.log(err));
   };
   getPosts = props => {
@@ -129,20 +127,22 @@ class Social extends Component {
                         <Typography>
                           <ListItem key={post._id} alignItems="flex-start">
                             <ListItemAvatar>
-                              <Avatar
-                                src={this.state.currentUser.picture}
-                              />
+                              <Avatar src={this.state.currentUser.picture} />
                             </ListItemAvatar>
                             <ListItemText
-                            primary={''}
-                            secondary={
-                              <React.Fragment>
-                                <Typography component="span" className={classes.inline} color="textPrimary">
-                                  {this.state.currentUser.nickname}
-                                </Typography>
-                                 - {post.post}
-                              </React.Fragment>
-                            }
+                              primary={""}
+                              secondary={
+                                <React.Fragment>
+                                  <Typography
+                                    component="span"
+                                    className={classes.inline}
+                                    color="textPrimary"
+                                  >
+                                    {this.state.currentUser.nickname}
+                                  </Typography>
+                                  - {post.post}
+                                </React.Fragment>
+                              }
                             />
                           </ListItem>
                         </Typography>
@@ -159,18 +159,19 @@ class Social extends Component {
             <List>
               <ListItem>
                 <div>
-                  &copy; {1900 + new Date().getYear()} ,{" "}
-                  Project Greenbelt
+                  &copy; {1900 + new Date().getYear()} , Project Greenbelt
                 </div>
-                <IconButton
-                  justIcon
-                  color="primary"
-                >
-                  <a 
+                <IconButton justIcon color="primary">
+                  <a
                     href="https://github.com/projectGreenbelt/projectGreenbelt"
                     classname="iconButton"
                   >
-                    <i className="fab fa-github-square" id="icon" aria-hidden="true" color="secondary" />
+                    <i
+                      className="fab fa-github-square"
+                      id="icon"
+                      aria-hidden="true"
+                      color="secondary"
+                    />
                   </a>
                 </IconButton>
               </ListItem>

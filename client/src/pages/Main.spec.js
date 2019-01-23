@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import Main from "../pages/Main";
 import { shallow } from "enzyme";
-import Nav from "../components/Nav/Nav";
-import Card from "../components/Card/Card";
-import Paper from "../components/Paper/Paper";
-import Container from "../pages/Main";
+// import Nav from "../components/Nav/Nav";
+// import Card from "../components/Card/Card";
+// import Paper from "../components/Paper/Paper";
+// import Container from "../pages/Main";
 import {
   withScriptjs,
   withGoogleMap,
