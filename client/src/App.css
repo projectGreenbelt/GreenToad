@@ -62,8 +62,52 @@
 .IconButton {
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.WaterStats {
+    display: flex;
+    flex-direction: row;   
+}
+
+.Water {
+    display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
+    }
+
+ .TrailforksTrailList {
+    border: 1px #DDDDDD solid;
+    border-radius: 4px;
+    ruby-overhang: auto;
+ }
+
+ #list {
+     max-height: 600px;
+     max-width: 500;
+     overflow-y: scroll;
+ }
+ 
+ .footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #43a047;
+ }
+
+
+ #icon {
+       color:  #43a047;
+       text-decoration: none;
+ }
+
+.Background {
+    width: 1000px;
+    height: 500px;
 }
 
 
