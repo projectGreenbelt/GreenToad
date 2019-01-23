@@ -1,0 +1,50 @@
+.Background {
+    margin-top: .2%;
+    width: 100%;
+    height: stretch;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-attachment: fixed;
+    background-position: center; 
+    z-index: 9999;
+    background-image: url("./assets/img/Austin-Greenbelt.jpg");
+}
+
+#card {
+    opacity: .8;
+    margin-left: 25%;
+    margin-top: 8%;
+    padding: 1%;
+    display: inline-block;
+    vertical-align: middle;
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    transition-duration: 0.3s;
+    transition-property: transform;
+}
+
+
+#card:hover,
+#card:focus,
+#card:active {
+    transform: scale(1.1);
+}
+
+.footer {
+    margin-top: 0%;
+    padding: 0%;
+}
+
+
+@media screen and (max-width: 700px) {
+    #card {
+        margin-top: 25%;
+        margin-left: 0%;
+        padding: 2%;
+    }
+}
+
+
+
