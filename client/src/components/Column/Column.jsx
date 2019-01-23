@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import Widget from '../Widget/Widget';
 import Typography from '@material-ui/core/Typography';
 import Weather from '../Weather/Weather';
-import Water from '../Water/Water';
+import WaterFlow from '../Water/WaterFlow';
+import WaterLevel from '../Water/WaterLevel';
+import '../../App.css'
 
 
 const styles = theme => ({
@@ -21,10 +22,9 @@ const styles = theme => ({
   paper: {
     margin: `${theme.spacing.unit}px auto`,
     padding: theme.spacing.unit * 2,
-    maxWidth: 800,
-    minwidth: 275
-  },
-
+    maxWidth: 600,
+    minwidth: 295
+  }
 });
 
 
@@ -33,6 +33,7 @@ function PaperSheet(props) {
   
   return (
     <div>
+
       <Paper className={classes.paper} elevation={20}>
         <Grid container wrap="nowrap" spacing={16} >
           <Grid item xs>
@@ -49,13 +50,19 @@ function PaperSheet(props) {
               </Paper>
             </div>
             <br /><br />
-            <Typography variant="h6" component="h3">
-                Water Flow:
-            </Typography>
-            <div className="Widget">
-              <Paper elevation={20}>
-                <Water location={accessPoint.location} />
-              </Paper>
+            <div className="WaterStats">
+              <Typography variant="h6" component="h3">
+                  Water Level:
+              </Typography>
+              <Typography variant="h6" component="h3">
+                  Water Flow:
+              </Typography>
+            </div>
+            <div className="Widget" >
+              <Paper className="Water" elevation={20}>
+                <WaterLevel location={accessPoint.location} />
+                <WaterFlow location={accessPoint.location} />
+              </Paper> 
             </div>
             <br /><br />
             <Typography variant="h6" component="h3">
@@ -64,19 +71,12 @@ function PaperSheet(props) {
             <div className="Widget">
               <Paper elevation={20}>
                 <div 
-                  className="TrailforksWidgetMap" 
+                  className="TrailforksTrailList" 
                   data-w="295px" 
                   data-h="400px" 
                   data-rid="13781" 
-                  data-maptype="trailforks" 
-                  data-trailstyle="difficulty" 
-                  data-controls="1" data-list="0" 
-                  data-dml="1" 
-                  data-layers="labels,poi,polygon,directory,region" 
-                  data-z="" 
-                  data-lat=""  
-                  data-lon="" 
-                  data-hideunsanctioned="0">
+                  data-displaytype="table" 
+                >
                 </div>
               </Paper>
             </div>

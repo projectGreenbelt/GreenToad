@@ -11,6 +11,18 @@ import {
 } from "react-google-maps";
 import "./../App.css";
 import points from "../cards";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import Footer from "../components/Footer/Footer";
+import IconButton from '@material-ui/core/IconButton';
+import { withStyles } from "@material-ui/core";
+
+const styles = theme => ({
+  iconButtons: {
+    marginRight: "3px !important",
+    marginLeft: "3px !important",
+  }
+});
 
 //Google Maps
 const Map = withScriptjs(
@@ -177,6 +189,7 @@ class Main extends Component {
       return <Redirect to="/social" />;
     }
     const { currentAccessPoint } = this.state;
+    
     return (
       <div>
         {/* <Nav /> */}
@@ -203,9 +216,32 @@ class Main extends Component {
           handleCheckIn={this.handleCheckIn}
           checkedIn={this.state.checkedIn}
         />
+        <div className="footer">
+          <div>
+            <List>
+              <ListItem>
+                <div>
+                  &copy; {1900 + new Date().getYear()} ,{" "}
+                  Project Greenbelt
+                </div>
+                <IconButton
+                  justIcon
+                  color="primary"
+                >
+                  <a 
+                    href="https://github.com/projectGreenbelt/projectGreenbelt"
+                    classname="iconButton"
+                  >
+                    <i className="fab fa-github-square" id="icon" aria-hidden="true" color="secondary" />
+                  </a>
+                </IconButton>
+              </ListItem>
+            </List>
+          </div>
+        </div>
       </div>
     );
   }
 }
 
-export default Main;
+export default withStyles(styles)(Main);

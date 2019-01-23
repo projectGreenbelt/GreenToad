@@ -6,16 +6,15 @@ import LiquidFillGauge from "react-liquid-gauge";
 import axios from "axios";
 // const water = require("../../utils/WaterAPI")
 
-class Water extends Component {
+class WaterLevel extends Component {
   state = {
-    value: 50
+    value: 0.0
   };
   startColor = "#6495ed"; // cornflowerblue
   endColor = "#6495ed"; // crimson
 
   componentWillReceiveProps(newProps) {
     // water.runQuery(this.props.location)
-
     if (newProps.location !== undefined) {
       axios
         .get("https://waterservices.usgs.gov/nwis/iv/", {
@@ -27,12 +26,13 @@ class Water extends Component {
           }
         })
         .then(response =>
-          this.setState({
-            value: response.data.value.timeSeries[0].values[0].value[0].value
-          })
-        )
+            this.setState({
+                value: response.data.value.timeSeries[1].values[0].value[0].value
+            })
+        )   
         .catch();
     }
+
   }
   render() {
     /* const radius = 200; */
@@ -67,16 +67,16 @@ class Water extends Component {
       <div>
         <LiquidFillGauge
           style={{ margin: "0 auto" }}
-          width={295}
-          height={295}
+          width={147.5}
+          height={147.5}
           padding={295}
           value={this.state.value}
-          percent="ft3/s"
+          percent={"ft"}
           textSize={0.8}
           textOffsetX={0}
           textOffsetY={15}
           textRenderer={props => {
-            const value = Math.round(props.value);
+            const value = props.value;
             const radius = Math.min(props.height / 2, props.width / 2);
             const textPixels = (props.textSize * radius) / 2;
             const valueStyle = {
@@ -115,13 +115,10 @@ class Water extends Component {
             fill: color("#fff").toString(),
             fontFamily: "Arial"
           }}
-          /* onClick={() => {
-                        this.setState({ value: Math.random() * 100 });
-                    }} */
         />
       </div>
     );
   }
 }
 
-export default Water;
+export default WaterLevel;
