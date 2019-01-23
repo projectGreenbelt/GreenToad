@@ -55,7 +55,7 @@ export const makeMainRoutes = () => {
           <Route
             exact
             path="/"
-            render={props => <App auth={auth} {...props} />}
+            render={props => <Landing auth={auth} {...props} />}
           />
           <Route
             exact
