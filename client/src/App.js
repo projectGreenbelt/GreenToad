@@ -89,16 +89,11 @@ class App extends Component {
   render() {
     const { isAuthenticated } = this.props.auth;
     console.log(isAuthenticated());
-<<<<<<< HEAD
-    const { classes, anchorEl } = this.props;
-
-=======
     const { classes } = this.props;
     const { anchorEl } = this.state;
     if (this.state.toProfile === true) {
       return <Redirect to="/profile" />;
     }
->>>>>>> 4cebbf86d35a347055243a12e800b9f83ab4e639
     return (
       <div>
         {withStyles}

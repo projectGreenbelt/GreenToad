@@ -110,6 +110,22 @@
     height: 500px;
 }
 
+.card {
+    margin-top: .2%;
+    width: 100%;
+    background-image: url('https://www.imagesfromtexas.com/images/xl/Barton-Creek-Panorama-1.jpg');
+    height: 550px;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-attachment: fixed;
+    background-position: center; 
+    z-index: 9999;
+}
+
+.cardText {
+    margin-top: 10%;
+    margin-left: 18%;
+}
 
 /* .Button:hover,
 .Button:focus,
@@ -123,6 +139,15 @@
         flex-direction: column;
         justify-content: space-around;
         align-items: flex-start;
+    }
+
+    .card {
+        margin-left: 0%;
+    }
+
+    .cardText {
+        margin-left: -1%;
+        margin-top: 25%;
     }
 }
 

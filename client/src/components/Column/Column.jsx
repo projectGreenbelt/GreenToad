@@ -21,16 +21,9 @@ const styles = theme => ({
   paper: {
     margin: `${theme.spacing.unit}px auto`,
     padding: theme.spacing.unit * 2,
-<<<<<<< HEAD
-    maxWidth: 700,
-    minwidth: 275
-  },
-
-=======
     maxWidth: 600,
     minwidth: 295
   }
->>>>>>> 4cebbf86d35a347055243a12e800b9f83ab4e639
 });
 
 
