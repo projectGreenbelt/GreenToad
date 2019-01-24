@@ -87,7 +87,7 @@ const styles = theme => ({
     marginTop: 10,
     marginLeft: 15,
     width: '95%',
-    maxWidth: 0,
+    maxWidth: 450,
     minWidth: 150
   }
 });
