@@ -5,6 +5,7 @@ export default {
   getPosts: function() {
     return axios.get("/api/posts");
   },
+
   // Gets the book with the given id
   getBook: function(id) {
     return axios.get("/api/books/" + id);

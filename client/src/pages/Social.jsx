@@ -13,6 +13,7 @@ import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
+import axios from "axios";
 
 const styles = theme => ({
   root: {
@@ -81,7 +82,9 @@ class Social extends Component {
 
     this.getPosts();
     this.getUserInfo();
+    axios.get("/home").then(res => console.log(res.data));
   }
+
   handleFormSubmit = event => {
     const { post, date } = this.state;
     let userName = this.state.currentUser.nickname;
@@ -90,15 +93,15 @@ class Social extends Component {
       date,
       userName
     })
-      .then(res => alert(`Your post has been added to Green Toad.`))
+      .then(alert(`Your post has been added to Green Toad.`))
       .then(window.location.reload())
       .catch(err => console.log(err));
   };
   getPosts = props => {
     API.getPosts()
-      .then(res => this.setState({ otherPosts: res.data }))
+      .then(res => this.setState({ otherPosts: res.data[0].posts }))
       .catch(err => console.log(err));
-    console.log(this.props);
+    console.log(this.state.otherPosts);
   };
 
   render() {
@@ -120,6 +123,7 @@ class Social extends Component {
                   Current Location Updates:
                 </Typography>
                 <hr />
+
                 <Paper className={classes.list} elevation={20}>
                   <List className={classes.postStyle} id="list">
                     {this.state.otherPosts.map(post => {
