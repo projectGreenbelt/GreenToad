@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Card from "@material-ui/core/Card";
 import "./../App.css";
 import { withStyles } from "@material-ui/core/styles";
@@ -137,26 +138,24 @@ class Landing extends Component {
                                 onClose={this.handleClose}
                             >
                                 {isAuthenticated() && (
+                                    <MenuItem
+                                        onClick={this.handleClose}
+                                        className={classes.menuItem}
+                                    >
+                                    <ListItemIcon className={classes.icon}>
+                                        <Person />
+                                    </ListItemIcon>
+                                    <ListItemText
+                                        classes={{ primary: classes.primary }}
+                                        inset
+                                        primary="Profile"
+                                        onClick={() => this.handleProfile()}
+                                    />
+                                    </MenuItem>
+                                )}
                                 <MenuItem
                                     onClick={this.handleClose}
                                     className={classes.menuItem}
-                                >
-                                    <ListItemIcon className={classes.icon}>
-                                    <Person />
-                                    </ListItemIcon>
-
-                                    <ListItemText
-                                    classes={{ primary: classes.primary }}
-                                    inset
-                                    primary="Profile"
-                                    onClick={() => this.handleProfile()}
-                                    />
-                                </MenuItem>
-                                )}
-
-                                <MenuItem
-                                onClick={this.handleClose}
-                                className={classes.menuItem}
                                 >
                                 <ListItemIcon className={classes.icon}>
                                     <AccountBalance />
@@ -168,8 +167,8 @@ class Landing extends Component {
                                 />
                                 </MenuItem>
                                 <MenuItem
-                                onClick={this.handleClose}
-                                className={classes.menuItem}
+                                    onClick={this.handleClose}
+                                    className={classes.menuItem}
                                 >
                                 <ListItemIcon className={classes.icon}>
                                     <LocationOn />
@@ -181,8 +180,8 @@ class Landing extends Component {
                                 />
                                 </MenuItem>
                                 <MenuItem
-                                onClick={this.handleClose}
-                                className={classes.menuItem}
+                                    onClick={this.handleClose}
+                                    className={classes.menuItem}
                                 >
                                 <ListItemIcon className={classes.icon}>
                                     <Fingerprint />

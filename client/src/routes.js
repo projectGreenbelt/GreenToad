@@ -75,7 +75,6 @@ export const makeMainRoutes = () => {
               return <Callback {...props} />;
             }}
           />
-
           <Route component={NoMatch} />
         </Switch>
       </Router>

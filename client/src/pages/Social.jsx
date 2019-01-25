@@ -202,7 +202,7 @@ class Social extends Component {
             )}
 
             <IconButton
-              className={styles.menuButton}
+              className={classes.menuItem}
               color="inherit"
               aria-label="Menu"
               aria-owns={anchorEl ? "simple-menu" : undefined}
@@ -246,6 +246,8 @@ class Social extends Component {
                   classes={{ primary: classes.primary }}
                   inset
                   primary="Home"
+                  onclick
+
                 />
               </MenuItem>
               <MenuItem
