@@ -62,7 +62,7 @@ const styles = theme => ({
     marginTop: 10,
     marginLeft: 15,
     width: '95%',
-    maxWidth: 550,
+    maxWidth: 250,
     minWidth: 150
   },
   button: {
@@ -259,8 +259,8 @@ class Profile extends Component {
               <br />
               <Card id="profileRight" elevation={20}>
                 <br />
-                <Typography className={classes.text} variant="h4">
-                  Name: {profile.name}
+                <Typography className={classes.text} variant="h5">
+                  <strong>Name:</strong> {profile.name}
                 </Typography>
                 <br />
                 <Typography className={classes.text} variant="body1">
