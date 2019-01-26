@@ -28,7 +28,7 @@ module.exports = {
       .then(result => {
         db.Points.findOneAndUpdate(
           {
-            _id: "5c47d2bc2432b826f4464bbc"
+            _id: "5c4ba20ea26706263412a8be"
           },
           {
             $push: {

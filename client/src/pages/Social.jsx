@@ -13,7 +13,7 @@ import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
-import axios from "axios";
+import { Redirect } from "react-router-dom";
 
 const styles = theme => ({
   root: {
@@ -81,17 +81,22 @@ class Social extends Component {
     document.body.scrollTop = 0;
 
     this.getPosts();
-    this.getUserInfo();
-    axios.get("/home").then(res => console.log(res.data));
+    if (this.props.auth.isAuthenticated()) {
+      this.getUserInfo();
+    }
+    this.getCheckInLocation();
   }
 
   handleFormSubmit = event => {
     const { post, date } = this.state;
     let userName = this.state.currentUser.nickname;
+    let checkInId = this.getCheckInLocation();
+    console.log(checkInId);
     API.savePost({
       post,
       date,
-      userName
+      userName,
+      checkInId
     })
       .then(alert(`Your post has been added to Green Toad.`))
       .then(window.location.reload())
@@ -103,8 +108,20 @@ class Social extends Component {
       .catch(err => console.log(err));
     console.log(this.state.otherPosts);
   };
+  getCheckInLocation = props => {
+    console.log(window.location.href);
+    console.log(window.location.href.split("social/"));
+    let checkInId = window.location.href.split("social/")[1];
+    return checkInId;
+  };
 
   render() {
+    if (!this.props.auth.isAuthenticated()) {
+      alert(
+        "Slow down! You have to log in first before you can access the GreenToad post area."
+      );
+      return <Redirect to="/" />;
+    }
     const { classes } = this.props;
     return (
       <div>

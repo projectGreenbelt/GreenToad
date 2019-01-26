@@ -24,7 +24,7 @@ const theme = createMuiTheme({
       contrastText: "#000"
     },
     typography: {
-      useNextVariants: true,
+      useNextVariants: true
     }
   }
 });
@@ -64,7 +64,7 @@ export const makeMainRoutes = () => {
           />
           <Route
             exact
-            path="/social"
+            path="/social/:checkInLocation"
             render={props => <Social auth={auth} {...props} />}
           />
           <Route
