@@ -43,13 +43,13 @@ const styles = theme => ({
   posts: {
     margin: `${theme.spacing.unit}px auto`,
     padding: theme.spacing.unit * 2,
-    maxWidth: 450,
+    maxWidth: 550,
     minwidth: 275
   },
   list: {
     margin: `${theme.spacing.unit}px auto`,
     padding: theme.spacing.unit * 2,
-    maxWidth: 700,
+    maxWidth: 500,
     minwidth: 275,
     height: 600
   },
@@ -62,7 +62,7 @@ const styles = theme => ({
   },
   postStyle: {
     width: '100%',
-    maxWidth: 500,
+    maxWidth: 400,
     backgroundColor: theme.palette.background.paper,
   },
   menuItem: {

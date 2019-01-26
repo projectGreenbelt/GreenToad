@@ -195,8 +195,14 @@
 .socialLeft {
    display: flex;
    flex-direction: column;
-   align-items: center;
-   
+   align-items: center; 
+}
+
+#modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
 }
 
 /* .Button:hover,
