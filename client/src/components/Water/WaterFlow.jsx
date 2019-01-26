@@ -10,8 +10,8 @@ class WaterFlow extends Component {
   state = {
     value: 0
   };
-  startColor = "#5c6bc0"; // cornflowerblue
-  endColor = "#5c6bc0"; // crimson
+  startColor = "#007DBC"; // cornflowerblue
+  endColor = "#007DBC"; // crimson
 
   componentWillReceiveProps(newProps) {
     // water.runQuery(this.props.location)
@@ -27,7 +27,7 @@ class WaterFlow extends Component {
         })
         .then(response =>
           this.setState({
-            value: response.data.value.timeSeries[0].values[0].value[0].value
+            value: response.data.value.timeSeries[0].values[0].value[0].value  / 1.5
           })
         )
         .catch();
@@ -88,9 +88,9 @@ class WaterFlow extends Component {
             return (
               <tspan>
                 <tspan className="value" style={valueStyle}>
-                  {value}
+                  {value * 1.5}
                 </tspan>
-                <tspan style={percentStyle}>{props.percent}</tspan>
+                <tspan style={percentStyle}> {props.percent}</tspan>
               </tspan>
             );
           }}

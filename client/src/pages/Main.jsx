@@ -207,7 +207,7 @@ class Main extends Component {
   // Constructor and state
   state = {
     currentAccessPoint: {},
-    checkInLocation: null,
+    checkInLocation: {},
     checkedIn: false,
     toPosts: false
   };
@@ -274,12 +274,12 @@ class Main extends Component {
           />
         </div>
 
-      
+       {currentAccessPoint ?
         <Container
           accessPoint={currentAccessPoint}
           handleCheckIn={this.handleCheckIn}
           checkedIn={this.state.checkedIn}
-        />  {/*   : 
+        />  : 
         <Paper
           className={classes.paper}
           elevation={20}
@@ -289,7 +289,7 @@ class Main extends Component {
             Click on any of the access points above for a detailed
             breakdown of that particular location!
           </Typography>
-        </Paper>} */}
+        </Paper>}
         <div className="footer">
           <div>
             <List>
