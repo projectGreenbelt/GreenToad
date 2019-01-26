@@ -24,6 +24,19 @@
     transform: scale(1.1);
 }
 
+#Card {
+    transform: translateZ(0);
+    transition-duration: 0.3s;
+    transition-property: transform;
+}
+
+#Card:hover,
+#Card:focus,
+#Card:active {
+    transform: scale(1.1);
+}
+
+
 .Widget {
     margin-top: 4%;
     display: inline-block;
@@ -168,7 +181,21 @@
     background-image: url("./assets/img/Profile.jpg");
 }
 
+.socialLayout {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: stretch;
+    margin-left: 13%;
+    margin-top: 2%;
+}
 
+.socialLeft {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   
+}
 
 /* .Button:hover,
 .Button:focus,
@@ -204,6 +231,22 @@
         margin-left: 0%;
         height: 200px;
         padding-bottom: 3%;
+    }
+
+    .socialLayout {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-left: 0%;
+        
+    }
+
+    .socialLeft {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center; 
     }
 }
 

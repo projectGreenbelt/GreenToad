@@ -22,6 +22,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import Card from "@material-ui/core/Card";
 import CardMedia from '@material-ui/core/CardMedia';
+import Arrow from "@material-ui/icons/KeyboardArrowLeft";
 
 
 //Material UI Icons for Menu
@@ -42,13 +43,13 @@ const styles = theme => ({
   posts: {
     margin: `${theme.spacing.unit}px auto`,
     padding: theme.spacing.unit * 2,
-    maxWidth: 500,
+    maxWidth: 450,
     minwidth: 275
   },
   list: {
     margin: `${theme.spacing.unit}px auto`,
     padding: theme.spacing.unit * 2,
-    maxWidth: 800,
+    maxWidth: 700,
     minwidth: 275,
     height: 600
   },
@@ -89,6 +90,10 @@ const styles = theme => ({
     width: '95%',
     maxWidth: 450,
     minWidth: 150
+  },
+  button: {
+    margin: theme.spacing.unit * 2,
+    
   }
 });
 class Social extends Component {
@@ -104,6 +109,7 @@ class Social extends Component {
   getUserInfo = user => {
     let token;
     token = localStorage.getItem("access_token");
+    console.log(token)
     this.props.auth.lock.getUserInfo(token, (err, profile) => {
       if (err) {
         console.log("problem with getting user data");
@@ -200,6 +206,13 @@ class Social extends Component {
                 Login
               </Button>
             )}
+            <ListItemAvatar>
+              {this.state.currentUser ?  <Avatar
+                src={this.state.currentUser.picture}
+              /> : <Avatar />}
+
+             
+            </ListItemAvatar>
 
             <IconButton
               className={classes.menuItem}
@@ -284,7 +297,7 @@ class Social extends Component {
             className="cardText"
             image="../assets/img/Social.jpg"
             height="140"
-            title="Hot Chicks"
+            title="Beautiful picture of running water on the Greenbelt"
             >
             <Typography className={classes.text} variant="h4" component="h3" color="secondary">
               Greenbelt Happenings
@@ -300,49 +313,65 @@ class Social extends Component {
           </CardMedia>
         </Card>
         <Paper className={classes.paper} elevation={20}>
-          <Post
-            handleInputChange={this.handleInputChange}
-            handleFormSubmit={this.handleFormSubmit}
-          />
-          <br />
-          <Paper className={classes.posts} elevation={20}>
-            <Grid container wrap="nowrap" spacing={16}>
-              <Grid item xs>
-                <Typography variant="h5" component="h3">
-                  Current Location Updates:
-                </Typography>
-                <hr />
-                <Paper className={classes.list} elevation={20}>
-                  <List className={classes.postStyle} id="list">
-                    {this.state.otherPosts.map(post => {
-                      return (
-                        <Typography>
-                          <ListItem key={post._id} alignItems="flex-start">
-                            <ListItemAvatar>
-                              <Avatar
-                                src={this.state.currentUser.picture}
+          <div className="socialLayout">
+            <div className="socialLeft">
+              <Post
+                handleInputChange={this.handleInputChange}
+                handleFormSubmit={this.handleFormSubmit}
+              />
+              <br />
+              <Paper elevation={20}>
+                <Button 
+                  variant="contained"
+                  color="primary"
+                  size="large"
+                  className={classes.button}
+                  href="/home"
+                >
+                  <Arrow /> Back
+                </Button>
+              </Paper>
+            </div>
+            <br />
+            <Paper className={classes.posts} elevation={20}>
+              <Grid container wrap="nowrap" spacing={16}>
+                <Grid item xs>
+                  <Typography variant="h5" component="h3">
+                    Current Location Updates:
+                  </Typography>
+                  <hr />
+                  <Paper className={classes.list} elevation={20}>
+                    <List className={classes.postStyle} id="list">
+                      {this.state.otherPosts.map(post => {
+                        return (
+                          <Typography>
+                            <ListItem key={post._id} alignItems="flex-start">
+                              <ListItemAvatar>
+                                <Avatar
+                                  src={this.state.currentUser.picture}
+                                />
+                              </ListItemAvatar>
+                              <ListItemText
+                              primary={''}
+                              secondary={
+                                <React.Fragment>
+                                  <Typography component="span" className={classes.inline} color="textPrimary">
+                                    {this.state.currentUser.nickname}
+                                  </Typography>
+                                  - {post.post}
+                                </React.Fragment>
+                              }
                               />
-                            </ListItemAvatar>
-                            <ListItemText
-                            primary={''}
-                            secondary={
-                              <React.Fragment>
-                                <Typography component="span" className={classes.inline} color="textPrimary">
-                                  {this.state.currentUser.nickname}
-                                </Typography>
-                                 - {post.post}
-                              </React.Fragment>
-                            }
-                            />
-                          </ListItem>
-                        </Typography>
-                      );
-                    })}
-                  </List>
-                </Paper>
+                            </ListItem>
+                          </Typography>
+                        );
+                      })}
+                    </List>
+                  </Paper>
+                </Grid>
               </Grid>
-            </Grid>
-          </Paper>
+            </Paper>
+           </div> 
         </Paper>
         <div className="footer">
           <div>

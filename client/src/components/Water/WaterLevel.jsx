@@ -7,7 +7,8 @@ import axios from "axios";
 
 class WaterLevel extends Component {
   state = {
-    value: 0.0 
+    value: 0.0,
+   
   };
   startColor = "#6495ed"; // cornflowerblue
   endColor = "#6495ed"; // crimson
@@ -84,9 +85,10 @@ class WaterLevel extends Component {
               fontSize: textPixels * 0.6
             };
 
+                
             return (
               <tspan>
-                <tspan className="value" style={valueStyle}>
+                <tspan className="customValue" style={valueStyle}>
                   {value}
                 </tspan>
                 <tspan style={percentStyle}>{props.percent}</tspan>
