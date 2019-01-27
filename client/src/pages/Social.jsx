@@ -56,7 +56,8 @@ class Social extends Component {
     post: "",
     // emailInput: "", //set name of input taking in email to name='emailInput'
     date: Date.now(),
-    currentUser: {}
+    currentUser: {},
+    
   };
   getUserInfo = user => {
     let token;
@@ -89,14 +90,16 @@ class Social extends Component {
 
   handleFormSubmit = event => {
     const { post, date } = this.state;
-    let userName = this.state.currentUser.nickname;
+    const {name, picture}=this.state.currentUser
+    
     let checkInId = this.getCheckInLocation();
     console.log(checkInId);
     API.savePost({
       post,
       date,
-      userName,
-      checkInId
+      name,
+      checkInId,
+      picture
     })
       .then(alert(`Your post has been added to Green Toad.`))
       .then(window.location.reload())
@@ -104,7 +107,7 @@ class Social extends Component {
   };
   getPosts = props => {
     API.getPosts()
-      .then(res => this.setState({ otherPosts: res.data[0].posts }))
+      .then(res => this.setState({ otherPosts: res.data}))
       .catch(err => console.log(err));
     console.log(this.state.otherPosts);
   };
@@ -143,12 +146,15 @@ class Social extends Component {
 
                 <Paper className={classes.list} elevation={20}>
                   <List className={classes.postStyle} id="list">
-                    {this.state.otherPosts.map(post => {
+                  {console.log(this.state.otherPosts)}
+                    {this.state.otherPosts.filter(post=>{
+                      return post.checkInId===this.getCheckInLocation()
+                    }).map(post => {
                       return (
                         <Typography>
                           <ListItem key={post._id} alignItems="flex-start">
                             <ListItemAvatar>
-                              <Avatar src={this.state.currentUser.picture} />
+                              <Avatar src={post.picture} />
                             </ListItemAvatar>
                             <ListItemText
                               primary={""}
@@ -159,7 +165,7 @@ class Social extends Component {
                                     className={classes.inline}
                                     color="textPrimary"
                                   >
-                                    {this.state.currentUser.nickname}
+                                    {post.name}
                                   </Typography>
                                   - {post.post}
                                 </React.Fragment>

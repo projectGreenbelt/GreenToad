@@ -3,10 +3,10 @@ const db = require("../models");
 // Defining methods for the booksController
 module.exports = {
   findAll: function(req, res) {
-    db.Points.find({})
+    db.Posts.find({})
 
       // Specify that we want to populate the retrieved users with any associated notes
-      .populate({ path: "posts", options: { sort: { date: -1 } } })
+      // .populate({ path: "posts", options: { sort: { date: -1 } } })
 
       .then(function(dbModel) {
         // If able to successfully find and associate all Users and Notes, send them back to the client
@@ -28,7 +28,7 @@ module.exports = {
       .then(result => {
         db.Points.findOneAndUpdate(
           {
-            _id: "5c4ba20ea26706263412a8be"
+            _id: "5c4d4b355ed0590a2acf7e53"
           },
           {
             $push: {

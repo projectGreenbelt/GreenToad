@@ -234,7 +234,7 @@ class Main extends Component {
 
   // Render function
   render() {
-    let location = `/social/${this.state.checkInLocation.mongoId}`;
+    let location = `/social/${this.state.checkInLocation.id}`;
     if (this.state.toPosts === true) {
       return <Redirect to={location} />;
     }
