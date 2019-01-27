@@ -271,7 +271,7 @@ class Main extends Component {
             <List>
               <ListItem>
                 <div>
-                  &copy; {1900 + new Date().getYear()} , Project Greenbelt
+                  &copy; {1900 + new Date().getYear()} , GreenToad
                 </div>
                 <IconButton justIcon color="primary">
                   <a

@@ -101,7 +101,7 @@ class Social extends Component {
       checkInId,
       picture
     })
-      .then(alert(`Your post has been added to Green Toad.`))
+      .then(alert(`Your post has been added to Green Toad!`))
       .then(window.location.reload())
       .catch(err => console.log(err));
   };

@@ -25,21 +25,22 @@ module.exports = {
   },
   create: function(req, res) {
     db.Posts.create(req.body)
-      .then(result => {
-        db.Points.findOneAndUpdate(
-          {
-            _id: "5c4d4b355ed0590a2acf7e53"
-          },
-          {
-            $push: {
-              posts: result._id
-            }
-          },
-          {
-            new: true
-          }
-        );
-      })
+      // commenting this out, but maybe try to get the associations to work in a later iteration.
+      // .then(result => {
+      //   db.Points.findOneAndUpdate(
+      //     {
+      //       _id: "5c4d4b355ed0590a2acf7e53"
+      //     },
+      //     {
+      //       $push: {
+      //         posts: result._id
+      //       }
+      //     },
+      //     {
+      //       new: true
+      //     }
+      //   );
+      // })
       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {

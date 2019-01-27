@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const postsSchema = new Schema({
   post: String,
   date: { type: Date, default: Date.now },
-  name: { type: String, default: "Guest" },
+  name: { type: String},
   picture:{type:String},
   checkInId: { type: String }
 });
