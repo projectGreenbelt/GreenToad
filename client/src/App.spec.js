@@ -8,7 +8,7 @@ it("should render the Container Component", () => {
   const wrapper = shallow(<App auth={{ isAuthenticated: () => true }} />);
   // console.log(wrapper.html());
   expect(wrapper.find("div").length).toEqual(1);
-  // expect(wrapper.containsMatchingElement(<NavBar />)).toEqual(true);
+  // expect(wrapper.containsMatchingElement(<Main />)).toEqual(true);
 });
 // describe("App", () => {
 //   it("should render a <div />", () => {

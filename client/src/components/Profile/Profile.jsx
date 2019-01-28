@@ -28,7 +28,9 @@ class Profile extends Component {
   //With react, you always want to have access to the state of the component (object), which is why arrow functions are so prevalent.
   render() {
     if (!this.props.auth.isAuthenticated()) {
-      alert("you gotta log in, bro");
+      alert(
+        "Hold up! You have to log in first before you can access the profile area."
+      );
       return <Redirect to="/home" />;
     }
     const { profile } = this.state;
