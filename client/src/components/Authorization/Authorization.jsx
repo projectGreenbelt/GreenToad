@@ -59,7 +59,7 @@ export default class Auth {
         if (error) {
           return;
         }
-        console.log(profile);
+
         localStorage.setItem("profile", JSON.parse(profile));
       });
 

@@ -7,14 +7,14 @@ import {
   GoogleMap,
   Marker,
   BicyclingLayer,
-  TrafficLayer,
+  TrafficLayer
   /* InfoWindow */
 } from "react-google-maps";
 import "./../App.css";
 import points from "../cards";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
-import IconButton from '@material-ui/core/IconButton';
+import IconButton from "@material-ui/core/IconButton";
 import { withStyles } from "@material-ui/core";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
@@ -36,13 +36,12 @@ const styles = theme => ({
   }
 });
 
-
 //Google Maps
 const Map = withScriptjs(
   withGoogleMap(props => (
     <GoogleMap
       defaultZoom={12.8}
-      defaultCenter={{ lat: 30.259100, lng: -97.801777 }}
+      defaultCenter={{ lat: 30.2591, lng: -97.801777 }}
       defaultOptions={{
         scrollwheel: false,
         zoomControl: true,
@@ -110,22 +109,21 @@ const Map = withScriptjs(
     >
       <Marker
         classname="marker"
-        icon= {{
+        icon={{
           url: "https://image.flaticon.com/icons/svg/1397/1397883.svg",
           scaledSize: { height: 50, width: 50 },
-          fixedRotation: true 
+          fixedRotation: true
         }}
         onClick={() => props.handleMarkerClick(1)}
         position={{ lat: 30.264143, lng: -97.773334 }}
         title="Trail Head"
         /* defaultLabel="Trail Head" */
-
       />
       <Marker
-        icon= {{
+        icon={{
           url: "https://image.flaticon.com/icons/svg/1397/1397883.svg",
           scaledSize: { height: 50, width: 50 },
-          fixedRotation: true 
+          fixedRotation: true
         }}
         onClick={() => props.handleMarkerClick(2)}
         position={{ lat: 30.257926, lng: -97.787518 }}
@@ -133,10 +131,10 @@ const Map = withScriptjs(
         /* defaultLabel="Spyglass" */
       />
       <Marker
-        icon= {{
+        icon={{
           url: "https://image.flaticon.com/icons/svg/1397/1397883.svg",
           scaledSize: { height: 50, width: 50 },
-          fixedRotation: true 
+          fixedRotation: true
         }}
         onClick={() => props.handleMarkerClick(3)}
         position={{ lat: 30.255326, lng: -97.783981 }}
@@ -144,10 +142,10 @@ const Map = withScriptjs(
         /* defaultLabel="Barton Hills" */
       />
       <Marker
-        icon= {{
+        icon={{
           url: "https://image.flaticon.com/icons/svg/1397/1397883.svg",
           scaledSize: { height: 50, width: 50 },
-          fixedRotation: true 
+          fixedRotation: true
         }}
         onClick={() => props.handleMarkerClick(4)}
         position={{ lat: 30.249326, lng: -97.79515 }}
@@ -155,10 +153,10 @@ const Map = withScriptjs(
         /* defaultLabel="Gus Fruh" */
       />
       <Marker
-        icon= {{
+        icon={{
           url: "https://image.flaticon.com/icons/svg/1397/1397883.svg",
           scaledSize: { height: 50, width: 50 },
-          fixedRotation: true 
+          fixedRotation: true
         }}
         onClick={() => props.handleMarkerClick(5)}
         position={{ lat: 30.243766, lng: -97.800123 }}
@@ -173,10 +171,10 @@ const Map = withScriptjs(
         </InfoWindow> */}
       </Marker>
       <Marker
-        icon= {{
+        icon={{
           url: "https://image.flaticon.com/icons/svg/1397/1397883.svg",
           scaledSize: { height: 50, width: 50 },
-          fixedRotation: true 
+          fixedRotation: true
         }}
         onClick={() => props.handleMarkerClick(6)}
         position={{ lat: 30.244221, lng: -97.809666 }}
@@ -184,10 +182,10 @@ const Map = withScriptjs(
         /* defaultLabel="Gaines" */
       />
       <Marker
-        icon= {{
+        icon={{
           url: "https://image.flaticon.com/icons/svg/1397/1397883.svg",
           scaledSize: { height: 50, width: 50 },
-          fixedRotation: true 
+          fixedRotation: true
         }}
         onClick={() => props.handleMarkerClick(7)}
         position={{ lat: 30.275147, lng: -97.825273 }}
@@ -248,8 +246,9 @@ class Main extends Component {
 
   // Render function
   render() {
+    let location = `/social/${this.state.checkInLocation.id}`;
     if (this.state.toPosts === true) {
-      return <Redirect to="/social" />;
+      return <Redirect to={location} />;
     }
     const { currentAccessPoint } = this.state;
     const { classes } = this.props;
@@ -295,18 +294,19 @@ class Main extends Component {
             <List>
               <ListItem>
                 <div>
-                  &copy; {1900 + new Date().getYear()} ,{" "}
-                  Project Greenbelt
+                  &copy; {1900 + new Date().getYear()} , GreenToad
                 </div>
-                <IconButton
-                  justIcon
-                  color="primary"
-                >
-                  <a 
+                <IconButton justIcon color="primary">
+                  <a
                     href="https://github.com/projectGreenbelt/projectGreenbelt"
                     classname="iconButton"
                   >
-                    <i className="fab fa-github-square" id="icon" aria-hidden="true" color="secondary" />
+                    <i
+                      className="fab fa-github-square"
+                      id="icon"
+                      aria-hidden="true"
+                      color="secondary"
+                    />
                   </a>
                 </IconButton>
               </ListItem>

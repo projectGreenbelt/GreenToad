@@ -131,7 +131,9 @@ class Profile extends Component {
     const { classes } = this.props;
     const { anchorEl } = this.state;
     if (!this.props.auth.isAuthenticated()) {
-      alert("you gotta log in, bro");
+      alert(
+        "Hold up! You have to log in first before you can access the profile area."
+      );
       return <Redirect to="/home" />;
     }
     if (this.state.toProfile === true) {
