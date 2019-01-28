@@ -23,6 +23,7 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import Card from "@material-ui/core/Card";
 import CardMedia from '@material-ui/core/CardMedia';
 import Arrow from "@material-ui/icons/KeyboardArrowLeft";
+import Moment from 'react-moment';
 
 
 //Material UI Icons for Menu
@@ -44,8 +45,15 @@ const styles = theme => ({
     margin: `${theme.spacing.unit}px auto`,
     padding: theme.spacing.unit * 2,
     maxWidth: 550,
-    minwidth: 275
+    minwidth: 300
   },
+  userPosts: {
+    margin: `${theme.spacing.unit}px auto`,
+    padding: 10,
+    maxWidth: 550,
+    minwidth: 290
+  },
+
   list: {
     margin: `${theme.spacing.unit}px auto`,
     padding: theme.spacing.unit * 2,
@@ -375,18 +383,34 @@ class Social extends Component {
                                 primary={""}
                                 secondary={
                                   <React.Fragment>
-                                    <Typography
-                                      component="span"
-                                      className={classes.inline}
-                                      color="textPrimary"
-                                    >
-                                      {post.name}
-                                    </Typography>
-                                    - {post.post}
+                                    
+                                      <Typography
+                                        component="span"
+                                        className={classes.inline}
+                                        color="Primary"
+                                      >
+                                        {post.name}
+                                      </Typography>
+                                      <br />
+                                      <Paper className={classes.userPosts} elevation={20}>
+                                        {post.post}
+                                      <br /><br/>
+                                      <div>
+                                        <Typography color="primary">
+                                          Posted: 
+                                        </Typography>  
+                                        <Moment format="M/DD/YY">{(post.date)}</Moment>
+                                        <strong color="primary"> at </strong>
+                                        <Moment format="h:mm a">{(post.date)}</Moment>
+                                      </div>
+                                    </Paper>
+                                   
                                   </React.Fragment>
+                                  
                                 }
                               />
-                            </ListItem>
+                            </ListItem> 
+                            
                           </Typography>
                         );
                       })}
