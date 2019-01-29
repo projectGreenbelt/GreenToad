@@ -129,7 +129,10 @@
     margin-top: .2%;
     width: 100%;
     background-image: url('./assets/img/Social2.jpg');
-    height: 550px;
+    -webkit-background-size: 100%;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    max-height: 550px;
     background-repeat: no-repeat;
     background-size: cover; 
     background-attachment: fixed;
