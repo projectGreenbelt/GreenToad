@@ -20,6 +20,7 @@ const styles = theme => ({
   paper: {
     margin: `${theme.spacing.unit}px auto`,
     padding: theme.spacing.unit * 2,
+    paddingRight: 30,
     maxWidth: 600,
     minWidth: 275
   },

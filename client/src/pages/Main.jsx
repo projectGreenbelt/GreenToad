@@ -16,11 +16,23 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import IconButton from "@material-ui/core/IconButton";
 import { withStyles } from "@material-ui/core";
+import Paper from "@material-ui/core/Paper";
+import Typography from "@material-ui/core/Typography";
+/* import { CombineLatestSubscriber } from "rxjs/internal/observable/combineLatest"; */
 
 const styles = theme => ({
   iconButtons: {
     marginRight: "3px !important",
-    marginLeft: "3px !important"
+    marginLeft: "3px !important",
+  },
+  paper: {
+    margin: `${theme.spacing.unit}px auto`,
+    padding: theme.spacing.unit * 2,
+    marginTop: 30,
+    maxWidth: 400,
+  },
+  text: {
+    marginLeft: 20
   }
 });
 
@@ -239,10 +251,10 @@ class Main extends Component {
       return <Redirect to={location} />;
     }
     const { currentAccessPoint } = this.state;
-
+    const { classes } = this.props;
     return (
       <div>
-        {/* <Nav /> */}
+        {withStyles}
         <div className="Map">
           <Map
             handleMarkerClick={this.handleMarkerClick}
@@ -261,11 +273,22 @@ class Main extends Component {
           />
         </div>
 
+       {currentAccessPoint ?
         <Container
           accessPoint={currentAccessPoint}
           handleCheckIn={this.handleCheckIn}
           checkedIn={this.state.checkedIn}
-        />
+        />  : 
+        <Paper
+          className={classes.paper}
+          elevation={20}
+          id="Card"
+        > 
+          <Typography className={classes.text} variant="body1" component="h3" color="primary">
+            Click on any of the access points above for a detailed
+            breakdown of that particular location!
+          </Typography>
+        </Paper>}
         <div className="footer">
           <div>
             <List>
