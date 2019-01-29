@@ -38,12 +38,20 @@ const styles = theme => ({
   },
   iconSmall: {
     fontSize: 20
+  },
+  modal: {
+    position: 'absolute',
+    width: theme.spacing.unit * 50,
+    backgroundColor: theme.palette.background.paper,
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing.unit * 4,
+    outline: 'none',
   }
 });
 function getModalStyle() {
   return {
     position: `absolute`,
-    float: `left`,
+    float: `center`,
     top: `50%`,
     left: `50%`,
     transform: `translate(-50%, -50%)`
@@ -96,17 +104,16 @@ function PaperSheet(props) {
                       aria-describedby="simple-modal-description"
                       open={props.checkedIn}
                     >
-                      <div style={getModalStyle()} className={classes.paper}>
-                        <Typography variant="h6" id="modal-title">
-                          <h1>Checking in at {name}...</h1>
+                      <div style={getModalStyle()} className={classes.modal} id="modal">
+                        <Typography variant="h6" id="modal-title" color="primary">
+                          Checking in at {name}...
+                        </Typography>  
                           <span>
                             <img
                               className="mario"
                               src="https://scholasticadministrator.typepad.com/.a/6a00e54f8c25c988340133f11acceb970b-800wi"
                             />
                           </span>
-                        </Typography>
-
                         <SimpleModalWrapped />
                       </div>
                     </Modal>

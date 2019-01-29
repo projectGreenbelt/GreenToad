@@ -24,6 +24,19 @@
     transform: scale(1.1);
 }
 
+#Card {
+    transform: translateZ(0);
+    transition-duration: 0.3s;
+    transition-property: transform;
+}
+
+#Card:hover,
+#Card:focus,
+#Card:active {
+    transform: scale(1.1);
+}
+
+
 .Widget {
     margin-top: 4%;
     display: inline-block;
@@ -43,7 +56,7 @@
 }
 
 
- .container {
+.container {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -68,7 +81,9 @@
 
 .WaterStats {
     display: flex;
-    flex-direction: row;   
+    flex-direction: row; 
+    align-items: flex-start;
+    justify-content: space-around;
 }
 
 .Water {
@@ -110,6 +125,85 @@
     height: 500px;
 }
 
+.card {
+    margin-top: .2%;
+    width: 100%;
+    background-image: url('./assets/img/Social.jpg');
+    height: 550px;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-attachment: fixed;
+    background-position: center; 
+    z-index: 9999;
+}
+
+.cardText {
+    margin-top: 10%;
+    margin-left: 18%;
+}
+
+
+#picture {
+    margin-top: 1.8%;
+    margin-left: 2.5%;
+}
+
+#profileRight {
+    margin-left: 5%;
+    width: 300px;
+    height: 400px;
+    opacity: .8;
+
+}
+
+.profileLeft {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: .9;
+}
+
+.profileContents {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.profileBackground {
+    margin-top: .2%;
+    width: 100%;
+    height: stretch;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-attachment: fixed;
+    background-position: center; 
+    z-index: 9999;
+    background-image: url("./assets/img/Profile.jpg");
+}
+
+.socialLayout {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: stretch;
+    margin-left: 13%;
+    margin-top: 2%;
+}
+
+.socialLeft {
+   display: flex;
+   flex-direction: column;
+   align-items: center; 
+}
+
+#modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+}
 
 /* .Button:hover,
 .Button:focus,
@@ -123,6 +217,44 @@
         flex-direction: column;
         justify-content: space-around;
         align-items: flex-start;
+    }
+
+    .card {
+        margin-left: 0%;
+    }
+
+    .cardText {
+        margin-left: -1%;
+        margin-top: 25%;
+    }
+
+    .profileContents {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center; 
+    }
+    
+    #profileRight {
+        margin-left: 0%;
+        height: 200px;
+        padding-bottom: 3%;
+    }
+
+    .socialLayout {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-left: 0%;
+        
+    }
+
+    .socialLeft {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center; 
     }
 }
 

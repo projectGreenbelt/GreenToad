@@ -7,10 +7,11 @@ import axios from "axios";
 
 class WaterLevel extends Component {
   state = {
-    value: 0.0 
+    value: 0.0,
+   
   };
-  startColor = "#6495ed"; // cornflowerblue
-  endColor = "#6495ed"; // crimson
+  startColor = "#1976d2"; // cornflowerblue
+  endColor = "#2979ff"; // crimson
 
   componentWillReceiveProps(newProps) {
     // water.runQuery(this.props.location)
@@ -26,7 +27,7 @@ class WaterLevel extends Component {
         })
         .then(response =>
             this.setState({
-                value: response.data.value.timeSeries[1].values[0].value[0].value
+                value: response.data.value.timeSeries[1].values[0].value[0].value * 10
             })
         )   
         .catch();
@@ -74,7 +75,7 @@ class WaterLevel extends Component {
           textOffsetX={0}
           textOffsetY={15}
           textRenderer={props => {
-            const value = props.value;
+            const value =  Math.round(props.value);
             const radius = Math.min(props.height / 2, props.width / 2);
             const textPixels = (props.textSize * radius) / 2;
             const valueStyle = {
@@ -84,10 +85,11 @@ class WaterLevel extends Component {
               fontSize: textPixels * 0.6
             };
 
+                
             return (
               <tspan>
-                <tspan className="value" style={valueStyle}>
-                  {value}
+                <tspan className="customValue" style={valueStyle}>
+                  {value /10 }
                 </tspan>
                 <tspan style={percentStyle}>{props.percent}</tspan>
               </tspan>
@@ -95,7 +97,7 @@ class WaterLevel extends Component {
           }}
           riseAnimation
           waveAnimation
-          waveFrequency={3}
+          waveFrequency={2}
           waveAmplitude={2}
           gradient
           gradientStops={gradientStops}

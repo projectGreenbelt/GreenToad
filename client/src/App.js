@@ -2,7 +2,7 @@ import React, { Component } from "react";
 // import { Navbar, Button } from "react-bootstrap";
 // import Auth from "./components/Authorization/Authorization";
 import Main from "./pages/Main";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import "./App.css";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
@@ -16,6 +16,8 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import Avatar from '@material-ui/core/Avatar';
 
 //Material UI Icons for Menu
 import AccountBalance from "@material-ui/icons/AccountBalance";
@@ -49,8 +51,38 @@ const styles = theme => ({
 class App extends Component {
   state = {
     anchorEl: null,
-    toProfile: false
+    toProfile: false,
+    date: Date.now(),
+    currentUser: null
   };
+  getUserInfo = user => {
+    let token;
+    token = localStorage.getItem("access_token");
+    console.log(token)
+    if (token) {
+      this.props.auth.lock.getUserInfo(token, (err, profile) => {
+        if (err) {
+          console.log("problem with getting user data");
+        } else {
+          this.setState({ currentUser: profile });
+        }
+      });
+    }
+    
+  };
+
+  handleInputChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
+
+  componentDidMount() {
+    window.scrollTo(0, 0);
+    document.body.scrollTop = 0;
+
+    this.getUserInfo();
+  }
 
   handleClick = event => {
     this.setState({ anchorEl: event.currentTarget });
@@ -113,7 +145,11 @@ class App extends Component {
                   Login
                 </Button>
               )}
-
+              {this.state.currentUser && <ListItemAvatar>
+                <Avatar
+                  src={this.state.currentUser.picture}
+                />
+              </ListItemAvatar>}
               <IconButton
                 className={styles.menuButton}
                 color="inherit"
@@ -147,33 +183,36 @@ class App extends Component {
                     />
                   </MenuItem>
                 )}
-
-                <MenuItem
-                  onClick={this.handleClose}
-                  className={classes.menuItem}
-                >
-                  <ListItemIcon className={classes.icon}>
-                    <AccountBalance />
-                  </ListItemIcon>
-                  <ListItemText
-                    classes={{ primary: classes.primary }}
-                    inset
-                    primary="Home"
-                  />
-                </MenuItem>
-                <MenuItem
-                  onClick={this.handleClose}
-                  className={classes.menuItem}
-                >
-                  <ListItemIcon className={classes.icon}>
-                    <LocationOn />
-                  </ListItemIcon>
-                  <ListItemText
-                    classes={{ primary: classes.primary }}
-                    inset
-                    primary="Location"
-                  />
-                </MenuItem>
+                <Link to="/home" style={{ textDecoration: 'none', display: 'block' }} >
+                  <MenuItem
+                    onClick={this.handleClose}
+                    className={classes.menuItem}
+                  >
+                    <ListItemIcon className={classes.icon}>
+                      <AccountBalance />
+                    </ListItemIcon>
+                    <ListItemText
+                      classes={{ primary: classes.primary }}
+                      inset
+                      primary="Home"
+                    />
+                  </MenuItem>
+                </Link>
+                <Link to="/landing" style={{ textDecoration: 'none', display: 'block' }} >
+                  <MenuItem
+                    onClick={this.handleClose}
+                    className={classes.menuItem}
+                  >
+                    <ListItemIcon className={classes.icon}>
+                      <LocationOn />
+                    </ListItemIcon>
+                    <ListItemText
+                      classes={{ primary: classes.primary }}
+                      inset
+                      primary="Landing"
+                    />
+                  </MenuItem>
+                </Link>  
                 <MenuItem
                   onClick={this.handleClose}
                   className={classes.menuItem}
