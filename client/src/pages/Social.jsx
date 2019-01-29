@@ -14,6 +14,7 @@ import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
+import Modal from "@material-ui/core/Modal";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
@@ -104,6 +105,15 @@ const styles = theme => ({
     
   }
 });
+function getModalStyle() {
+  return {
+    position: `absolute`,
+    float: `left`,
+    top: `50%`,
+    left: `50%`,
+    transform: `translate(-50%, -50%)`
+  };
+}
 class Social extends Component {
   state = {
     otherPosts: [],
@@ -113,6 +123,7 @@ class Social extends Component {
     // emailInput: "", //set name of input taking in email to name='emailInput'
     date: Date.now(),
     currentUser: {},
+    showModal:false
     
   };
   getUserInfo = user => {
@@ -133,6 +144,18 @@ class Social extends Component {
       [e.target.name]: e.target.value
     });
   };
+  
+  
+    handleRefresh = () => {
+      // Setting access point information in the state
+      this.setState({
+        showModal:true
+      });
+      this.handleRedirect = setTimeout(() => {
+        window.location.reload();
+      }, 1100);
+    };
+    
   //handleEmailChange
   componentDidMount() {
     window.scrollTo(0, 0);
@@ -158,8 +181,7 @@ class Social extends Component {
       checkInId,
       picture
     })
-      .then(alert(`Your post has been added to Green Toad!`))
-      .then(window.location.reload())
+      .then(this.handleRefresh())
       .catch(err => console.log(err));
   };
   
@@ -357,6 +379,25 @@ class Social extends Component {
                   <hr />
                   <Paper className={classes.list} elevation={20}>
                     <List className={classes.postStyle} id="list">
+                    <Modal
+                      aria-labelledby="simple-modal-title"
+                      aria-describedby="simple-modal-description"
+                      open={this.state.showModal}
+                    >
+                      <div style={getModalStyle()} className={classes.paper}>
+                        <Typography variant="h6" id="modal-title">
+                          <h1>Your post has been added to Green Toad!</h1>
+                          <span>
+                            <img
+                              className="mario"
+                              src="https://3.bp.blogspot.com/-35XcSUkkKEw/WDZIEP8bteI/AAAAAAALaVk/rjrZxNa_nls4x_PxqjDJdtwonvdtlI_sQCLcB/s1600/AS002064_07.gif"
+                            />
+                          </span>
+                        </Typography>
+
+                        <SimpleModalWrapped />
+                      </div>
+                    </Modal>
                     {console.log(this.state.otherPosts)}
                       {this.state.otherPosts.filter(post=>{
                         return post.checkInId===this.getCheckInLocation()
@@ -434,5 +475,6 @@ class Social extends Component {
     );
   }
 }
+const SimpleModalWrapped = withStyles(styles)(Modal);
 
 export default withStyles(styles)(Social);
