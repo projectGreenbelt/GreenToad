@@ -136,14 +136,14 @@ class App extends Component {
               </Typography>
               {isAuthenticated() && (
                 <React.Fragment>
-                <Button onClick={this.logout.bind(this)} color="inherit">
-                  Logout
-                </Button>
-                {this.state.currentUser && <ListItemAvatar>
-                  <Avatar
-                    src={this.state.currentUser.picture}
-                  />
-                </ListItemAvatar>}
+                  <Button onClick={this.logout.bind(this)} color="inherit">
+                    Logout
+                  </Button>
+                  {this.state.currentUser && <ListItemAvatar>
+                    <Avatar
+                      src={this.state.currentUser.picture}
+                    />
+                  </ListItemAvatar>}
                 </React.Fragment>
               )}
               {!isAuthenticated() && (

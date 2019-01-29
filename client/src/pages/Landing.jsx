@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
+import API from "../utils/API";
 import Card from "@material-ui/core/Card";
 import "./../App.css";
 import { withStyles } from "@material-ui/core/styles";
@@ -67,6 +68,7 @@ class Landing extends Component {
         anchorEl: null,
         toProfile: false
     };
+
     
     handleClick = event => {
     this.setState({ anchorEl: event.currentTarget });
@@ -91,6 +93,7 @@ class Landing extends Component {
     logout() {
     this.props.auth.logout();
     }
+
     render() {
         const { isAuthenticated } = this.props.auth;
         console.log(isAuthenticated());
@@ -99,6 +102,7 @@ class Landing extends Component {
         if (this.state.toProfile === true) {
         return <Redirect to="/profile" />;
         }
+        const { profile } = this.state;
         return (
             <div>
                 {withStyles}
@@ -108,17 +112,6 @@ class Landing extends Component {
                             <Typography variant="h5" color="inherit" className={classes.grow}>
                                 Greentoad
                             </Typography>
-                            {isAuthenticated() && (
-                                <Button onClick={this.logout.bind(this)} color="inherit">
-                                Logout
-                                </Button>
-                            )}
-                            {!isAuthenticated() && (
-                                <Button onClick={this.login.bind(this)} color="inherit">
-                                Login
-                                </Button>
-                            )}
-
                             <IconButton
                                 className={styles.menuButton}
                                 color="inherit"
@@ -180,12 +173,11 @@ class Landing extends Component {
                             One of Austin’s most prized attractions, the Barton Creek Greenbelt is filled
                             with thrilling biking trails, pristine swimming holes, and beautiful limestone 
                             bluffs that provide for excellent rock climbing. Unfortunately for newcomers, accessing 
-                            this treasure can be a little confusing. To help,
-                            here is a complete guide to all the public access points for Austin’s natural gem. To begin, hit 
-                            continue and click on any access point on the map for a detailed explanation. 
+                            this local treasure can be a little confusing. To help, here is a complete guide to all the public 
+                            access points for Austin’s natural gem. Click CONTINUE to begin.  
                             <br/><br/>
-                            Don't forget to also log-in and check out current trail updates from fellow Greenbelters or to post your 
-                            own access point status updates!
+                             *Don't forget you can also LOGIN and check out each location's updates from fellow Greenbelters 
+                            or post your own statuses for others to see!*
                         </Typography>
                         <Button 
                             className={classes.button} 

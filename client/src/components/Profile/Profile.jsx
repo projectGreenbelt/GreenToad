@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import "../../App.css";
+import API from "../../utils/API";
 import { withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -17,11 +18,12 @@ import Card from "@material-ui/core/Card";
 import Arrow from "@material-ui/icons/KeyboardArrowLeft";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import Avatar from '@material-ui/core/Avatar';
 
 //Material UI Icons for Menu
 import AccountBalance from "@material-ui/icons/AccountBalance";
 import LocationOn from "@material-ui/icons/FlightLand";
-import Person from "@material-ui/icons/Person";
 
 const styles = theme => ({
   menuItem: {
@@ -104,6 +106,16 @@ class Profile extends Component {
     this.props.auth.logout();
   }
 
+  handleFormSubmit = event => {
+    const {picture}=this.state.currentUser
+    
+    API.savePost({
+      picture
+    })
+      .then(this.handleRefresh())
+      .catch(err => console.log(err));
+  };
+
   componentDidMount() {
     const { userProfile, getUserInfo, userInfo } = this.props.auth;
     if (this.props.auth.isAuthenticated()) {
@@ -144,14 +156,18 @@ class Profile extends Component {
               {isAuthenticated() && (
                 <Button onClick={this.logout.bind(this)} color="inherit">
                   Logout
-                </Button>
+                </Button>  
               )}
               {!isAuthenticated() && (
                 <Button onClick={this.login.bind(this)} color="inherit">
                   Login
                 </Button>
               )}
-
+              <ListItemAvatar>
+                <Avatar
+                  src={profile.picture}
+                />
+              </ListItemAvatar>
               <IconButton
                 className={classes.menuItem}
                 color="inherit"
@@ -168,24 +184,7 @@ class Profile extends Component {
                 open={Boolean(anchorEl)}
                 onClose={this.handleClose}
               >
-                {isAuthenticated() && (
-                  <MenuItem
-                    onClick={this.handleClose}
-                    className={classes.menuItem}
-                  >
-                    <ListItemIcon className={classes.icon}>
-                      <Person />
-                    </ListItemIcon>
-
-                    <ListItemText
-                      classes={{ primary: classes.primary }}
-                      inset
-                      primary="Profile"
-                      onClick={() => this.handleProfile()}
-                    />
-                  </MenuItem>
-                )}
-
+              <Link to="/home" style={{ textDecoration: 'none', display: 'block' }} >
                 <MenuItem
                   onClick={this.handleClose}
                   className={classes.menuItem}
@@ -200,19 +199,22 @@ class Profile extends Component {
                     onclick
                   />
                 </MenuItem>
-                <MenuItem
-                  onClick={this.handleClose}
-                  className={classes.menuItem}
-                >
-                  <ListItemIcon className={classes.icon}>
-                    <LocationOn />
-                  </ListItemIcon>
-                  <ListItemText
-                    classes={{ primary: classes.primary }}
-                    inset
-                    primary="Landing"
-                  />
-                </MenuItem>
+              </Link>  
+                <Link to="/landing" style={{ textDecoration: 'none', display: 'block' }} >
+                  <MenuItem
+                    onClick={this.handleClose}
+                    className={classes.menuItem}
+                  >
+                    <ListItemIcon className={classes.icon}>
+                      <LocationOn />
+                    </ListItemIcon>
+                    <ListItemText
+                      classes={{ primary: classes.primary }}
+                      inset
+                      primary="Landing"
+                    />
+                  </MenuItem>
+                </Link>
               </Menu>
             </Toolbar>
           </AppBar>

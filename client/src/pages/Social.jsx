@@ -204,7 +204,7 @@ class Social extends Component {
   }
   
   handleFormSubmit = event => {
-    const { post, date, currentLocation } = this.state;
+    const { post, date, } = this.state;
     const {name, picture}=this.state.currentUser
     
     let checkInId = this.getCheckInLocation();
@@ -294,10 +294,7 @@ class Social extends Component {
               {this.state.currentUser ?  <Avatar
                 src={this.state.currentUser.picture}
               /> : <Avatar />}
-
-             
             </ListItemAvatar>
-
             <IconButton
               className={classes.menuItem}
               color="inherit"
@@ -322,7 +319,6 @@ class Social extends Component {
                   <ListItemIcon className={classes.icon}>
                     <Person />
                   </ListItemIcon>
-
                   <ListItemText
                     classes={{ primary: classes.primary }}
                     inset
@@ -437,7 +433,7 @@ class Social extends Component {
                       }).map(post => {
                         return (
                           <Typography>
-                            <ListItem key={post._id} alignItems="flex-start">
+                            <ListItem key={post._id} alignItems="flex-start" className="smoothScroll">
                               <ListItemAvatar>
                                 <Avatar src={post.picture} />
                               </ListItemAvatar>

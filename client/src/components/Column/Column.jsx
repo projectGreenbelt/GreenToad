@@ -65,18 +65,10 @@ function PaperSheet(props) {
             </div>
             <br /><br />
             <Typography variant="h6" component="h3">
-              Trails:
             </Typography>
             <div className="Widget">
-              <Paper elevation={20}>
-                <div 
-                  className="TrailforksTrailList" 
-                  data-w="295px" 
-                  data-h="400px" 
-                  data-rid="13781" 
-                  data-displaytype="table" 
-                >
-                </div>
+              <Paper className="Water" elevation={20}>
+                
               </Paper>
             </div>
           </Grid>

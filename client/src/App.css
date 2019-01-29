@@ -211,10 +211,8 @@
     align-items: center; 
 }
 
-#shroom {
-    display: flex;
-    align-items: flex-start;
-    justify-content: left;
+.smoothScroll {
+    -webkit-overflow-scrolling: touch;
 }
 
 /* .Button:hover,
