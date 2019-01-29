@@ -3,7 +3,7 @@ const db = require("../models");
 // Defining methods for the booksController
 module.exports = {
   findAll: function(req, res) {
-    db.Posts.find({})
+    db.Posts.find({}).sort({date:-1})
 
       // Specify that we want to populate the retrieved users with any associated notes
       // .populate({ path: "posts", options: { sort: { date: -1 } } })
