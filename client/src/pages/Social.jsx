@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import Post from "../components/Post/Post";
 import "../App.css";
 import API from "../utils/API";
@@ -174,10 +174,37 @@ class Social extends Component {
       this.getUserInfo();
     }
     this.getCheckInLocation();
+    console.log(this.props.match.params.checkInLocation)
+    switch(this.props.match.params.checkInLocation) {
+      case "1":
+        this.setState({ currentLocation: "Trail Head"});
+        break;
+      case "2":
+        this.setState({ currentLocation: "Spyglass"});
+        break;
+      case "3":
+        this.setState({ currentLocation: "Barton Hills"});
+        break;
+      case "4":
+        this.setState({ currentLocation: "Gus Fruh"});
+        break;
+      case "5":
+        this.setState({ currentLocation: "Loop 360"});
+        break;
+      case "6":
+        this.setState({ currentLocation: "Gaines"});
+        break;
+      case "7":
+        this.setState({ currentLocation: "Trail's End"});
+        break;
+      default: 
+        this.setState({ currentLocation: "defaultPhrase"})
+
+}
   }
   
   handleFormSubmit = event => {
-    const { post, date } = this.state;
+    const { post, date, currentLocation } = this.state;
     const {name, picture}=this.state.currentUser
     
     let checkInId = this.getCheckInLocation();
@@ -236,7 +263,7 @@ class Social extends Component {
       alert(
         "Slow down! You have to log in first before you can access the GreenToad post area."
       );
-      return <Redirect to="/" />;
+      return <Redirect to="/home" />;
     }
     const { classes } = this.props;
     const { isAuthenticated } = this.props.auth;
@@ -345,7 +372,7 @@ class Social extends Component {
             title="Beautiful picture of running water on the Greenbelt"
             >
             <Typography className={classes.text} variant="h4" component="h3" color="secondary">
-              Greenbelt Happenings
+              {this.state.currentLocation && this.state.currentLocation} Happenings
             </Typography>
             <Typography className={classes.text} variant="body1" component="h3" color="secondary">
               Looking for something to do or wondering where all the action is at? 
@@ -382,7 +409,7 @@ class Social extends Component {
               <Grid container wrap="nowrap" spacing={16}>
                 <Grid item xs>
                   <Typography variant="h5" component="h3">
-                    Current Location Updates:
+                    {this.state.currentLocation && this.state.currentLocation} Updates:
                   </Typography>
                   <hr />
                   <Paper className={classes.list} elevation={20}>
@@ -483,4 +510,4 @@ class Social extends Component {
 }
 const SimpleModalWrapped = withStyles(styles)(Modal);
 
-export default withStyles(styles)(Social);
+export default withStyles(styles)(withRouter(Social));

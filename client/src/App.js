@@ -47,7 +47,7 @@ const styles = theme => ({
     flexGrow: 1
   },
   grow: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   menuButton: {
     marginLeft: -10,
@@ -131,26 +131,28 @@ class App extends Component {
         <div className={classes.root}>
           <AppBar position="static">
             <Toolbar className="theme">
-              <img src="http://icons.iconarchive.com/icons/ph03nyx/super-mario/256/Mushroom-1UP-icon.png" id="shroom" alt="" color="inherit" height="50" width="50" />
-              <Typography variant="h5" color="inherit" className={classes.grow}>
+              <Typography variant="h5" color="inherit"  className={classes.grow}>
                 Greentoad
               </Typography>
-              
               {isAuthenticated() && (
+                <React.Fragment>
                 <Button onClick={this.logout.bind(this)} color="inherit">
                   Logout
                 </Button>
+                {this.state.currentUser && <ListItemAvatar>
+                  <Avatar
+                    src={this.state.currentUser.picture}
+                  />
+                </ListItemAvatar>}
+                </React.Fragment>
               )}
               {!isAuthenticated() && (
                 <Button onClick={this.login.bind(this)} color="inherit">
                   Login
                 </Button>
+                
               )}
-              {this.state.currentUser && <ListItemAvatar>
-                <Avatar
-                  src={this.state.currentUser.picture}
-                />
-              </ListItemAvatar>}
+              
               <IconButton
                 className={styles.menuButton}
                 color="inherit"

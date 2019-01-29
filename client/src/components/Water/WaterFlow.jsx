@@ -15,7 +15,7 @@ class WaterFlow extends Component {
 
   componentWillReceiveProps(newProps) {
     // water.runQuery(this.props.location)
-    if (newProps.location !== undefined) {
+    console.log("received props")
       axios
         .get("https://waterservices.usgs.gov/nwis/iv/", {
           params: {
@@ -31,8 +31,28 @@ class WaterFlow extends Component {
           })
         )
         .catch();
-    }
+    
   }
+
+  componentWillMount() {
+    console.log("mounted")
+      axios
+        .get("https://waterservices.usgs.gov/nwis/iv/", {
+          params: {
+            site: this.props.location,
+            format: "json",
+            parameterCd: "00065,00060",
+            siteStatus: "active",
+          }
+        })
+        .then(response =>
+          this.setState({
+            value: response.data.value.timeSeries[0].values[0].value[0].value  / 1.5
+          })
+        )
+        .catch();
+  }
+
   render() {
     /* const radius = 200; */
     const interpolate = interpolateRgb(this.startColor, this.endColor);
