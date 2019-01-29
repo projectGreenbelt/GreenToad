@@ -18,9 +18,7 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 
 //Material UI Icons for Menu
-import AccountBalance from "@material-ui/icons/AccountBalance";
-import LocationOn from "@material-ui/icons/LocationOn";
-import Fingerprint from "@material-ui/icons/Fingerprint";
+import LocationOn from "@material-ui/icons/FlightLand";
 import Person from "@material-ui/icons/Person";
 
 const styles = theme => ({
@@ -122,9 +120,10 @@ class App extends Component {
         <div className={classes.root}>
           <AppBar position="static">
             <Toolbar className="theme">
-              <Typography variant="h6" color="inherit" className={classes.grow}>
-                Project GreenBelt
+              <Typography variant="h5" color="inherit" className={classes.grow}>
+                Greentoad
               </Typography>
+              <img src="" alt="" color="inherit" height="50" width="60" />
               {isAuthenticated() && (
                 <Button onClick={this.logout.bind(this)} color="inherit">
                   Logout
@@ -173,21 +172,6 @@ class App extends Component {
                     />
                   </MenuItem>
                 )}
-                <Link to="/home" style={{ textDecoration: 'none', display: 'block' }} >
-                  <MenuItem
-                    onClick={this.handleClose}
-                    className={classes.menuItem}
-                  >
-                    <ListItemIcon className={classes.icon}>
-                      <AccountBalance />
-                    </ListItemIcon>
-                    <ListItemText
-                      classes={{ primary: classes.primary }}
-                      inset
-                      primary="Home"
-                    />
-                  </MenuItem>
-                </Link>
                 <Link to="/landing" style={{ textDecoration: 'none', display: 'block' }} >
                   <MenuItem
                     onClick={this.handleClose}
@@ -203,19 +187,6 @@ class App extends Component {
                     />
                   </MenuItem>
                 </Link>  
-                <MenuItem
-                  onClick={this.handleClose}
-                  className={classes.menuItem}
-                >
-                  <ListItemIcon className={classes.icon}>
-                    <Fingerprint />
-                  </ListItemIcon>
-                  <ListItemText
-                    classes={{ primary: classes.primary }}
-                    inset
-                    primary="Logout"
-                  />
-                </MenuItem>
               </Menu>
             </Toolbar>
           </AppBar>

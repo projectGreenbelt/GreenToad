@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import { Panel, ControlLabel, Glyphicon } from "react-bootstrap";
 import { Redirect } from "react-router-dom";
-// import "./Profile.css";
 import "../../App.css";
 import { withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
@@ -22,8 +20,7 @@ import ListItem from "@material-ui/core/ListItem";
 
 //Material UI Icons for Menu
 import AccountBalance from "@material-ui/icons/AccountBalance";
-import LocationOn from "@material-ui/icons/LocationOn";
-import Fingerprint from "@material-ui/icons/Fingerprint";
+import LocationOn from "@material-ui/icons/FlightLand";
 import Person from "@material-ui/icons/Person";
 
 const styles = theme => ({
@@ -117,14 +114,9 @@ class Profile extends Component {
         newProfile = profile;
         this.setState({ profile: newProfile });
       });
-    } //else {
-    //this.setState({ profile: userProfile });
-    //}
+    } 
   }
-  //With arrow functions as opposed to standard functions, the context of 'this' points to Profile instead of the getUserInfo function.
-
-  //class Profile calls getUserInfo- with standard function, 'this' is associated with getUserInfo. with Arrow function, 'this' is bound to the object that called it OR it's bound to the window if it's not called by a function.
-  //With react, you always want to have access to the state of the component (object), which is why arrow functions are so prevalent.
+  
   render() {
     const { isAuthenticated } = this.props.auth;
     console.log(isAuthenticated());
@@ -218,20 +210,7 @@ class Profile extends Component {
                   <ListItemText
                     classes={{ primary: classes.primary }}
                     inset
-                    primary="Location"
-                  />
-                </MenuItem>
-                <MenuItem
-                  onClick={this.handleClose}
-                  className={classes.menuItem}
-                >
-                  <ListItemIcon className={classes.icon}>
-                    <Fingerprint />
-                  </ListItemIcon>
-                  <ListItemText
-                    classes={{ primary: classes.primary }}
-                    inset
-                    primary="Logout"
+                    primary="Landing"
                   />
                 </MenuItem>
               </Menu>
@@ -292,10 +271,10 @@ class Profile extends Component {
                 color="primary"
                 >
                 <a 
-                    href="https://github.com/projectGreenbelt/projectGreenbelt"
-                    classname="iconButton"
+                  href="https://github.com/projectGreenbelt/projectGreenbelt"
+                  classname="iconButton"
                 >
-                    <i className="fab fa-github-square" id="icon" aria-hidden="true" color="secondary" />
+                  <i className="fab fa-github-square" id="icon" aria-hidden="true" color="secondary" />
                 </a>
                 </IconButton>
             </ListItem>

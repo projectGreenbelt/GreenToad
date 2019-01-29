@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import Post from "../components/Post/Post";
 import "../App.css";
 import API from "../utils/API";
@@ -28,8 +29,7 @@ import Moment from 'react-moment';
 
 //Material UI Icons for Menu
 import AccountBalance from "@material-ui/icons/AccountBalance";
-import LocationOn from "@material-ui/icons/LocationOn";
-import Fingerprint from "@material-ui/icons/Fingerprint";
+import LocationOn from "@material-ui/icons/FlightLand";
 import Person from "@material-ui/icons/Person";
 
 const styles = theme => ({
@@ -220,7 +220,7 @@ class Social extends Component {
         {withStyles}
         <AppBar position="static">
           <Toolbar className="theme">
-            <Typography variant="h6" color="inherit" className={classes.grow}>
+            <Typography variant="h5" color="inherit" className={classes.grow}>
               Greentoad
             </Typography>
             {isAuthenticated() && (
@@ -274,48 +274,36 @@ class Social extends Component {
                   />
                 </MenuItem>
               )}
-
-              <MenuItem
-                onClick={this.handleClose}
-                className={classes.menuItem}
-              >
-                <ListItemIcon className={classes.icon}>
-                  <AccountBalance />
-                </ListItemIcon>
-                <ListItemText
-                  classes={{ primary: classes.primary }}
-                  inset
-                  primary="Home"
-                  onclick
-
-                />
-              </MenuItem>
-              <MenuItem
-                onClick={this.handleClose}
-                className={classes.menuItem}
-              >
-                <ListItemIcon className={classes.icon}>
-                  <LocationOn />
-                </ListItemIcon>
-                <ListItemText
-                  classes={{ primary: classes.primary }}
-                  inset
-                  primary="Location"
-                />
-              </MenuItem>
-              <MenuItem
-                onClick={this.handleClose}
-                className={classes.menuItem}
-              >
-                <ListItemIcon className={classes.icon}>
-                  <Fingerprint />
-                </ListItemIcon>
-                <ListItemText
-                  classes={{ primary: classes.primary }}
-                  inset
-                  primary="Logout"
-                />
-              </MenuItem>
+              <Link to="/home" style={{ textDecoration: 'none', display: 'block' }} >
+                <MenuItem
+                  onClick={this.handleClose}
+                  className={classes.menuItem}
+                >
+                  <ListItemIcon className={classes.icon}>
+                    <AccountBalance />
+                  </ListItemIcon>
+                  <ListItemText
+                    classes={{ primary: classes.primary }}
+                    inset
+                    primary="Home"
+                  />
+                </MenuItem>
+              </Link>
+              <Link to="/landing" style={{ textDecoration: 'none', display: 'block' }} >
+                <MenuItem
+                  onClick={this.handleClose}
+                  className={classes.menuItem}
+                >
+                  <ListItemIcon className={classes.icon}>
+                    <LocationOn />
+                  </ListItemIcon>
+                  <ListItemText
+                    classes={{ primary: classes.primary }}
+                    inset
+                    primary="Landing"
+                  />
+                </MenuItem>
+              </Link>
             </Menu>
           </Toolbar>
         </AppBar>
@@ -404,13 +392,10 @@ class Social extends Component {
                                         <Moment format="h:mm a">{(post.date)}</Moment>
                                       </div>
                                     </Paper>
-                                   
-                                  </React.Fragment>
-                                  
+                                  </React.Fragment> 
                                 }
                               />
                             </ListItem> 
-                            
                           </Typography>
                         );
                       })}

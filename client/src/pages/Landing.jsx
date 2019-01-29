@@ -20,8 +20,6 @@ import "../Landing.css";
 
 //Material UI Icons for Menu
 import AccountBalance from "@material-ui/icons/AccountBalance";
-import LocationOn from "@material-ui/icons/LocationOn";
-import Fingerprint from "@material-ui/icons/Fingerprint";
 import Person from "@material-ui/icons/Person";
 import Arrow from "@material-ui/icons/KeyboardArrowRight";
 
@@ -153,45 +151,21 @@ class Landing extends Component {
                                     />
                                     </MenuItem>
                                 )}
-                                <MenuItem
-                                    onClick={this.handleClose}
-                                    className={classes.menuItem}
-                                >
-                                <ListItemIcon className={classes.icon}>
-                                    <AccountBalance />
-                                </ListItemIcon>
-                                <ListItemText
-                                    classes={{ primary: classes.primary }}
-                                    inset
-                                    primary="Home"
-                                />
-                                </MenuItem>
-                                <MenuItem
-                                    onClick={this.handleClose}
-                                    className={classes.menuItem}
-                                >
-                                <ListItemIcon className={classes.icon}>
-                                    <LocationOn />
-                                </ListItemIcon>
-                                <ListItemText
-                                    classes={{ primary: classes.primary }}
-                                    inset
-                                    primary="Location"
-                                />
-                                </MenuItem>
-                                <MenuItem
-                                    onClick={this.handleClose}
-                                    className={classes.menuItem}
-                                >
-                                <ListItemIcon className={classes.icon}>
-                                    <Fingerprint />
-                                </ListItemIcon>
-                                <ListItemText
-                                    classes={{ primary: classes.primary }}
-                                    inset
-                                    primary="Logout"
-                                />
-                                </MenuItem>
+                                <Link to="/home" style={{ textDecoration: 'none', display: 'block' }} ></Link>
+                                    <MenuItem
+                                        onClick={this.handleClose}
+                                        className={classes.menuItem}
+                                    >
+                                        <ListItemIcon className={classes.icon}>
+                                            <AccountBalance />
+                                        </ListItemIcon>
+                                        <ListItemText
+                                            classes={{ primary: classes.primary }}
+                                            inset
+                                            primary="Home"
+                                        />
+                                    </MenuItem>
+                                
                             </Menu>
                         </Toolbar>
                     </AppBar>
