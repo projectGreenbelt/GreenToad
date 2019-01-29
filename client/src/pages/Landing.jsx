@@ -151,7 +151,7 @@ class Landing extends Component {
                                     />
                                     </MenuItem>
                                 )}
-                                <Link to="/home" style={{ textDecoration: 'none', display: 'block' }} ></Link>
+                                <Link to="/home" style={{ textDecoration: 'none', display: 'block' }} >
                                     <MenuItem
                                         onClick={this.handleClose}
                                         className={classes.menuItem}
@@ -165,7 +165,7 @@ class Landing extends Component {
                                             primary="Home"
                                         />
                                     </MenuItem>
-                                
+                                </Link>
                             </Menu>
                         </Toolbar>
                     </AppBar>

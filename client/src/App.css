@@ -205,6 +205,12 @@
     align-items: center; 
 }
 
+#shroom {
+    display: flex;
+    align-items: flex-start;
+    justify-content: left;
+}
+
 /* .Button:hover,
 .Button:focus,
 .Button:active {

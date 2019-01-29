@@ -120,10 +120,11 @@ class App extends Component {
         <div className={classes.root}>
           <AppBar position="static">
             <Toolbar className="theme">
+              <img src="http://icons.iconarchive.com/icons/ph03nyx/super-mario/256/Mushroom-1UP-icon.png" id="shroom" alt="" color="inherit" height="50" width="50" />
               <Typography variant="h5" color="inherit" className={classes.grow}>
                 Greentoad
               </Typography>
-              <img src="" alt="" color="inherit" height="50" width="60" />
+              
               {isAuthenticated() && (
                 <Button onClick={this.logout.bind(this)} color="inherit">
                   Logout
