@@ -103,6 +103,14 @@ const styles = theme => ({
   button: {
     margin: theme.spacing.unit * 2,
     
+  },
+  modal: {
+    position: 'absolute',
+    width: theme.spacing.unit * 50,
+    backgroundColor: theme.palette.background.paper,
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing.unit * 4,
+    outline: 'none',
   }
 });
 function getModalStyle() {
@@ -384,17 +392,15 @@ class Social extends Component {
                       aria-describedby="simple-modal-description"
                       open={this.state.showModal}
                     >
-                      <div style={getModalStyle()} className={classes.paper}>
-                        <Typography variant="h6" id="modal-title">
-                          <h1>Your post has been added to Green Toad!</h1>
+                      <div style={getModalStyle()} className={classes.modal} id="modal">
+                        <Typography variant="h6" color="primary" id="modal-title">
+                          Your Post has been added!
+                        </Typography>
                           <span>
                             <img
-                              className="mario"
                               src="https://3.bp.blogspot.com/-35XcSUkkKEw/WDZIEP8bteI/AAAAAAALaVk/rjrZxNa_nls4x_PxqjDJdtwonvdtlI_sQCLcB/s1600/AS002064_07.gif"
                             />
                           </span>
-                        </Typography>
-
                         <SimpleModalWrapped />
                       </div>
                     </Modal>
