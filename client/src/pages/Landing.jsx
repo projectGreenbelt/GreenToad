@@ -107,8 +107,8 @@ class Landing extends Component {
                 <div className={classes.root}>
                     <AppBar position="static">
                         <Toolbar className="theme">
-                            <Typography variant="h6" color="inherit" className={classes.grow}>
-                                Project GreenBelt
+                            <Typography variant="h5" color="inherit" className={classes.grow}>
+                                Greentoad
                             </Typography>
                             {isAuthenticated() && (
                                 <Button onClick={this.logout.bind(this)} color="inherit">

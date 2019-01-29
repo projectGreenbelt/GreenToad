@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-// import { Navbar, Button } from "react-bootstrap";
-// import Auth from "./components/Authorization/Authorization";
 import Main from "./pages/Main";
 import { Redirect, Link } from "react-router-dom";
 import "./App.css";
@@ -108,14 +106,6 @@ class App extends Component {
     this.props.auth.logout();
   }
 
-  // componentDidMount() {
-  //   const { renewSession } = this.props.auth;
-
-  //   if (localStorage.getItem("isLoggedIn") === "true") {
-  //     renewSession();
-  //   }
-  // }
-
   //1.send isAuthenticated as a default prop to my test that will generate JWT (token)
   //if sending as a default prop, would have to be a function that
   render() {
@@ -127,7 +117,7 @@ class App extends Component {
       return <Redirect to="/profile" />;
     }
     return (
-      <div>
+      <div data-name>
         {withStyles}
         <div className={classes.root}>
           <AppBar position="static">

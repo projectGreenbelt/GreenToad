@@ -221,7 +221,7 @@ class Social extends Component {
         <AppBar position="static">
           <Toolbar className="theme">
             <Typography variant="h6" color="inherit" className={classes.grow}>
-              Project GreenBelt
+              Greentoad
             </Typography>
             {isAuthenticated() && (
               <Button onClick={this.logout.bind(this)} color="inherit">

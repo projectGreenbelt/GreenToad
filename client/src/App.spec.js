@@ -5,19 +5,11 @@ import App from "./App";
 
 configure({ adapter: new Adapter() });
 it("should render the Container Component", () => {
-  const wrapper = shallow(<App auth={{ isAuthenticated: () => true }} />);
-  // console.log(wrapper.html());
-  expect(wrapper.find("div").length).toEqual(1);
-  // expect(wrapper.containsMatchingElement(<Main />)).toEqual(true);
+  const wrapper = shallow(<App auth={{ isAuthenticated: () => true }} 
+    state = {{
+    anchorEl: null,
+    toProfile: false
+  } }/>);
+  console.log(wrapper.find("[data-name]").children());
+  expect(wrapper.find("[data-name]")).toEqual(1);
 });
-// describe("App", () => {
-//   it("should render a <div />", () => {
-//     const wrapper = shallow(<App />);
-//     expect(wrapper.find("div").length).toEqual(1);
-//   });
-
-//   it("should render the Authentic Component", () => {
-//     const wrapper = shallow(<App />);
-//     expect(wrapper.containsMatchingElement(<Authentication />)).toEqual(true);
-//   });
-// });
