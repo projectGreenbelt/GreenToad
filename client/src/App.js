@@ -22,7 +22,18 @@ import AccountBalance from "@material-ui/icons/AccountBalance";
 import LocationOn from "@material-ui/icons/LocationOn";
 import Fingerprint from "@material-ui/icons/Fingerprint";
 import Person from "@material-ui/icons/Person";
+//enzyme to remove:
+// import { shallow, configure } from "enzyme";
+// import Adapter from "enzyme-adapter-react-16";
+// configure({ adapter: new Adapter() });
+// const wrapper = shallow(<App auth={{ isAuthenticated: () => true }} 
+//     state = {{
+//     anchorEl: null,
+//     toProfile: false
+//   } }/>);
+//   console.log(wrapper)
 
+//enzyme to remove
 const styles = theme => ({
   menuItem: {
     "&:hover": {
@@ -95,7 +106,7 @@ class App extends Component {
       return <Redirect to="/profile" />;
     }
     return (
-      <div>
+      <div data-name>
         {withStyles}
         <div className={classes.root}>
           <AppBar position="static">
