@@ -34,7 +34,7 @@ User Posts Page:
 
   ![](https://thumbs.gfycat.com/FatalBelovedArabianoryx-small.gif)
   
-  <img src="https://thumbs.gfycat.com/FatalBelovedArabianoryx-small.gif" width="400" height="300">
+  <img src="https://thumbs.gfycat.com/FatalBelovedArabianoryx-small.gif" width="600" height="300">
 
 - [Normal](https://drive.google.com/file/d/1rIa7fcEAjyiVvj4E2n3ebHNga3LUFIk8/view)
 
