@@ -26,7 +26,7 @@
 User Posts Page:
 ![user_post_alt](https://user-images.githubusercontent.com/41517616/50718048-9b92df00-1051-11e9-9183-ecb042bddf1b.png)
 
-### Examples
+### Demoes
 
 - [Widescreen](https://drive.google.com/file/d/1qYlutBazsrYM6ZLkKngHXrOj2JRbp0K7/view)
 
