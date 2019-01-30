@@ -32,7 +32,7 @@ User Posts Page:
 
 - [Widescreen](https://drive.google.com/file/d/1qYlutBazsrYM6ZLkKngHXrOj2JRbp0K7/view)
 
-!(https://gfycat.com/FatalBelovedArabianoryx.gif)
+!(<div style='position:relative; padding-bottom:calc(48.44% + 44px)'><iframe src='https://gfycat.com/ifr/FatalBelovedArabianoryx' frameborder='0' scrolling='no' width='100%' height='100%' style='position:absolute;top:0;left:0;' allowfullscreen></iframe></div><p> <a href="https://gfycat.com/FatalBelovedArabianoryx">via Gfycat</a></p>)
 
 - [Normal](https://drive.google.com/file/d/1rIa7fcEAjyiVvj4E2n3ebHNga3LUFIk8/view)
 
