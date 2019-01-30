@@ -1,4 +1,4 @@
-                      ![](http://icons.iconarchive.com/icons/ph03nyx/super-mario/256/Mushroom-1UP-icon.png) 
+![](http://icons.iconarchive.com/icons/ph03nyx/super-mario/256/Mushroom-1UP-icon.png) 
 
 ## Project Greenbelt (GreenToad) 
 
