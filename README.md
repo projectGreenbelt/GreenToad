@@ -40,7 +40,7 @@ User Posts Page:
 
 - [Mobile](https://drive.google.com/file/d/1_ySdU_5Zzw3TSgXsC9fWveFU-eUMqz_e/view)
 
-  ![](https://thumbs.gfycat.com/PoliteJealousIrishredandwhitesetter-small.gif)
+  ![](https://thumbs.gfycat.com/ThoughtfulSpryBlacklab-small.gif)
 
 ### Tech/framework used
 
