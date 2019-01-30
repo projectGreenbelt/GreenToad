@@ -1,6 +1,6 @@
 # Project Greenbelt (GreenToad) 
 
-> The all in one app for status updates and current breakdowns of all public access points on the Austin Greenbelt!
+> The all-in-one app for status updates and current breakdowns of all the public access points on the Austin Greenbelt!
 
 ## Motivation
 
