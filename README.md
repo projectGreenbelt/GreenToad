@@ -26,6 +26,14 @@
 User Posts Page:
 ![user_post_alt](https://user-images.githubusercontent.com/41517616/50718048-9b92df00-1051-11e9-9183-ecb042bddf1b.png)
 
+### Examples
+
+![Widescreen](https://drive.google.com/file/d/1qYlutBazsrYM6ZLkKngHXrOj2JRbp0K7/view)
+
+![Normal](https://drive.google.com/file/d/1_ySdU_5Zzw3TSgXsC9fWveFU-eUMqz_e/view)
+
+![Mobile](https://drive.google.com/file/d/1rIa7fcEAjyiVvj4E2n3ebHNga3LUFIk8/view)
+
 ### Tech/framework used
 
 <b>Front-End</b>
@@ -33,7 +41,8 @@ User Posts Page:
 - CSS
 - JavaScript
 - 0auth
-- Socket.io
+- JSS
+- D3
 
 
 <b>Back-End</b>
@@ -47,7 +56,7 @@ User Posts Page:
 - [Heroku](https://projectgreenbelt.herokuapp.com/)
 
 <b>Project Management</b>
-- We will be using Github flow to manage this project. We will use an interactive project board to track issues that will be resolved through pull requests.
+- We are using Github flow to manage this project. It is an interactive project board to track issues that will be resolved through pull requests.
   
 ### Team Members
 1. [James Tobey](https://github.com/jctobey)
