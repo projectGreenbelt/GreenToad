@@ -75,6 +75,7 @@ User Posts Page:
 
 - Mongo Database
 - Mongo Labs (For deployed Database)
+- Mongoose Schema
 - Node.js
 - Express
 - 0auth
