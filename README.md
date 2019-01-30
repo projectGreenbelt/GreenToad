@@ -34,19 +34,22 @@ User Posts Page:
 
 - [Widescreen](https://drive.google.com/file/d/1qYlutBazsrYM6ZLkKngHXrOj2JRbp0K7/view)
 
-  ![](https://thumbs.gfycat.com/FatalBelovedArabianoryx-small.gif)
-  
   <p align="center">
     <img src="https://thumbs.gfycat.com/FatalBelovedArabianoryx-small.gif">
   </p>
 
 - [Normal](https://drive.google.com/file/d/1rIa7fcEAjyiVvj4E2n3ebHNga3LUFIk8/view)
-
-  ![](https://thumbs.gfycat.com/PoliteJealousIrishredandwhitesetter-small.gif)
+  
+  <p align="center">
+    <img src="https://thumbs.gfycat.com/PoliteJealousIrishredandwhitesetter-small.gif">
+  </p>
 
 - [Mobile](https://drive.google.com/file/d/1_ySdU_5Zzw3TSgXsC9fWveFU-eUMqz_e/view)
 
-  ![](https://thumbs.gfycat.com/ThoughtfulSpryBlacklab-small.gif)
+  <p align="center">
+    <img src="https://thumbs.gfycat.com/ThoughtfulSpryBlacklab-small.gif">
+  </p>
+ 
 
 ### Tech/framework used
 
