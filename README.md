@@ -36,7 +36,11 @@ User Posts Page:
 
 - [Normal](https://drive.google.com/file/d/1rIa7fcEAjyiVvj4E2n3ebHNga3LUFIk8/view)
 
+  ![](https://thumbs.gfycat.com/PoliteJealousIrishredandwhitesetter-small.gif)
+
 - [Mobile](https://drive.google.com/file/d/1_ySdU_5Zzw3TSgXsC9fWveFU-eUMqz_e/view)
+
+  ![](https://thumbs.gfycat.com/PoliteJealousIrishredandwhitesetter-small.gif)
 
 ### Tech/framework used
 
