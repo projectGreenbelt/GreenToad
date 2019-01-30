@@ -97,12 +97,12 @@ User Posts Page:
 
 - In the future, we would like to add more features to the Social page that would show more location specific content. Also, we would like to add more widgets to the home page such as a list of all the trails on the Greenbelt and their current conditions. There really is an endless amount of possibilites that we could work with in this space to benefit the user.
 
-- App speed and performance wise, we would like to work more with Ternary Operators to conditionally render almost all of the content on the page with having to refresh/reload. For example, when checking into a specific location, a ternary operator will fire off and conditionally render the Posts and submitPosts components to the home page intsead of redirecting the routing to a "new" page. We believe this would make the website much more dynamic and truer to the vision that we believe a highly responsive React App should be.
+- For App speed and performance, we would like to work more with Ternary Operators to conditionally render almost all of the content on the page with having to refresh/reload. For example, when checking into a specific location, a ternary operator will fire off and conditionally render the Posts and submitPosts components to the home page intsead of redirecting the routing to a "new" page. We believe this would make the website much more dynamic and truer to the vision that we believe a highly responsive React App should be.
 
-- Testing Wise, We began working with Jest tests, CI (Continuous Intergration), and Enzyme but sidetracked to focus more on the features of the app to deliver a quality MVP in the time alloted. Now, since that is done, we would like to begin writing more tests such as Benchmark Speed Testing and Shallow Rendering to increase site functionality. 
+- For testing, We began working with Jest tests, CI (Continuous Intergration), and Enzyme but sidetracked to focus more on the features of the app to deliver a quality MVP in the time alloted. Now, since that is done, we would like to begin writing more tests such as Benchmark Speed Testing and Shallow Rendering to increase site functionality. 
 
 
-<b>If you would like to contribute to our idea code wise, make a pull request and we will do our best to respond as quickly as we can! Or just give us some money and we will do it for you! ;)</b>
+<b>If you would like to contribute to our idea code-wise, make a pull request and we will do our best to respond as quickly as we can! Or just give us some money and we will do it for you! ;)</b>
 
 
 ### Team Members
