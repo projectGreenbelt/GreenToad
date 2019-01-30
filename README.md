@@ -13,8 +13,8 @@
 
 ### MVP
 
-1. Show users the list of greenbelt locations in Austin, along with Austin weather information.
-2. Allow them to select a location from the list of greenbelt locations.
+1. Shows users the list of greenbelt locations in Austin, along with Austin weather information.
+2. Allows them to select a location from the list of greenbelt locations.
 3. Once a greenbelt location is selected, the following functionality will be available:
 
 * View threads/posts from other users who have selected this location. 
