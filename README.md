@@ -17,8 +17,8 @@
 
 ### Primary Purpose Of App
 
-1. Shows users the list of greenbelt locations in Austin, along with Austin weather information.
-2. Allows them to select a location from the list of greenbelt locations.
+1. Shows users the list of greenbelt locations in Austin, along with Austin weather information, current water levels, and current water flow at each location.
+2. Allows users to select a location from the list of greenbelt locations.
 3. Once a greenbelt location is selected, the following functionality will be available:
 
 * View threads/posts from other users who have selected this location. 
