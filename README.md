@@ -8,11 +8,11 @@
 
 ## Motivation
 
-> As local Austinites and nature lovers we felt that there needed to be a comprehensive app that fellow Greenbelters could use to be informed in real-time what current situations are going down at each public access point. Stats we've currently included would are water levels, water flows, current Greenblt weather, parking, as well as brief descriptions of each location and instructions for access. 
+> As local Austinites and nature lovers we felt that there needed to be a comprehensive app that fellow Greenbelters could use to be informed in real-time what current situations are going down at each public access point. Stats we've currently included in this demo are water levels, water flows, current Greenbelt weather, as well as brief descriptions of each location and instructions for access. 
 
 ### Learning Objectives
 
-* Mark: Increase React proficiency by building react components as part of the View in our site. 
+* Mark: Increase React proficiency by building react components as part of the View in our site, and become more comfortable using Ternary Operartors to conditionally render components. 
 * James: Increase React proficiency, as well as buid skill set pertaining to user authentication and real-time interaction between application users.
 
 ### Primary Purpose Of App
