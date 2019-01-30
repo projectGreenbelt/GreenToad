@@ -32,7 +32,7 @@ User Posts Page:
 
 - [Widescreen](https://drive.google.com/file/d/1qYlutBazsrYM6ZLkKngHXrOj2JRbp0K7/view)
 
-![Alt Text](https://drive.google.com/file/d/1qYlutBazsrYM6ZLkKngHXrOj2JRbp0K7/view)
+![Alt Text](https://imgur.com/a/aS9mB9r)
 
 - [Normal](https://drive.google.com/file/d/1rIa7fcEAjyiVvj4E2n3ebHNga3LUFIk8/view)
 
