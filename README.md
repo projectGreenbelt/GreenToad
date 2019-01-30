@@ -76,6 +76,10 @@ User Posts Page:
 - Express
 - 0auth
 - Socket.io
+
+<b>API<b>
+- USG Water Services API
+- Dark Sky API
   
 <b>Deployment</b>
 - [Heroku](https://projectgreenbelt.herokuapp.com/)
