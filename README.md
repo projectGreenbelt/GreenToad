@@ -32,7 +32,7 @@ User Posts Page:
 
 - [Widescreen](https://drive.google.com/file/d/1qYlutBazsrYM6ZLkKngHXrOj2JRbp0K7/view)
 
-![](https://gfycat.com/FatalBelovedArabianoryx)
+!(https://gfycat.com/FatalBelovedArabianoryx)
 
 - [Normal](https://drive.google.com/file/d/1rIa7fcEAjyiVvj4E2n3ebHNga3LUFIk8/view)
 
