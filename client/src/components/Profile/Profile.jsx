@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import { Panel, ControlLabel, Glyphicon } from "react-bootstrap";
-import { Redirect } from "react-router-dom";
-// import "./Profile.css";
+import { Redirect, Link } from "react-router-dom";
 import "../../App.css";
+import API from "../../utils/API";
 import { withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -19,12 +18,12 @@ import Card from "@material-ui/core/Card";
 import Arrow from "@material-ui/icons/KeyboardArrowLeft";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import Avatar from '@material-ui/core/Avatar';
 
 //Material UI Icons for Menu
 import AccountBalance from "@material-ui/icons/AccountBalance";
-import LocationOn from "@material-ui/icons/LocationOn";
-import Fingerprint from "@material-ui/icons/Fingerprint";
-import Person from "@material-ui/icons/Person";
+import LocationOn from "@material-ui/icons/FlightLand";
 
 const styles = theme => ({
   menuItem: {
@@ -107,6 +106,16 @@ class Profile extends Component {
     this.props.auth.logout();
   }
 
+  handleFormSubmit = event => {
+    const {picture}=this.state.currentUser
+    
+    API.savePost({
+      picture
+    })
+      .then(this.handleRefresh())
+      .catch(err => console.log(err));
+  };
+
   componentDidMount() {
     const { userProfile, getUserInfo, userInfo } = this.props.auth;
     if (this.props.auth.isAuthenticated()) {
@@ -117,14 +126,9 @@ class Profile extends Component {
         newProfile = profile;
         this.setState({ profile: newProfile });
       });
-    } //else {
-    //this.setState({ profile: userProfile });
-    //}
+    } 
   }
-  //With arrow functions as opposed to standard functions, the context of 'this' points to Profile instead of the getUserInfo function.
-
-  //class Profile calls getUserInfo- with standard function, 'this' is associated with getUserInfo. with Arrow function, 'this' is bound to the object that called it OR it's bound to the window if it's not called by a function.
-  //With react, you always want to have access to the state of the component (object), which is why arrow functions are so prevalent.
+  
   render() {
     const { isAuthenticated } = this.props.auth;
     console.log(isAuthenticated());
@@ -146,20 +150,24 @@ class Profile extends Component {
         <div className={classes.root}>
           <AppBar position="static">
             <Toolbar className="theme">
-              <Typography variant="h6" color="inherit" className={classes.grow}>
-                Project GreenBelt
+              <Typography variant="h5" color="inherit" className={classes.grow}>
+                Greentoad
               </Typography>
               {isAuthenticated() && (
                 <Button onClick={this.logout.bind(this)} color="inherit">
                   Logout
-                </Button>
+                </Button>  
               )}
               {!isAuthenticated() && (
                 <Button onClick={this.login.bind(this)} color="inherit">
                   Login
                 </Button>
               )}
-
+              <ListItemAvatar>
+                <Avatar
+                  src={profile.picture}
+                />
+              </ListItemAvatar>
               <IconButton
                 className={classes.menuItem}
                 color="inherit"
@@ -176,24 +184,7 @@ class Profile extends Component {
                 open={Boolean(anchorEl)}
                 onClose={this.handleClose}
               >
-                {isAuthenticated() && (
-                  <MenuItem
-                    onClick={this.handleClose}
-                    className={classes.menuItem}
-                  >
-                    <ListItemIcon className={classes.icon}>
-                      <Person />
-                    </ListItemIcon>
-
-                    <ListItemText
-                      classes={{ primary: classes.primary }}
-                      inset
-                      primary="Profile"
-                      onClick={() => this.handleProfile()}
-                    />
-                  </MenuItem>
-                )}
-
+              <Link to="/home" style={{ textDecoration: 'none', display: 'block' }} >
                 <MenuItem
                   onClick={this.handleClose}
                   className={classes.menuItem}
@@ -208,32 +199,22 @@ class Profile extends Component {
                     onclick
                   />
                 </MenuItem>
-                <MenuItem
-                  onClick={this.handleClose}
-                  className={classes.menuItem}
-                >
-                  <ListItemIcon className={classes.icon}>
-                    <LocationOn />
-                  </ListItemIcon>
-                  <ListItemText
-                    classes={{ primary: classes.primary }}
-                    inset
-                    primary="Location"
-                  />
-                </MenuItem>
-                <MenuItem
-                  onClick={this.handleClose}
-                  className={classes.menuItem}
-                >
-                  <ListItemIcon className={classes.icon}>
-                    <Fingerprint />
-                  </ListItemIcon>
-                  <ListItemText
-                    classes={{ primary: classes.primary }}
-                    inset
-                    primary="Logout"
-                  />
-                </MenuItem>
+              </Link>  
+                <Link to="/landing" style={{ textDecoration: 'none', display: 'block' }} >
+                  <MenuItem
+                    onClick={this.handleClose}
+                    className={classes.menuItem}
+                  >
+                    <ListItemIcon className={classes.icon}>
+                      <LocationOn />
+                    </ListItemIcon>
+                    <ListItemText
+                      classes={{ primary: classes.primary }}
+                      inset
+                      primary="Landing"
+                    />
+                  </MenuItem>
+                </Link>
               </Menu>
             </Toolbar>
           </AppBar>
@@ -292,10 +273,10 @@ class Profile extends Component {
                 color="primary"
                 >
                 <a 
-                    href="https://github.com/projectGreenbelt/projectGreenbelt"
-                    classname="iconButton"
+                  href="https://github.com/projectGreenbelt/projectGreenbelt"
+                  classname="iconButton"
                 >
-                    <i className="fab fa-github-square" id="icon" aria-hidden="true" color="secondary" />
+                  <i className="fab fa-github-square" id="icon" aria-hidden="true" color="secondary" />
                 </a>
                 </IconButton>
             </ListItem>

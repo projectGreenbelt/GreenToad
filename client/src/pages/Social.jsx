@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link, withRouter } from "react-router-dom";
 import Post from "../components/Post/Post";
 import "../App.css";
 import API from "../utils/API";
@@ -29,8 +30,7 @@ import Moment from 'react-moment';
 
 //Material UI Icons for Menu
 import AccountBalance from "@material-ui/icons/AccountBalance";
-import LocationOn from "@material-ui/icons/LocationOn";
-import Fingerprint from "@material-ui/icons/Fingerprint";
+import LocationOn from "@material-ui/icons/FlightLand";
 import Person from "@material-ui/icons/Person";
 
 const styles = theme => ({
@@ -103,6 +103,14 @@ const styles = theme => ({
   button: {
     margin: theme.spacing.unit * 2,
     
+  },
+  modal: {
+    position: 'absolute',
+    width: theme.spacing.unit * 50,
+    backgroundColor: theme.palette.background.paper,
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing.unit * 4,
+    outline: 'none',
   }
 });
 function getModalStyle() {
@@ -166,10 +174,37 @@ class Social extends Component {
       this.getUserInfo();
     }
     this.getCheckInLocation();
+    console.log(this.props.match.params.checkInLocation)
+    switch(this.props.match.params.checkInLocation) {
+      case "1":
+        this.setState({ currentLocation: "Trail Head"});
+        break;
+      case "2":
+        this.setState({ currentLocation: "Spyglass"});
+        break;
+      case "3":
+        this.setState({ currentLocation: "Barton Hills"});
+        break;
+      case "4":
+        this.setState({ currentLocation: "Gus Fruh"});
+        break;
+      case "5":
+        this.setState({ currentLocation: "Loop 360"});
+        break;
+      case "6":
+        this.setState({ currentLocation: "Gaines"});
+        break;
+      case "7":
+        this.setState({ currentLocation: "Trail's End"});
+        break;
+      default: 
+        this.setState({ currentLocation: "defaultPhrase"})
+
+}
   }
   
   handleFormSubmit = event => {
-    const { post, date } = this.state;
+    const { post, date, } = this.state;
     const {name, picture}=this.state.currentUser
     
     let checkInId = this.getCheckInLocation();
@@ -228,7 +263,7 @@ class Social extends Component {
       alert(
         "Slow down! You have to log in first before you can access the GreenToad post area."
       );
-      return <Redirect to="/" />;
+      return <Redirect to="/home" />;
     }
     const { classes } = this.props;
     const { isAuthenticated } = this.props.auth;
@@ -242,8 +277,8 @@ class Social extends Component {
         {withStyles}
         <AppBar position="static">
           <Toolbar className="theme">
-            <Typography variant="h6" color="inherit" className={classes.grow}>
-              Project GreenBelt
+            <Typography variant="h5" color="inherit" className={classes.grow}>
+              Greentoad
             </Typography>
             {isAuthenticated() && (
               <Button onClick={this.logout.bind(this)} color="inherit">
@@ -259,10 +294,7 @@ class Social extends Component {
               {this.state.currentUser ?  <Avatar
                 src={this.state.currentUser.picture}
               /> : <Avatar />}
-
-             
             </ListItemAvatar>
-
             <IconButton
               className={classes.menuItem}
               color="inherit"
@@ -287,7 +319,6 @@ class Social extends Component {
                   <ListItemIcon className={classes.icon}>
                     <Person />
                   </ListItemIcon>
-
                   <ListItemText
                     classes={{ primary: classes.primary }}
                     inset
@@ -296,60 +327,44 @@ class Social extends Component {
                   />
                 </MenuItem>
               )}
-
-              <MenuItem
-                onClick={this.handleClose}
-                className={classes.menuItem}
-              >
-                <ListItemIcon className={classes.icon}>
-                  <AccountBalance />
-                </ListItemIcon>
-                <ListItemText
-                  classes={{ primary: classes.primary }}
-                  inset
-                  primary="Home"
-                  onclick
-
-                />
-              </MenuItem>
-              <MenuItem
-                onClick={this.handleClose}
-                className={classes.menuItem}
-              >
-                <ListItemIcon className={classes.icon}>
-                  <LocationOn />
-                </ListItemIcon>
-                <ListItemText
-                  classes={{ primary: classes.primary }}
-                  inset
-                  primary="Location"
-                />
-              </MenuItem>
-              <MenuItem
-                onClick={this.handleClose}
-                className={classes.menuItem}
-              >
-                <ListItemIcon className={classes.icon}>
-                  <Fingerprint />
-                </ListItemIcon>
-                <ListItemText
-                  classes={{ primary: classes.primary }}
-                  inset
-                  primary="Logout"
-                />
-              </MenuItem>
+              <Link to="/home" style={{ textDecoration: 'none', display: 'block' }} >
+                <MenuItem
+                  onClick={this.handleClose}
+                  className={classes.menuItem}
+                >
+                  <ListItemIcon className={classes.icon}>
+                    <AccountBalance />
+                  </ListItemIcon>
+                  <ListItemText
+                    classes={{ primary: classes.primary }}
+                    inset
+                    primary="Home"
+                  />
+                </MenuItem>
+              </Link>
+              <Link to="/landing" style={{ textDecoration: 'none', display: 'block' }} >
+                <MenuItem
+                  onClick={this.handleClose}
+                  className={classes.menuItem}
+                >
+                  <ListItemIcon className={classes.icon}>
+                    <LocationOn />
+                  </ListItemIcon>
+                  <ListItemText
+                    classes={{ primary: classes.primary }}
+                    inset
+                    primary="Landing"
+                  />
+                </MenuItem>
+              </Link>
             </Menu>
           </Toolbar>
         </AppBar>
-        <Card className="card">
-          <CardMedia
-            className="cardText"
-            image="../assets/img/Social.jpg"
-            height="140"
-            title="Beautiful picture of running water on the Greenbelt"
-            >
+        <Paper className="card">
+        <br /><br /><br /><br /><br /><br/>
+          <div className="socialBannerText">     
             <Typography className={classes.text} variant="h4" component="h3" color="secondary">
-              Greenbelt Happenings
+              {this.state.currentLocation && this.state.currentLocation} Happenings
             </Typography>
             <Typography className={classes.text} variant="body1" component="h3" color="secondary">
               Looking for something to do or wondering where all the action is at? 
@@ -359,8 +374,8 @@ class Social extends Component {
               Post about anything. How's the water? Is the Trail muddy? Parking? Crowds? Mega hippie drum circles? 
               Let us know!
             </Typography>
-          </CardMedia>
-        </Card>
+          </div> 
+        </Paper>
         <Paper className={classes.paper} elevation={20}>
           <div className="socialLayout">
             <div className="socialLeft">
@@ -386,7 +401,7 @@ class Social extends Component {
               <Grid container wrap="nowrap" spacing={16}>
                 <Grid item xs>
                   <Typography variant="h5" component="h3">
-                    Current Location Updates:
+                    {this.state.currentLocation && this.state.currentLocation} Updates:
                   </Typography>
                   <hr />
                   <Paper className={classes.list} elevation={20}>
@@ -396,17 +411,15 @@ class Social extends Component {
                       aria-describedby="simple-modal-description"
                       open={this.state.showModal}
                     >
-                      <div style={getModalStyle()} className={classes.paper}>
-                        <Typography variant="h6" id="modal-title">
-                          <h1>Your post has been added to Green Toad!</h1>
+                      <div style={getModalStyle()} className={classes.modal} id="modal">
+                        <Typography variant="h6" color="primary" id="modal-title">
+                          Your Post has been added!
+                        </Typography>
                           <span>
                             <img
-                              className="mario"
                               src="https://3.bp.blogspot.com/-35XcSUkkKEw/WDZIEP8bteI/AAAAAAALaVk/rjrZxNa_nls4x_PxqjDJdtwonvdtlI_sQCLcB/s1600/AS002064_07.gif"
                             />
                           </span>
-                        </Typography>
-
                         <SimpleModalWrapped />
                       </div>
                     </Modal>
@@ -416,7 +429,7 @@ class Social extends Component {
                       }).map(post => {
                         return (
                           <Typography>
-                            <ListItem key={post._id} alignItems="flex-start">
+                            <ListItem key={post._id} alignItems="flex-start" className="smoothScroll">
                               <ListItemAvatar>
                                 <Avatar src={post.picture} />
                               </ListItemAvatar>
@@ -445,13 +458,10 @@ class Social extends Component {
                                         <Moment format="h:mm a">{(post.date)}</Moment>
                                       </div>
                                     </Paper>
-                                   
-                                  </React.Fragment>
-                                  
+                                  </React.Fragment> 
                                 }
                               />
                             </ListItem> 
-                            
                           </Typography>
                         );
                       })}
@@ -492,4 +502,4 @@ class Social extends Component {
 }
 const SimpleModalWrapped = withStyles(styles)(Modal);
 
-export default withStyles(styles)(Social);
+export default withStyles(styles)(withRouter(Social));

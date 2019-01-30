@@ -68,22 +68,20 @@ function PaperSheet(props) {
         <Grid container wrap="nowrap" spacing={16}>
           <Grid item xs className="container">
             <div className="col1">
-              <Paper className={classes.paper} elevation={20}>
-                <Typography variant="h4" component="h3">
-                  {name}
-                </Typography>
-                <Typography variant="h6" component="h5">
-                  {address}
-                </Typography>
+                <Paper className={classes.paper} elevation={20}>
+                  <Typography variant="h4" component="h3">
+                    {name}
+                  </Typography>
+                  <Typography variant="h6" component="h5">
+                    {address}
+                  </Typography>
+                  <div className="Card">
+                    <Card image={image} elevation={15} />
+                  </div>
+                </Paper>
                 <div className="Card">
-                  <Card image={image} elevation={15} />
+                  <Description description={description} />
                 </div>
-              </Paper>
-
-              <div className="Card">
-                <Description description={description} />
-              </div>
-
               <Paper className={classes.paper} elevation={20}>
                 {name !== undefined ? (
                   <div>

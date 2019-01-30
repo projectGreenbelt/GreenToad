@@ -128,8 +128,11 @@
 .card {
     margin-top: .2%;
     width: 100%;
-    background-image: url('./assets/img/Social.jpg');
-    height: 550px;
+    background-image: url('./assets/img/Social2.jpg');
+    -webkit-background-size: 100%;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    height: 500px;
     background-repeat: no-repeat;
     background-size: cover; 
     background-attachment: fixed;
@@ -205,6 +208,14 @@
     align-items: center; 
 }
 
+.smoothScroll {
+    -webkit-overflow-scrolling: touch;
+}
+
+.socialBannerText {
+    margin-left: 18%;
+}
+
 /* .Button:hover,
 .Button:focus,
 .Button:active {
@@ -255,6 +266,10 @@
         flex-direction: column;
         align-items: center;
         justify-content: center; 
+    }
+
+    .socialBannerText {
+        margin-left: 0%;
     }
 }
 

@@ -204,7 +204,7 @@ const Map = withScriptjs(
 class Main extends Component {
   // Constructor and state
   state = {
-    currentAccessPoint: {},
+    currentAccessPoint: null,
     checkInLocation: {},
     checkedIn: false,
     toPosts: false

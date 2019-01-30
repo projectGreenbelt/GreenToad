@@ -15,25 +15,41 @@ class WaterLevel extends Component {
 
   componentWillReceiveProps(newProps) {
     // water.runQuery(this.props.location)
-    if (newProps.location !== undefined) {
-      axios
-        .get("https://waterservices.usgs.gov/nwis/iv/", {
-          params: {
-            site: newProps.location,
-            format: "json",
-            parameterCd: "00065,00060",
-            siteStatus: "active"
-          }
-        })
-        .then(response =>
-            this.setState({
-                value: response.data.value.timeSeries[1].values[0].value[0].value * 10
-            })
-        )   
-        .catch();
-    }
-
+    axios
+      .get("https://waterservices.usgs.gov/nwis/iv/", {
+        params: {
+          site: newProps.location,
+          format: "json",
+          parameterCd: "00065,00060",
+          siteStatus: "active"
+        }
+      })
+      .then(response =>
+          this.setState({
+              value: response.data.value.timeSeries[1].values[0].value[0].value * 10
+          })
+      )   
+      .catch();
   }
+
+  componentWillMount() {
+    axios
+      .get("https://waterservices.usgs.gov/nwis/iv/", {
+        params: {
+          site: this.props.location,
+          format: "json",
+          parameterCd: "00065,00060",
+          siteStatus: "active",
+        }
+      })
+      .then(response =>
+        this.setState({
+          value: response.data.value.timeSeries[1].values[0].value[0].value  * 10
+        })
+      )
+      .catch();
+  }
+
   render() {
     /* const radius = 200; */
     const interpolate = interpolateRgb(this.startColor, this.endColor);

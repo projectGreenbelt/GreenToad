@@ -7,11 +7,11 @@
     background-attachment: fixed;
     background-position: center; 
     z-index: 9999;
-    background-image: url("./assets/img/Austin-Greenbelt.jpg");
+    background-image: url("./assets/img/Test.jpg");
 }
 
 #card {
-    opacity: .8;
+    opacity: .9;
     margin-left: 25%;
     margin-top: 8%;
     padding: 1%;

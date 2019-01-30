@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-// import { Navbar, Button } from "react-bootstrap";
-// import Auth from "./components/Authorization/Authorization";
 import Main from "./pages/Main";
 import { Redirect, Link } from "react-router-dom";
 import "./App.css";
@@ -20,9 +18,7 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 
 //Material UI Icons for Menu
-import AccountBalance from "@material-ui/icons/AccountBalance";
-import LocationOn from "@material-ui/icons/LocationOn";
-import Fingerprint from "@material-ui/icons/Fingerprint";
+import LocationOn from "@material-ui/icons/FlightLand";
 import Person from "@material-ui/icons/Person";
 //enzyme to remove:
 // import { shallow, configure } from "enzyme";
@@ -51,7 +47,7 @@ const styles = theme => ({
     flexGrow: 1
   },
   grow: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   menuButton: {
     marginLeft: -10,
@@ -119,14 +115,6 @@ class App extends Component {
     this.props.auth.logout();
   }
 
-  // componentDidMount() {
-  //   const { renewSession } = this.props.auth;
-
-  //   if (localStorage.getItem("isLoggedIn") === "true") {
-  //     renewSession();
-  //   }
-  // }
-
   //1.send isAuthenticated as a default prop to my test that will generate JWT (token)
   //if sending as a default prop, would have to be a function that
   render() {
@@ -143,24 +131,28 @@ class App extends Component {
         <div className={classes.root}>
           <AppBar position="static">
             <Toolbar className="theme">
-              <Typography variant="h6" color="inherit" className={classes.grow}>
-                Project GreenBelt
+              <Typography variant="h5" color="inherit"  className={classes.grow}>
+                Greentoad
               </Typography>
               {isAuthenticated() && (
-                <Button onClick={this.logout.bind(this)} color="inherit">
-                  Logout
-                </Button>
+                <React.Fragment>
+                  <Button onClick={this.logout.bind(this)} color="inherit">
+                    Logout
+                  </Button>
+                  {this.state.currentUser && <ListItemAvatar>
+                    <Avatar
+                      src={this.state.currentUser.picture}
+                    />
+                  </ListItemAvatar>}
+                </React.Fragment>
               )}
               {!isAuthenticated() && (
                 <Button onClick={this.login.bind(this)} color="inherit">
                   Login
                 </Button>
+                
               )}
-              {this.state.currentUser && <ListItemAvatar>
-                <Avatar
-                  src={this.state.currentUser.picture}
-                />
-              </ListItemAvatar>}
+              
               <IconButton
                 className={styles.menuButton}
                 color="inherit"
@@ -194,21 +186,6 @@ class App extends Component {
                     />
                   </MenuItem>
                 )}
-                <Link to="/home" style={{ textDecoration: 'none', display: 'block' }} >
-                  <MenuItem
-                    onClick={this.handleClose}
-                    className={classes.menuItem}
-                  >
-                    <ListItemIcon className={classes.icon}>
-                      <AccountBalance />
-                    </ListItemIcon>
-                    <ListItemText
-                      classes={{ primary: classes.primary }}
-                      inset
-                      primary="Home"
-                    />
-                  </MenuItem>
-                </Link>
                 <Link to="/landing" style={{ textDecoration: 'none', display: 'block' }} >
                   <MenuItem
                     onClick={this.handleClose}
@@ -224,19 +201,6 @@ class App extends Component {
                     />
                   </MenuItem>
                 </Link>  
-                <MenuItem
-                  onClick={this.handleClose}
-                  className={classes.menuItem}
-                >
-                  <ListItemIcon className={classes.icon}>
-                    <Fingerprint />
-                  </ListItemIcon>
-                  <ListItemText
-                    classes={{ primary: classes.primary }}
-                    inset
-                    primary="Logout"
-                  />
-                </MenuItem>
               </Menu>
             </Toolbar>
           </AppBar>
