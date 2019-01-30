@@ -1,7 +1,5 @@
-![](http://icons.iconarchive.com/icons/ph03nyx/super-mario/256/Mushroom-1UP-icon.png)
-
 <p align="center">
-  <img width="460" height="300" src="http://icons.iconarchive.com/icons/ph03nyx/super-mario/256/Mushroom-1UP-icon.png">
+  <img src="http://icons.iconarchive.com/icons/ph03nyx/super-mario/256/Mushroom-1UP-icon.png">
 </p>
 
 ## Project Greenbelt (GreenToad) 
