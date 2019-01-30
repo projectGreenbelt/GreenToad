@@ -91,7 +91,7 @@ User Posts Page:
 
 ### Project Management
 
-- We are using Github flow to manage this project with Github's interactive project board to track issues that will be resolved through pull requests. Every pull request must be reviewed and approved by someone other than the originator before and changes to master can be made. Each pull request must have a detailed breakdown of the issues and changes that are being merged with that request. 
+- We are using Github flow to manage this project with Github's interactive project board to track issues that will be resolved through pull requests. Every pull request must be reviewed and approved by a developer other than the originator before any changes to master can be made. Each pull request must have a detailed breakdown of the issues and changes that are being fixed and merged with that specific request. 
 
 ### Future Development
 
