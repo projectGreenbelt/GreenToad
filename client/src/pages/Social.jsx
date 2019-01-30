@@ -360,13 +360,9 @@ class Social extends Component {
             </Menu>
           </Toolbar>
         </AppBar>
-        <Card className="card">
-          <CardMedia
-            className="cardText"
-            image="../assets/img/Social.jpg"
-            height="140"
-            title="Beautiful picture of running water on the Greenbelt"
-            >
+        <Paper className="card">
+        <br /><br /><br /><br /><br /><br/>
+          <div className="socialBannerText">     
             <Typography className={classes.text} variant="h4" component="h3" color="secondary">
               {this.state.currentLocation && this.state.currentLocation} Happenings
             </Typography>
@@ -378,8 +374,8 @@ class Social extends Component {
               Post about anything. How's the water? Is the Trail muddy? Parking? Crowds? Mega hippie drum circles? 
               Let us know!
             </Typography>
-          </CardMedia>
-        </Card>
+          </div> 
+        </Paper>
         <Paper className={classes.paper} elevation={20}>
           <div className="socialLayout">
             <div className="socialLeft">

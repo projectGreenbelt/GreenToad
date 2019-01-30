@@ -137,9 +137,6 @@
     background-size: cover; 
     background-attachment: fixed;
     background-position: center; 
-    transform: translateZ(0);
-    backface-visibility: hidden;
-    -moz-osx-font-smoothing: grayscale;
     z-index: 9999;
 }
 
@@ -215,6 +212,10 @@
     -webkit-overflow-scrolling: touch;
 }
 
+.socialBannerText {
+    margin-left: 18%;
+}
+
 /* .Button:hover,
 .Button:focus,
 .Button:active {
@@ -265,6 +266,10 @@
         flex-direction: column;
         align-items: center;
         justify-content: center; 
+    }
+
+    .socialBannerText {
+        margin-left: 0%;
     }
 }
 
