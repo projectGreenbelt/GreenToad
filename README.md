@@ -13,7 +13,7 @@
 * Mark: Increase React proficiency by building react components as part of the View in our site. 
 * James: Increase React proficiency, as well as buid skill set pertaining to user authentication and real-time interaction between application users.
 
-### MVP
+### Primary Purpose Of App
 
 1. Shows users the list of greenbelt locations in Austin, along with Austin weather information.
 2. Allows them to select a location from the list of greenbelt locations.
