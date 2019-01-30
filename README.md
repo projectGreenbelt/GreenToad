@@ -65,9 +65,10 @@ User Posts Page:
 - React-Google-Maps
 - React-Liquid-Gauge
 - React-Forecast
+- React-Moment
 - Axios
-- Moment.js
-- USG Water Services API 
+
+
 
 <b>Back-End</b>
 - Mongo Database
