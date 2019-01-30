@@ -66,10 +66,12 @@ User Posts Page:
 - React-Liquid-Gauge
 - React-Forecast
 - Axios
-
+- Moment.js
+- USG Water Services API 
 
 <b>Back-End</b>
 - Mongo Database
+- Mongo Labs (For deployed Database)
 - Node.js
 - Express
 - 0auth
@@ -79,8 +81,16 @@ User Posts Page:
 - [Heroku](https://projectgreenbelt.herokuapp.com/)
 
 <b>Project Management</b>
-- We are using Github flow to manage this project. It is an interactive project board to track issues that will be resolved through pull requests. If you would like to contribute to our idea, make a pull request and we will do our best to respond as quickly as we can!
-  
+- We are using Github flow to manage this project with Github's interactive project board to track issues that will be resolved through pull requests.
+
+<b>Future Development</b>
+- In the future, we would like to add more features to the Social page that would show more location specific content. Also, we would like to add more widgets to the home page such as a list of all the trails on the Greenbelt and their current conditions. There really is an endless amount of possibilites that we could work with in this space to benefit the user.
+- App speed and performance wise, we would like to work more with Ternary Operators to conditionally render almost all of the content on the page with having to refresh/reload. For example, when checking into a specific location, a ternary operator will fire off and conditionally render the Posts and submitPosts components to the home page intsead of redirecting the routing to a "new" page. We believe this would make the website much more dynamic and truer to the vision that we believe a highly responsive React App should be. 
+
+
+If you would like to contribute to our idea code wise, make a pull request and we will do our best to respond as quickly as we can! Or just give us some money and we will do it for you! ;)
+
+
 ### Team Members
 1. [James Tobey](https://github.com/jctobey)
 2. [Mark Mayfield](https://github.com/themarcusaurelius)
