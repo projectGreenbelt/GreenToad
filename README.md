@@ -82,6 +82,7 @@ User Posts Page:
 - Socket.io
 
 <b>API</b>
+- Google Maps API
 - USG Water Services API
 - Dark Sky API
   
