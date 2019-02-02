@@ -106,12 +106,6 @@ function PaperSheet(props) {
                         <Typography variant="h6" id="modal-title" color="primary">
                           Checking in at {name}...
                         </Typography>  
-                          <span>
-                            <img
-                              className="mario"
-                              src="https://scholasticadministrator.typepad.com/.a/6a00e54f8c25c988340133f11acceb970b-800wi"
-                            />
-                          </span>
                         <SimpleModalWrapped />
                       </div>
                     </Modal>

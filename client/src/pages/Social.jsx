@@ -195,9 +195,6 @@ class Social extends Component {
       case "7":
         this.setState({ currentLocation: "Trail's End"});
         break;
-      default: 
-        this.setState({ currentLocation: "defaultPhrase"})
-
 }
   }
   
@@ -413,11 +410,6 @@ class Social extends Component {
                         <Typography variant="h6" color="primary" id="modal-title">
                           Your Post has been added!
                         </Typography>
-                          <span>
-                            <img
-                              src="https://3.bp.blogspot.com/-35XcSUkkKEw/WDZIEP8bteI/AAAAAAALaVk/rjrZxNa_nls4x_PxqjDJdtwonvdtlI_sQCLcB/s1600/AS002064_07.gif"
-                            />
-                          </span>
                         <SimpleModalWrapped />
                       </div>
                     </Modal>
@@ -435,17 +427,16 @@ class Social extends Component {
                                 primary={""}
                                 secondary={
                                   <React.Fragment>
-                                    
-                                      <Typography
-                                        component="span"
-                                        className={classes.inline}
-                                        color="Primary"
-                                      >
-                                        {post.name}
-                                      </Typography>
+                                    <Typography
+                                      component="span"
+                                      className={classes.inline}
+                                      color="Primary"
+                                    >
+                                      {post.name}
+                                    </Typography>
                                       <br />
-                                      <Paper className={classes.userPosts} elevation={20}>
-                                        {post.post}
+                                    <Paper className={classes.userPosts} elevation={20}>
+                                      {post.post}
                                       <br /><br/>
                                       <div>
                                         <Typography color="primary">
