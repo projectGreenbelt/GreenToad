@@ -65,7 +65,7 @@ class App extends Component {
   getUserInfo = user => {
     let token;
     token = localStorage.getItem("access_token");
-    console.log(token)
+    /* console.log(token) */
     if (token) {
       this.props.auth.lock.getUserInfo(token, (err, profile) => {
         if (err) {
@@ -126,7 +126,7 @@ class App extends Component {
       return <Redirect to="/profile" />;
     }
     return (
-      <div data-name>
+      <div>
         {withStyles}
         <div className={classes.root}>
           <AppBar position="static">

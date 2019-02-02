@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
-import API from "../utils/API";
 import Card from "@material-ui/core/Card";
 import "./../App.css";
 import { withStyles } from "@material-ui/core/styles";
@@ -102,7 +101,6 @@ class Landing extends Component {
         if (this.state.toProfile === true) {
         return <Redirect to="/profile" />;
         }
-        const { profile } = this.state;
         return (
             <div>
                 {withStyles}
@@ -197,7 +195,7 @@ class Landing extends Component {
                         <ListItem>
                             <div>
                             &copy; {1900 + new Date().getYear()} ,{" "}
-                            Project Greenbelt
+                                GreenToad
                             </div>
                             <IconButton
                             justIcon

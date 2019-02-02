@@ -110,7 +110,10 @@ const styles = theme => ({
     boxShadow: theme.shadows[5],
     padding: theme.spacing.unit * 4,
     outline: 'none',
-  }
+  },
+  leftIcon: {
+    marginRight: theme.spacing.unit
+  },
 });
 function getModalStyle() {
   return {
@@ -180,6 +183,7 @@ class Social extends Component {
           currentLocation: "Trail Head",
           latitude: "30.2644894",
           longitude: "-97.8074639",
+          opening: "https://www.google.com/maps/dir//''/@",
           closing: ",13z/data=!3m1!4b1!4m9!4m8!1m0!1m5!1m1!1s0x8644b53aeecd69b5:0xb7b4c9c89bcebf32!2m2!1d-97.7724445!2d30.2644941!3e1"
         });
         break;
@@ -188,6 +192,7 @@ class Social extends Component {
           currentLocation: "Spyglass",
           latitude: "30.257926",
           longitude: "-97.787518",
+          opening: "https://www.google.com/maps/dir//''/@",
           closing: ",17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x865b4ad30a2ba6c1:0x46d10571c8900bd7!2m2!1d-97.7876587!2d30.2577944"
         });
         break;
@@ -196,6 +201,7 @@ class Social extends Component {
           currentLocation: "Barton Hills",
           latitude: "30.255326",
           longitude: "-97.783981",
+          opening: "https://www.google.com/maps/dir//''/@",
           closing: ",13z/data=!4m8!4m7!1m0!1m5!1m1!1s0x8644b52b5b47860d:0x7a4dcd3f88c55c0e!2m2!1d-97.7842272!2d30.255575"
       });
         break;
@@ -204,6 +210,7 @@ class Social extends Component {
           currentLocation: "Gus Fruh",
           latitude: "30.249326",
           longitude: "-97.79515",
+          opening: "https://www.google.com/maps/dir//''/@",
           closing: ",17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x865b4b281b6de51b:0x7b2969062fed0392!2m2!1d-97.795208!2d30.24941"
         });
         break;
@@ -212,6 +219,7 @@ class Social extends Component {
           currentLocation: "Loop 360",
           latitude: "30.243766",
           longitude: "-97.800123",
+          opening: "https://www.google.com/maps/dir//''/@",
           closing: ",13z/data=!4m8!4m7!1m0!1m5!1m1!1s0x865b4b2422b94247:0x21bc03e7da138b0f!2m2!1d-97.8000041!2d30.2431916"
         });
         break;
@@ -220,6 +228,7 @@ class Social extends Component {
           currentLocation: "Gaines",
           latitude: "30.244221",
           longitude: "-97.809666",
+          opening: "https://www.google.com/maps/dir//''/@",
           closing: ",17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x865b4b1ee16d3b4b:0x64688b35c405ddad!2m2!1d-97.809824!2d30.244939"
         });
         break;
@@ -228,6 +237,7 @@ class Social extends Component {
           currentLocation: "Trail's End",
           latitude: "30.2746493",
           longitude: "-97.8306456",
+          opening: "https://www.google.com/maps/dir//''/@",
           closing: ",17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x865b4a8bb82912cb:0xe957ecebdb94a485!2m2!1d-97.8252237!2d30.2751231"
         });
         break;
@@ -255,11 +265,11 @@ class Social extends Component {
     API.getPosts()
       .then(res => this.setState({ otherPosts: res.data}))
       .catch(err => console.log(err));
-    console.log(this.state.otherPosts);
+    /* console.log(this.state.otherPosts); */
   };
   getCheckInLocation = props => {
-    console.log(window.location.href);
-    console.log(window.location.href.split("social/"));
+    /* console.log(window.location.href);
+    console.log(window.location.href.split("social/")); */
     let checkInId = window.location.href.split("social/")[1];
     return checkInId;
   };
@@ -420,10 +430,10 @@ class Social extends Component {
                   variant="contained"
                   color="primary"
                   size="large"
-                  className={classes.button}
-                  href="/home"
+                  className={classes.button} 
+                  href={ this.state.opening + this.state.latitude + this.state.longtitude + this.state.closing } 
                 >
-                  <Arrow/> Back
+                  <Direction className={classes.leftIcon}/>  Directions: {this.state.currentLocation && this.state.currentLocation}
                 </Button>
               </Paper>
               <br />
@@ -433,9 +443,9 @@ class Social extends Component {
                   color="primary"
                   size="large"
                   className={classes.button}
-                  href={ "https://www.google.com/maps/dir//''/@" + this.state.latitude + this.state.longtitude + this.state.closing } 
+                  href="/home"
                 >
-                  <Direction/>  Directions: {this.state.currentLocation && this.state.currentLocation}
+                  <Arrow/> Back
                 </Button>
               </Paper>
             </div>
@@ -447,7 +457,7 @@ class Social extends Component {
                     {this.state.currentLocation && this.state.currentLocation} Updates:
                   </Typography>
                   <hr />
-                  <Paper className={classes.list} elevation={20}>
+                  <Paper className={classes.list}  elevation={20}>
                     <List className={classes.postStyle} id="list">
                     <Modal
                       aria-labelledby="simple-modal-title"
@@ -472,7 +482,6 @@ class Social extends Component {
                                 <Avatar src={post.picture} />
                               </ListItemAvatar>
                               <ListItemText
-                                primary={""}
                                 secondary={
                                   <React.Fragment>
                                     <Typography
@@ -514,12 +523,12 @@ class Social extends Component {
             <List>
               <ListItem>
                 <div>
-                  &copy; {1900 + new Date().getYear()} , Project Greenbelt
+                  &copy; {1900 + new Date().getYear()} , GreenToad
                 </div>
-                <IconButton justIcon color="primary">
+                <IconButton justicon="true" color="primary">
                   <a
                     href="https://github.com/projectGreenbelt/projectGreenbelt"
-                    classname="iconButton"
+                    className="iconButton"
                   >
                     <i
                       className="fab fa-github-square"

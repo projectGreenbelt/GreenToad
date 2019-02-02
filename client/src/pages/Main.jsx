@@ -290,10 +290,10 @@ class Main extends Component {
                 <div>
                   &copy; {1900 + new Date().getYear()} , GreenToad
                 </div>
-                <IconButton justIcon color="primary">
+                <IconButton justicon="true" color="primary">
                   <a
                     href="https://github.com/projectGreenbelt/projectGreenbelt"
-                    classname="iconButton"
+                    className="iconButton"
                   >
                     <i
                       className="fab fa-github-square"

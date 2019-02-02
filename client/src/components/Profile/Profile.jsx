@@ -117,7 +117,7 @@ class Profile extends Component {
   };
 
   componentDidMount() {
-    const { userProfile, getUserInfo, userInfo } = this.props.auth;
+    /* const { userProfile, getUserInfo, userInfo  } = this.props.auth; */
     if (this.props.auth.isAuthenticated()) {
       let oldToken = localStorage.getItem("access_token");
       let newProfile;
@@ -266,7 +266,7 @@ class Profile extends Component {
             <ListItem>
                 <div>
                 &copy; {1900 + new Date().getYear()} ,{" "}
-                Project Greenbelt
+                  GreenToad
                 </div>
                 <IconButton
                 justIcon

@@ -9,6 +9,7 @@ import Column from "../Column/Column";
 import Card from "../Card/Card";
 import { Button } from "@material-ui/core";
 import Modal from "@material-ui/core/Modal";
+import Direction from "@material-ui/icons/Directions"
 import "../../App.css";
 
 //Material UI Icon
@@ -46,7 +47,8 @@ const styles = theme => ({
     boxShadow: theme.shadows[5],
     padding: theme.spacing.unit * 4,
     outline: 'none',
-  }
+  },
+  
 });
 function getModalStyle() {
   return {
@@ -60,7 +62,7 @@ function getModalStyle() {
 
 function PaperSheet(props) {
   const { classes, accessPoint } = props;
-  const { address, description, image, name, id, location } = accessPoint;
+  const { address, description, image, name, directions } = accessPoint;
 
   return (
     <div>
@@ -79,6 +81,17 @@ function PaperSheet(props) {
                     <Card image={image} elevation={15} />
                   </div>
                 </Paper>
+                <Paper className={classes.paper} elevation={20}>
+                  <Button 
+                    variant="contained"
+                    color="primary"
+                    size="large"
+                    className={classes.button} 
+                    href={directions}
+                  >
+                    <Direction className={classes.leftIcon}/>  Directions: {name}
+                  </Button>
+              </Paper>
                 <div className="Card">
                   <Description description={description} />
                 </div>

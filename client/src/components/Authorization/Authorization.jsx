@@ -1,7 +1,7 @@
 import Auth0Lock from "auth0-lock";
 import { AUTH_CONFIG } from "./auth0-variables";
 import history from "../../history";
-var options = {
+/* var options = {
   theme: {
     logo:
       "https://vignette.wikia.nocookie.net/wii/images/6/66/Blurb_1up_mushroom_20090220-1-.png/revision/latest?cb=20100427010802"
@@ -9,7 +9,7 @@ var options = {
   languageDictionary: {
     title: "Log In to GreenToad"
   }
-};
+}; */
 
 export default class Auth {
   lock = new Auth0Lock(AUTH_CONFIG.clientId, AUTH_CONFIG.domain, {
