@@ -22,8 +22,6 @@ import MenuIcon from "@material-ui/icons/Menu";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
-import Card from "@material-ui/core/Card";
-import CardMedia from '@material-ui/core/CardMedia';
 import Arrow from "@material-ui/icons/KeyboardArrowLeft";
 import Moment from 'react-moment';
 

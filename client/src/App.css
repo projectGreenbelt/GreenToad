@@ -129,9 +129,6 @@
     margin-top: .2%;
     width: 100%;
     background-image: url('./assets/img/Social2.jpg');
-    -webkit-background-size: 100%;
-    -moz-background-size: cover;
-    -o-background-size: cover;
     height: 500px;
     background-repeat: no-repeat;
     background-size: cover; 
