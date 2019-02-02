@@ -1,7 +1,10 @@
 {
   "name": "mern",
   "version": "1.0.0",
-  "description": "",
+  "engines": {
+    "node": "8.11.3"
+  },
+  "description": "A really cool trail guide",
   "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
