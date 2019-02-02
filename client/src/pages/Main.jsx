@@ -163,12 +163,6 @@ const Map = withScriptjs(
         title="Loop 360"
         /* defaultLabel="Loop 360" */
       >
-        {/* <InfoWindow>
-          <div>
-            {" "}
-            Loop 360
-          </div>
-        </InfoWindow> */}
       </Marker>
       <Marker
         icon={{

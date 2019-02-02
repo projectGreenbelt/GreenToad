@@ -24,6 +24,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import Arrow from "@material-ui/icons/KeyboardArrowLeft";
 import Moment from 'react-moment';
+import Direction from "@material-ui/icons/Directions"
 
 
 //Material UI Icons for Menu
@@ -175,25 +176,60 @@ class Social extends Component {
     console.log(this.props.match.params.checkInLocation)
     switch(this.props.match.params.checkInLocation) {
       case "1":
-        this.setState({ currentLocation: "Trail Head"});
+        this.setState({ 
+          currentLocation: "Trail Head",
+          latitude: "30.2644894",
+          longitude: "-97.8074639",
+          closing: ",13z/data=!3m1!4b1!4m9!4m8!1m0!1m5!1m1!1s0x8644b53aeecd69b5:0xb7b4c9c89bcebf32!2m2!1d-97.7724445!2d30.2644941!3e1"
+        });
         break;
       case "2":
-        this.setState({ currentLocation: "Spyglass"});
+        this.setState({ 
+          currentLocation: "Spyglass",
+          latitude: "30.257926",
+          longitude: "-97.787518",
+          closing: ",17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x865b4ad30a2ba6c1:0x46d10571c8900bd7!2m2!1d-97.7876587!2d30.2577944"
+        });
         break;
       case "3":
-        this.setState({ currentLocation: "Barton Hills"});
+        this.setState({ 
+          currentLocation: "Barton Hills",
+          latitude: "30.255326",
+          longitude: "-97.783981",
+          closing: ",13z/data=!4m8!4m7!1m0!1m5!1m1!1s0x8644b52b5b47860d:0x7a4dcd3f88c55c0e!2m2!1d-97.7842272!2d30.255575"
+      });
         break;
       case "4":
-        this.setState({ currentLocation: "Gus Fruh"});
+        this.setState({ 
+          currentLocation: "Gus Fruh",
+          latitude: "30.249326",
+          longitude: "-97.79515",
+          closing: ",17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x865b4b281b6de51b:0x7b2969062fed0392!2m2!1d-97.795208!2d30.24941"
+        });
         break;
       case "5":
-        this.setState({ currentLocation: "Loop 360"});
+        this.setState({ 
+          currentLocation: "Loop 360",
+          latitude: "30.243766",
+          longitude: "-97.800123",
+          closing: ",13z/data=!4m8!4m7!1m0!1m5!1m1!1s0x865b4b2422b94247:0x21bc03e7da138b0f!2m2!1d-97.8000041!2d30.2431916"
+        });
         break;
       case "6":
-        this.setState({ currentLocation: "Gaines"});
+        this.setState({ 
+          currentLocation: "Gaines",
+          latitude: "30.244221",
+          longitude: "-97.809666",
+          closing: ",17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x865b4b1ee16d3b4b:0x64688b35c405ddad!2m2!1d-97.809824!2d30.244939"
+        });
         break;
       case "7":
-        this.setState({ currentLocation: "Trail's End"});
+        this.setState({
+          currentLocation: "Trail's End",
+          latitude: "30.2746493",
+          longitude: "-97.8306456",
+          closing: ",17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x865b4a8bb82912cb:0xe957ecebdb94a485!2m2!1d-97.8252237!2d30.2751231"
+        });
         break;
 }
   }
@@ -387,7 +423,19 @@ class Social extends Component {
                   className={classes.button}
                   href="/home"
                 >
-                  <Arrow /> Back
+                  <Arrow/> Back
+                </Button>
+              </Paper>
+              <br />
+              <Paper elevation={20}>
+                <Button 
+                  variant="contained"
+                  color="primary"
+                  size="large"
+                  className={classes.button}
+                  href={ "https://www.google.com/maps/dir//''/@" + this.state.latitude + this.state.longtitude + this.state.closing } 
+                >
+                  <Direction/>  Directions: {this.state.currentLocation && this.state.currentLocation}
                 </Button>
               </Paper>
             </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Router, Switch, Redirect } from "react-router-dom";
+import { Route, Router, Switch } from "react-router-dom";
 import App from "./App";
 import Profile from "./components/Profile/Profile";
 import Callback from "./components/Callback/Callback";
