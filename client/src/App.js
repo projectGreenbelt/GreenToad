@@ -126,7 +126,7 @@ class App extends Component {
       return <Redirect to="/profile" />;
     }
     return (
-      <div>
+      <div data-name>
         {withStyles}
         <div className={classes.root}>
           <AppBar position="static">
