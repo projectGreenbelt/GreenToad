@@ -20,6 +20,8 @@ mongoose.connect(
   {useNewUrlParser: true }
    //the correct db
 );
+
+mongoose.set('useCreateIndex', true);
 //Script that I was planning on running so that the 'Points' collection would have the right locations on heroku. The problem is that I couldn't get populate and relational mongoose stuff working (it's very picky), so this is no longer necessary. We are using check in ID, which is stored in the Posts collection.
 // db.Points.create(
 //   {
