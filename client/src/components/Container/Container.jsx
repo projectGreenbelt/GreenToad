@@ -62,7 +62,7 @@ function getModalStyle() {
 
 function PaperSheet(props) {
   const { classes, accessPoint } = props;
-  const { address, description, image, name, directions } = accessPoint;
+  const { address, description, image, name /* , directions  */} = accessPoint;
 
   return (
     <div>
@@ -81,7 +81,7 @@ function PaperSheet(props) {
                     <Card image={image} elevation={15} />
                   </div>
                 </Paper>
-                <Paper className={classes.paper} elevation={20}>
+                {/* <Paper className={classes.paper} elevation={20}>
                   <Button 
                     variant="contained"
                     color="primary"
@@ -91,7 +91,7 @@ function PaperSheet(props) {
                   >
                     <Direction className={classes.leftIcon}/>  Directions: {name}
                   </Button>
-              </Paper>
+                </Paper> */}
                 <div className="Card">
                   <Description description={description} />
                 </div>
