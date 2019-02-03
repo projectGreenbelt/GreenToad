@@ -17,6 +17,9 @@
     "test": "cd client && npm run test",
     "heroku-postbuild": "npm run build"
   },
+  "resolutions": {
+    "terser": "3.14.1"
+  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
