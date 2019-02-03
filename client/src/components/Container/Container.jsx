@@ -9,7 +9,7 @@ import Column from "../Column/Column";
 import Card from "../Card/Card";
 import { Button } from "@material-ui/core";
 import Modal from "@material-ui/core/Modal";
-import Direction from "@material-ui/icons/Directions"
+/* import Direction from "@material-ui/icons/Directions" */
 import "../../App.css";
 
 //Material UI Icon

@@ -241,6 +241,9 @@ class Social extends Component {
           closing: ",17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x865b4a8bb82912cb:0xe957ecebdb94a485!2m2!1d-97.8252237!2d30.2751231"
         });
         break;
+      
+        default:
+          // do nothing
 }
   }
   
