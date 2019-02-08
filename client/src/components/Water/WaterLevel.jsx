@@ -7,8 +7,7 @@ import axios from "axios";
 
 class WaterLevel extends Component {
   state = {
-    value: 0.0,
-   
+    value: 0.0
   };
   startColor = "#1976d2"; // cornflowerblue
   endColor = "#2979ff"; // crimson
@@ -25,10 +24,10 @@ class WaterLevel extends Component {
         }
       })
       .then(response =>
-          this.setState({
-              value: response.data.value.timeSeries[1].values[0].value[0].value * 10
-          })
-      )   
+        this.setState({
+          value: response.data.value.timeSeries[1].values[0].value[0].value * 10
+        })
+      )
       .catch();
   }
 
@@ -39,14 +38,40 @@ class WaterLevel extends Component {
           site: this.props.location,
           format: "json",
           parameterCd: "00065,00060",
-          siteStatus: "active",
+          siteStatus: "active"
         }
       })
       .then(response =>
         this.setState({
-          value: response.data.value.timeSeries[1].values[0].value[0].value  * 10
+          value: response.data.value.timeSeries[1].values[0].value[0].value * 10
         })
       )
+
+      .catch();
+    axios
+      .get("https://waterservices.usgs.gov/nwis/iv/", {
+        params: {
+          site: this.props.location,
+          format: "json",
+          parameterCd: "00065,00060",
+          siteStatus: "active"
+        }
+      })
+      .then(response =>
+        response.data.value.timeSeries[1].values[0].value[0].value > 0 &&
+        response.data.value.timeSeries[1].values[0].value[0].value < 2
+          ? console.log("water level is OK. Be careful out there")
+          : response.data.value.timeSeries[1].values[0].value[0].value > 2 &&
+            response.data.value.timeSeries[1].values[0].value[0].value < 4
+          ? console.log("water level is pretty solid.")
+          : response.data.value.timeSeries[1].values[0].value[0].value > 4 &&
+            response.data.value.timeSeries[1].values[0].value[0].value < 6
+          ? console.log(
+              "water level is nice and high! Get out there and swim. "
+            )
+          : console.log("water not flowin")
+      )
+
       .catch();
   }
 
@@ -91,7 +116,7 @@ class WaterLevel extends Component {
           textOffsetX={0}
           textOffsetY={15}
           textRenderer={props => {
-            const value =  Math.round(props.value);
+            const value = Math.round(props.value);
             const radius = Math.min(props.height / 2, props.width / 2);
             const textPixels = (props.textSize * radius) / 2;
             const valueStyle = {
@@ -101,11 +126,10 @@ class WaterLevel extends Component {
               fontSize: textPixels * 0.6
             };
 
-                
             return (
               <tspan>
                 <tspan className="customValue" style={valueStyle}>
-                  {value /10 }
+                  {value / 10}
                 </tspan>
                 <tspan style={percentStyle}>{props.percent}</tspan>
               </tspan>
