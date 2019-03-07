@@ -27,13 +27,13 @@
 
 ### Wireframes
 
-- Home Page:
+- <b>Home Page:</b>
 
 ![projectgreenbelt](https://user-images.githubusercontent.com/40775721/53996536-63b22180-40fe-11e9-85b8-e40e95267ee9.png)
 
 
 
-- User Posts Page:
+- <b>User Posts Page:</b>
 
 ![user_post_alt](https://user-images.githubusercontent.com/41517616/50718048-9b92df00-1051-11e9-9183-ecb042bddf1b.png)
 
