@@ -42,7 +42,7 @@
 - [Widescreen](https://drive.google.com/file/d/1qYlutBazsrYM6ZLkKngHXrOj2JRbp0K7/view)
 
   <p align="center">
-    <img src="https://thumbs.gfycat.com/FatalBelovedArabianoryx-small.gif">
+    <img src="https://gfycat.com/DeepDistinctIndianpalmsquirrel">
   </p>
 
 - [Normal](https://drive.google.com/file/d/1rIa7fcEAjyiVvj4E2n3ebHNga3LUFIk8/view)
