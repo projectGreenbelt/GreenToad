@@ -70,31 +70,35 @@ function PaperSheet(props) {
         <Grid container wrap="nowrap" spacing={16}>
           <Grid item xs className="container">
             <div className="col1">
-                <Paper className={classes.paper} elevation={20}>
-                  <Typography variant="h4" component="h3">
-                    {name}
-                  </Typography>
-                  <Typography variant="h6" component="h5">
-                    {address}
-                  </Typography>
-                  <div className="Card">
-                    <Card image={image} elevation={15} />
-                  </div>
-                </Paper>
-                <Paper className={classes.paper} elevation={20}>
-                  <Button 
-                    variant="contained"
-                    color="primary"
-                    size="large"
-                    className={classes.button} 
-                    href={directions}
-                  >
-                    <Direction className={classes.leftIcon}/>  Directions: {name}
-                  </Button>
-                </Paper>
+              <Paper className={classes.paper} elevation={20}>
+                <Typography variant="h4" component="h3">
+                  {name}
+                </Typography>
+                <Typography variant="h6" component="h5">
+                  {address}
+                </Typography>
                 <div className="Card">
-                  <Description description={description} />
+                  <Card image={image} elevation={15} />
                 </div>
+              </Paper>
+              <div className="Card">
+                <Description description={description} />
+              </div>
+              <Paper className={classes.paper} elevation={20}>
+                <Button 
+                  variant="contained"
+                  color="primary"
+                  size="large"
+                  className={classes.button} 
+                  href={directions}
+                >
+                  <Direction className={classes.leftIcon}/>  Directions: {name}
+                </Button>
+              </Paper>
+            </div>
+            <div>
+              <Column accessPoint={accessPoint} />
+              <br/>
               <Paper className={classes.paper} elevation={20}>
                 {name !== undefined ? (
                   <div>
@@ -128,7 +132,6 @@ function PaperSheet(props) {
                 )}
               </Paper>
             </div>
-            <Column accessPoint={accessPoint} />
           </Grid>
         </Grid>
       </Paper>

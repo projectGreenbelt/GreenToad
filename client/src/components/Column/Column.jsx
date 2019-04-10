@@ -67,9 +67,7 @@ function PaperSheet(props) {
             <Typography variant="h6" component="h3">
             </Typography>
             <div className="Widget">
-              <Paper className="Water" elevation={20}>
-                
-              </Paper>
+              
             </div>
           </Grid>
         </Grid>
