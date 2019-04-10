@@ -246,9 +246,12 @@ class Main extends Component {
     }
     const { currentAccessPoint } = this.state;
     const { classes } = this.props;
+    
     return (
       <div>
-        {withStyles}
+        <React.Fragment>
+          {withStyles}
+        </React.Fragment>
         <div className="Map">
           <Map
             handleMarkerClick={this.handleMarkerClick}

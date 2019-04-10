@@ -108,7 +108,7 @@ class Landing extends Component {
                     <AppBar position="static">
                         <Toolbar className="theme">
                             <Typography variant="h5" color="inherit" className={classes.grow}>
-                                Greentoad
+                                GreenToad
                             </Typography>
                             <IconButton
                                 className={styles.menuButton}

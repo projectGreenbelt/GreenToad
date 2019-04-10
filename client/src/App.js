@@ -119,12 +119,12 @@ class App extends Component {
   //if sending as a default prop, would have to be a function that
   render() {
     const { isAuthenticated } = this.props.auth;
-    console.log(isAuthenticated());
     const { classes } = this.props;
     const { anchorEl } = this.state;
     if (this.state.toProfile === true) {
       return <Redirect to="/profile" />;
     }
+    
     return (
       <div data-name>
         {withStyles}
@@ -132,7 +132,7 @@ class App extends Component {
           <AppBar position="static">
             <Toolbar className="theme">
               <Typography variant="h5" color="inherit"  className={classes.grow}>
-                Greentoad
+                GreenToad
               </Typography>
               {isAuthenticated() && (
                 <React.Fragment>
