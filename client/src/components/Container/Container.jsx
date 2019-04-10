@@ -95,10 +95,6 @@ function PaperSheet(props) {
                   <Direction className={classes.leftIcon}/>  Directions: {name}
                 </Button>
               </Paper>
-            </div>
-            <div>
-              <Column accessPoint={accessPoint} />
-              <br/>
               <Paper className={classes.paper} elevation={20}>
                 {name !== undefined ? (
                   <div>
@@ -131,6 +127,10 @@ function PaperSheet(props) {
                   ""
                 )}
               </Paper>
+            </div>
+            <div>
+              <Column accessPoint={accessPoint} />
+              <br/>
             </div>
           </Grid>
         </Grid>
