@@ -44,10 +44,10 @@ class WaterLevel extends Component {
       .then(response =>
         this.setState({
           value: response.data.value.timeSeries[1].values[0].value[0].value * 10
-        })
+        }),
       )
-
       .catch();
+    
     axios
       .get("https://waterservices.usgs.gov/nwis/iv/", {
         params: {
@@ -60,18 +60,17 @@ class WaterLevel extends Component {
       .then(response =>
         response.data.value.timeSeries[1].values[0].value[0].value > 0 &&
         response.data.value.timeSeries[1].values[0].value[0].value < 2
-          ? console.log("water level is OK. Be careful out there")
+          ? console.log("Water level is OK. Be careful out there")
           : response.data.value.timeSeries[1].values[0].value[0].value > 2 &&
             response.data.value.timeSeries[1].values[0].value[0].value < 4
-          ? console.log("water level is pretty solid.")
+          ? console.log("Water level is pretty solid.")
           : response.data.value.timeSeries[1].values[0].value[0].value > 4 &&
             response.data.value.timeSeries[1].values[0].value[0].value < 6
           ? console.log(
-              "water level is nice and high! Get out there and swim. "
+              "Water level is nice and high! Get out there and swim. "
             )
           : console.log("water not flowin")
       )
-
       .catch();
   }
 
