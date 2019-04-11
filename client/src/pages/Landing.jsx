@@ -96,7 +96,7 @@ class Landing extends Component {
         const { isAuthenticated } = this.props.auth;
         const { classes } = this.props;
         const { anchorEl } = this.state;
-        
+        const styles = {withStyles}
         
         if (this.state.toProfile === true) {
         return <Redirect to="/profile" />;
@@ -104,7 +104,7 @@ class Landing extends Component {
         
         return (
             <div> 
-               
+                {this.styles}
                 <div className={classes.root}>
                     <AppBar position="static">
                         <Toolbar className="theme">
