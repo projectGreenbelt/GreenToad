@@ -242,6 +242,7 @@ class Main extends Component {
   render() {
     const { currentAccessPoint } = this.state;
     const { classes } = this.props;
+    const styles = {withStyles}
     let location = `/social/${this.state.checkInLocation.id}`;
     if (this.state.toPosts === true) {
       return <Redirect to={location} />;
@@ -249,6 +250,7 @@ class Main extends Component {
 
     return (
       <div>
+        {this.styles}
         <div className="Map">
           <Map
             handleMarkerClick={this.handleMarkerClick}
@@ -278,8 +280,8 @@ class Main extends Component {
           elevation={20}
           id="Card"
         > 
-          <Typography className={classes.text} variant="body1" component="h3" color="primary">
-            Click on any of the access points above for a detailed
+          <Typography className={classes.text} variant="body2" component="h3" color="primary">
+            Click on any access point above for a detailed
             breakdown of that particular location!
           </Typography>
         </Paper>}

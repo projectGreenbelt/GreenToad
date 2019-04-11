@@ -319,7 +319,6 @@ class Social extends Component {
     
     return (
       <div>
-        {withStyles}
         <AppBar position="static">
           <Toolbar className="theme">
             <Typography variant="h5" color="inherit" className={classes.grow}>
