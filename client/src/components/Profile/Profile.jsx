@@ -15,10 +15,9 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Paper from "@material-ui/core/Paper";
 import Card from "@material-ui/core/Card";
 import Arrow from "@material-ui/icons/KeyboardArrowLeft";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
+
 
 //Material UI Icons for Menu
 import AccountBalance from "@material-ui/icons/AccountBalance";
@@ -257,29 +256,6 @@ class Profile extends Component {
             </div>
           </Paper>
         </div>
-        <div className="footer">
-          <div>
-            <List>
-            <ListItem>
-                <div>
-                &copy; {1900 + new Date().getYear()} ,{" "}
-                  GreenToad
-                </div>
-                <IconButton
-                justicon="true"
-                color="primary"
-                >
-                <a 
-                  href="https://github.com/projectGreenbelt/projectGreenbelt"
-                  className="iconButton"
-                >
-                  <i className="fab fa-github-square" id="icon" aria-hidden="true" color="secondary" />
-                </a>
-                </IconButton>
-            </ListItem>
-            </List>
-          </div>
-        </div>  
       </div>
     );
   }

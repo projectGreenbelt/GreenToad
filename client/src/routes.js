@@ -8,6 +8,7 @@ import Landing from "./pages/Landing";
 import Social from "./pages/Social";
 import history from "./history";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import Footer from "./components/Footer/Footer";
 
 const theme = createMuiTheme({
   palette: {
@@ -41,6 +42,7 @@ export const makeMainRoutes = () => {
   return (
     <MuiThemeProvider theme={theme}>
       <Router history={history}>
+      <div>
         <Switch>
           <Route
             exact
@@ -77,6 +79,8 @@ export const makeMainRoutes = () => {
           />
           <Route component={NoMatch} />
         </Switch>
+        <Footer />
+      </div>
       </Router>
     </MuiThemeProvider>
   );

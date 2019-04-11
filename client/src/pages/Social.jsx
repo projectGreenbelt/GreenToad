@@ -24,7 +24,8 @@ import MenuItem from "@material-ui/core/MenuItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import Arrow from "@material-ui/icons/KeyboardArrowLeft";
 import Moment from 'react-moment';
-import Direction from "@material-ui/icons/Directions"
+import Direction from "@material-ui/icons/Directions";
+
 
 
 //Material UI Icons for Menu
@@ -184,7 +185,8 @@ class Social extends Component {
           latitude: "30.2644894",
           longitude: "-97.8074639",
           opening: "https://www.google.com/maps/dir//''/@",
-          closing: ",13z/data=!3m1!4b1!4m9!4m8!1m0!1m5!1m1!1s0x8644b53aeecd69b5:0xb7b4c9c89bcebf32!2m2!1d-97.7724445!2d30.2644941!3e1"
+          closing: ",13z/data=!3m1!4b1!4m9!4m8!1m0!1m5!1m1!1s0x8644b53aeecd69b5:0xb7b4c9c89bcebf32!2m2!1d-97.7724445!2d30.2644941!3e1", 
+          photo: "Trail Photo"
         });
         break;
       case "2":
@@ -193,7 +195,8 @@ class Social extends Component {
           latitude: "30.257926",
           longitude: "-97.787518",
           opening: "https://www.google.com/maps/dir//''/@",
-          closing: ",17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x865b4ad30a2ba6c1:0x46d10571c8900bd7!2m2!1d-97.7876587!2d30.2577944"
+          closing: ",17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x865b4ad30a2ba6c1:0x46d10571c8900bd7!2m2!1d-97.7876587!2d30.2577944", 
+          photo: "Spyglass Photo"
         });
         break;
       case "3":
@@ -202,7 +205,8 @@ class Social extends Component {
           latitude: "30.255326",
           longitude: "-97.783981",
           opening: "https://www.google.com/maps/dir//''/@",
-          closing: ",13z/data=!4m8!4m7!1m0!1m5!1m1!1s0x8644b52b5b47860d:0x7a4dcd3f88c55c0e!2m2!1d-97.7842272!2d30.255575"
+          closing: ",13z/data=!4m8!4m7!1m0!1m5!1m1!1s0x8644b52b5b47860d:0x7a4dcd3f88c55c0e!2m2!1d-97.7842272!2d30.255575",
+          photo: "Barton Hills Photo"
       });
         break;
       case "4":
@@ -211,7 +215,8 @@ class Social extends Component {
           latitude: "30.249326",
           longitude: "-97.79515",
           opening: "https://www.google.com/maps/dir//''/@",
-          closing: ",17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x865b4b281b6de51b:0x7b2969062fed0392!2m2!1d-97.795208!2d30.24941"
+          closing: ",17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x865b4b281b6de51b:0x7b2969062fed0392!2m2!1d-97.795208!2d30.24941",
+          photo: "Gus Fruh Photo"
         });
         break;
       case "5":
@@ -435,7 +440,7 @@ class Social extends Component {
                   color="primary"
                   size="large"
                   className={classes.button} 
-                  href={ this.state.opening + this.state.latitude + this.state.longtitude + this.state.closing } 
+                  href={`${this.state.opening + this.state.latitude + this.state.longtitude + this.state.closing}`}
                 >
                   <Direction className={classes.leftIcon}/>  Directions: {this.state.currentLocation && this.state.currentLocation}
                 </Button>
@@ -522,30 +527,6 @@ class Social extends Component {
             </Paper>
           </div> 
         </Paper>
-        <div className="footer">
-          <div>
-            <List>
-              <ListItem>
-                <div>
-                  &copy; {1900 + new Date().getYear()} , GreenToad
-                </div>
-                <IconButton justicon="true" color="primary">
-                  <a
-                    href="https://github.com/projectGreenbelt/projectGreenbelt"
-                    className="iconButton"
-                  >
-                    <i
-                      className="fab fa-github-square"
-                      id="icon"
-                      aria-hidden="true"
-                      color="secondary"
-                    />
-                  </a>
-                </IconButton>
-              </ListItem>
-            </List>
-          </div>
-        </div>
       </div>
     );
   }

@@ -127,7 +127,6 @@ class App extends Component {
     
     return (
       <div data-name>
-        {withStyles}
         <div className={classes.root}>
           <AppBar position="static">
             <Toolbar className="theme">

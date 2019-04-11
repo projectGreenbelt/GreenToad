@@ -1,7 +1,7 @@
 export const AUTH_CONFIG = {
   domain: "projectgreenbelt.auth0.com",
   clientId: "6CbMurlyapmjLnElZXlWfg76yliVOx-r",
-  callbackUrl: "https://greentoad55.herokuapp.com/callback"
+  callbackUrl: "http://localhost:3000/callback"
 };
 
 

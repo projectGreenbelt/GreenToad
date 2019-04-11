@@ -12,8 +12,6 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
 import "../Landing.css";
 import "./../App.css";
 
@@ -173,7 +171,7 @@ class Landing extends Component {
                             with thrilling biking trails, pristine swimming holes, and beautiful limestone 
                             bluffs that provide for excellent rock climbing. Unfortunately for newcomers, accessing 
                             this local treasure can be a little confusing. To help, here is a complete guide to all the public 
-                            access points for Austin’s natural gem. Click CONTINUE to begin.  
+                            access points. Click CONTINUE to begin.  
                             <br/><br/>
                              *Don't forget you can also LOGIN and check out each location's updates from fellow Greenbelters 
                             or post your own statuses for others to see!*
@@ -190,30 +188,7 @@ class Landing extends Component {
                             </Button>
                         </Link>
                     </Card>
-                </div>
-                <div className="footer">
-                    <div>
-                        <List>
-                        <ListItem>
-                            <div>
-                            &copy; {1900 + new Date().getYear()} ,{" "}
-                                GreenToad
-                            </div>
-                            <IconButton
-                            justicon="true"
-                            color="primary"
-                            >
-                            <a 
-                                href="https://github.com/projectGreenbelt/projectGreenbelt"
-                                className="iconButton"
-                            >
-                                <i className="fab fa-github-square" id="icon" aria-hidden="true" color="secondary" />
-                            </a>
-                            </IconButton>
-                        </ListItem>
-                        </List>
-                    </div>
-                </div>                      
+                </div>                  
             </div>
         );
     }

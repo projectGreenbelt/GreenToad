@@ -7,81 +7,45 @@ import axios from "axios";
 // const water = require("../../utils/WaterAPI")
 
 class WaterFlow extends Component {
-  state = {
-    value: 0
-  };
+  state = { value: 0 };
   startColor = "#007DBC"; // cornflowerblue
   endColor = "#007DBC"; // crimson
 
-  componentWillReceiveProps(newProps) {
-    // water.runQuery(this.props.location)
-    //console.log("received props")
-    axios
-      .get("https://waterservices.usgs.gov/nwis/iv/", {
-        params: {
-          site: newProps.location,
-          format: "json",
-          parameterCd: "00065,00060",
-          siteStatus: "active",
-        }
-      })
-      .then(response =>
-        this.setState({
-          value: response.data.value.timeSeries[0].values[0].value[0].value  / 1.5
-        })
-      )
-      .catch();
-    
+  componentWillReceiveProps =  async (newProps) => {
+    const response = await axios.get("https://waterservices.usgs.gov/nwis/iv/", {
+      params: {
+        site: newProps.location,
+        format: "json",
+        parameterCd: "00065,00060",
+        siteStatus: "active",
+      }
+    })
+      
+    this.setState({
+      value: response.data.value.timeSeries[0].values[0].value[0].value  / 1.5
+    })
   }
 
-  componentWillMount() {
-    //console.log("mounted")
-    axios
-      .get("https://waterservices.usgs.gov/nwis/iv/", {
-        params: {
-          site: this.props.location,
-          format: "json",
-          parameterCd: "00065,00060",
-          siteStatus: "active",
-        }
-      })
-      .then(response =>
-        this.setState({
-          value: response.data.value.timeSeries[0].values[0].value[0].value  / 1.5
-        })
-      )
-      .catch();
+  componentWillMount = async () => {
+    const response = await axios.get("https://waterservices.usgs.gov/nwis/iv/", {
+      params: {
+        site: this.props.location,
+        format: "json",
+        parameterCd: "00065,00060",
+        siteStatus: "active",
+      }
+    })
+    
+    this.setState({
+      value: response.data.value.timeSeries[0].values[0].value[0].value  / 1.5
+    })
   }
 
   render() {
     /* const radius = 200; */
     const interpolate = interpolateRgb(this.startColor, this.endColor);
     const fillColor = interpolate(this.state.value / 100);
-    const gradientStops = [
-      {
-        key: "0%",
-        stopColor: color(fillColor)
-          .darker(0.5)
-          .toString(),
-        stopOpacity: 1,
-        offset: "0%"
-      },
-      {
-        key: "50%",
-        stopColor: fillColor,
-        stopOpacity: 0.75,
-        offset: "50%"
-      },
-      {
-        key: "100%",
-        stopColor: color(fillColor)
-          .brighter(0.5)
-          .toString(),
-        stopOpacity: 0.5,
-        offset: "100%"
-      }
-    ];
-
+    
     return (
       <div>
         <LiquidFillGauge
@@ -119,7 +83,6 @@ class WaterFlow extends Component {
           waveFrequency={3}
           waveAmplitude={2}
           gradient
-          gradientStops={gradientStops}
           circleStyle={{
             fill: fillColor
           }}
