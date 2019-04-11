@@ -136,10 +136,10 @@ class Social extends Component {
     showModal:false
     
   };
-  getUserInfo = user => {
+  getUserInfo = () => {
     let token;
     token = localStorage.getItem("access_token");
-    console.log(token)
+    //console.log(token)
     this.props.auth.lock.getUserInfo(token, (err, profile) => {
       if (err) {
         console.log("problem with getting user data");
@@ -176,7 +176,7 @@ class Social extends Component {
       this.getUserInfo();
     }
     this.getCheckInLocation();
-    console.log(this.props.match.params.checkInLocation)
+    //console.log(this.props.match.params.checkInLocation)
     switch(this.props.match.params.checkInLocation) {
       case "1":
         this.setState({ 
@@ -311,11 +311,12 @@ class Social extends Component {
     }
     const { classes } = this.props;
     const { isAuthenticated } = this.props.auth;
-    console.log(isAuthenticated());
     const { anchorEl } = this.state;
+    //console.log(isAuthenticated());
     if (this.state.toProfile === true) {
       return <Redirect to="/profile" />;
     }
+    
     return (
       <div>
         {withStyles}
@@ -441,15 +442,16 @@ class Social extends Component {
               </Paper>
               <br />
               <Paper elevation={20}>
+              <Link to="/home" style={{ textDecoration: 'none', display: 'block' }}>
                 <Button 
                   variant="contained"
                   color="primary"
                   size="large"
                   className={classes.button}
-                  href="/home"
                 >
                   <Arrow/> Back
                 </Button>
+              </Link>    
               </Paper>
             </div>
             <br />
@@ -462,19 +464,18 @@ class Social extends Component {
                   <hr />
                   <Paper className={classes.list}  elevation={20}>
                     <List className={classes.postStyle} id="list">
-                    <Modal
-                      aria-labelledby="simple-modal-title"
-                      aria-describedby="simple-modal-description"
-                      open={this.state.showModal}
-                    >
-                      <div style={getModalStyle()} className={classes.modal} id="modal">
-                        <Typography variant="h6" color="primary" id="modal-title">
-                          Your Post has been added!
-                        </Typography>
-                        <SimpleModalWrapped />
-                      </div>
-                    </Modal>
-                    {console.log(this.state.otherPosts)}
+                      <Modal
+                        aria-labelledby="simple-modal-title"
+                        aria-describedby="simple-modal-description"
+                        open={this.state.showModal}
+                      >
+                        <div style={getModalStyle()} className={classes.modal} id="modal">
+                          <Typography variant="h6" color="primary" id="modal-title">
+                            Your Post has been added!
+                          </Typography>
+                          <SimpleModalWrapped />
+                        </div>
+                      </Modal>
                       {this.state.otherPosts.filter(post=>{
                         return post.checkInId===this.getCheckInLocation()
                       }).map(post => {

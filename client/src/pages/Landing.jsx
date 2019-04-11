@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { Redirect, Link} from "react-router-dom";
 import Card from "@material-ui/core/Card";
-import "./../App.css";
 import { withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -95,15 +93,15 @@ class Landing extends Component {
 
     render() {
         const { isAuthenticated } = this.props.auth;
-        console.log(isAuthenticated());
         const { classes } = this.props;
         const { anchorEl } = this.state;
+        
         if (this.state.toProfile === true) {
         return <Redirect to="/profile" />;
         }
+        
         return (
-            <div>
-                {withStyles}
+            <div> 
                 <div className={classes.root}>
                     <AppBar position="static">
                         <Toolbar className="theme">
@@ -177,16 +175,17 @@ class Landing extends Component {
                              *Don't forget you can also LOGIN and check out each location's updates from fellow Greenbelters 
                             or post your own statuses for others to see!*
                         </Typography>
-                        <Button 
-                            className={classes.button} 
-                            color="primary" 
-                            variant="contained" 
-                            size="large"
-                            href="/home"
-                        >
-                            <Arrow/>
-                            Continue
-                        </Button>
+                        <Link to="/home" style={{ textDecoration: 'none', display: 'block' }}>
+                            <Button 
+                                className={classes.button} 
+                                color="primary" 
+                                variant="contained" 
+                                size="large"
+                            >
+                                <Arrow/>
+                                Continue
+                            </Button>
+                        </Link>
                     </Card>
                 </div>
                 <div className="footer">
@@ -198,12 +197,12 @@ class Landing extends Component {
                                 GreenToad
                             </div>
                             <IconButton
-                            justIcon
+                            justicon="true"
                             color="primary"
                             >
                             <a 
                                 href="https://github.com/projectGreenbelt/projectGreenbelt"
-                                classname="iconButton"
+                                className="iconButton"
                             >
                                 <i className="fab fa-github-square" id="icon" aria-hidden="true" color="secondary" />
                             </a>

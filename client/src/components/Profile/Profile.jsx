@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Redirect, Link } from "react-router-dom";
-import "../../App.css";
 import API from "../../utils/API";
 import { withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
@@ -122,7 +121,6 @@ class Profile extends Component {
       let oldToken = localStorage.getItem("access_token");
       let newProfile;
       this.props.auth.lock.getUserInfo(oldToken, (err, profile) => {
-        console.log(profile);
         newProfile = profile;
         this.setState({ profile: newProfile });
       });
@@ -131,7 +129,6 @@ class Profile extends Component {
   
   render() {
     const { isAuthenticated } = this.props.auth;
-    console.log(isAuthenticated());
     const { classes } = this.props;
     const { anchorEl } = this.state;
     if (!this.props.auth.isAuthenticated()) {
@@ -144,9 +141,9 @@ class Profile extends Component {
       return <Redirect to="/profile" />;
     }
     const { profile } = this.state;
+    
     return (
       <div>
-        {withStyles}
         <div className={classes.root}>
           <AppBar position="static">
             <Toolbar className="theme">
@@ -196,7 +193,6 @@ class Profile extends Component {
                     classes={{ primary: classes.primary }}
                     inset
                     primary="Home"
-                    onclick
                   />
                 </MenuItem>
               </Link>  
@@ -227,16 +223,17 @@ class Profile extends Component {
                 </Card>
                 <br />
                 <Paper className={classes.paper}>
-                  <Button 
-                    color="primary" 
-                    variant="contained" 
-                    aria-label="Add" 
-                    size="large" 
-                    className={classes.margin}
-                    href="/home"
-                  >
-                    <Arrow/> Back
-                  </Button>
+                  <Link to="/home" style={{ textDecoration: 'none', display: 'block' }} >
+                    <Button 
+                      color="primary" 
+                      variant="contained" 
+                      aria-label="Add" 
+                      size="large" 
+                      className={classes.margin}
+                    >
+                      <Arrow/> Back
+                    </Button>
+                  </Link>
                 </Paper>
               </div>
               <br />
@@ -269,12 +266,12 @@ class Profile extends Component {
                   GreenToad
                 </div>
                 <IconButton
-                justIcon
+                justicon="true"
                 color="primary"
                 >
                 <a 
                   href="https://github.com/projectGreenbelt/projectGreenbelt"
-                  classname="iconButton"
+                  className="iconButton"
                 >
                   <i className="fab fa-github-square" id="icon" aria-hidden="true" color="secondary" />
                 </a>

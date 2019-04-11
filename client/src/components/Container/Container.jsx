@@ -50,6 +50,7 @@ const styles = theme => ({
   },
   
 });
+
 function getModalStyle() {
   return {
     position: `absolute`,
@@ -85,17 +86,6 @@ function PaperSheet(props) {
                 <Description description={description} />
               </div>
               <Paper className={classes.paper} elevation={20}>
-                <Button 
-                  variant="contained"
-                  color="primary"
-                  size="large"
-                  className={classes.button} 
-                  href={directions}
-                >
-                  <Direction className={classes.leftIcon}/>  Directions: {name}
-                </Button>
-              </Paper>
-              <Paper className={classes.paper} elevation={20}>
                 {name !== undefined ? (
                   <div>
                     <Button
@@ -109,7 +99,6 @@ function PaperSheet(props) {
                       <CheckIn className={classes.leftIcon} />
                       Check in at: {name}
                     </Button>
-
                     <Modal
                       aria-labelledby="simple-modal-title"
                       aria-describedby="simple-modal-description"
@@ -119,13 +108,24 @@ function PaperSheet(props) {
                         <Typography variant="h6" id="modal-title" color="primary">
                           Checking in at {name}...
                         </Typography>  
-                        <SimpleModalWrapped />
+                       {/*  <SimpleModalWrapped /> */}
                       </div>
                     </Modal>
                   </div>
                 ) : (
                   ""
                 )}
+              </Paper>
+              <Paper className={classes.paper} elevation={20}>
+                <Button 
+                  variant="contained"
+                  color="primary"
+                  size="large"
+                  className={classes.button} 
+                  href={directions}
+                >
+                  <Direction className={classes.leftIcon}/>  Directions: {name}
+                </Button>
               </Paper>
             </div>
             <div>
@@ -142,6 +142,6 @@ function PaperSheet(props) {
 PaperSheet.propTypes = {
   classes: PropTypes.object.isRequired
 };
-const SimpleModalWrapped = withStyles(styles)(Modal);
+//const SimpleModalWrapped = withStyles(styles)(Modal);
 
 export default withStyles(styles)(PaperSheet);
