@@ -242,7 +242,6 @@ class Main extends Component {
   render() {
     const { currentAccessPoint } = this.state;
     const { classes } = this.props;
-    const styles = {withStyles}
     let location = `/social/${this.state.checkInLocation.id}`;
     if (this.state.toPosts === true) {
       return <Redirect to={location} />;
@@ -250,7 +249,6 @@ class Main extends Component {
 
     return (
       <div>
-        {this.styles}
         <div className="Map">
           <Map
             handleMarkerClick={this.handleMarkerClick}

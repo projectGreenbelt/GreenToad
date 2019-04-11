@@ -15,6 +15,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import "../Landing.css";
+import "./../App.css";
 
 //Material UI Icons for Menu
 import AccountBalance from "@material-ui/icons/AccountBalance";
@@ -95,7 +96,7 @@ class Landing extends Component {
         const { isAuthenticated } = this.props.auth;
         const { classes } = this.props;
         const { anchorEl } = this.state;
-        const styles = {withStyles}
+        
         
         if (this.state.toProfile === true) {
         return <Redirect to="/profile" />;
@@ -103,7 +104,7 @@ class Landing extends Component {
         
         return (
             <div> 
-                {this.styles}
+               
                 <div className={classes.root}>
                     <AppBar position="static">
                         <Toolbar className="theme">
@@ -167,7 +168,7 @@ class Landing extends Component {
                             Barton Creek Greenbelt
                         </Typography>
                         <hr />
-                        <Typography className={classes.text} variant="body1">
+                        <Typography className={classes.text} variant="body2">
                             One of Austin’s most prized attractions, the Barton Creek Greenbelt is filled
                             with thrilling biking trails, pristine swimming holes, and beautiful limestone 
                             bluffs that provide for excellent rock climbing. Unfortunately for newcomers, accessing 
