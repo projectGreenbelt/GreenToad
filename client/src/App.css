@@ -213,6 +213,12 @@
     margin-left: 18%;
 }
 
+#waterStatus {
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
 /* .Button:hover,
 .Button:focus,
 .Button:active {

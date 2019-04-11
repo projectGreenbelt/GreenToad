@@ -270,6 +270,7 @@ class Social extends Component {
       .catch(err => console.log(err));
     /* console.log(this.state.otherPosts); */
   };
+  
   getCheckInLocation = props => {
     /* console.log(window.location.href);
     console.log(window.location.href.split("social/")); */

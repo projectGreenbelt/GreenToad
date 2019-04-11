@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import Weather from '../Weather/Weather';
 import WaterFlow from '../Water/WaterFlow';
 import WaterLevel from '../Water/WaterLevel';
+import WaterStatus from '../Water/WaterStatus';
 import '../../App.css'
 
 const styles = theme => ({
@@ -21,7 +22,7 @@ const styles = theme => ({
   paper: {
     margin: `${theme.spacing.unit}px auto`,
     padding: theme.spacing.unit * 2,
-    maxWidth: 600,
+    maxWidth: 295,
     minwidth: 295
   }
 });
@@ -64,11 +65,17 @@ function PaperSheet(props) {
               </Paper> 
             </div>
             <br /><br />
-            <Typography variant="h6" component="h3">
-            </Typography>
-            <div className="Widget">
-              
-            </div>
+              <Typography variant="h6" component="h4">
+                  Water Status:
+              </Typography>
+              <div className="Widget"id="waterStatus">
+                <Paper className={classes.paper}  elevation={20}>
+                  <Typography variant="body1" component="h6" color='primary'>
+                    <WaterStatus location={accessPoint.location}  />
+                  </Typography>
+                </Paper> 
+              </div>
+            <br /><br />
           </Grid>
         </Grid>
       </Paper>
