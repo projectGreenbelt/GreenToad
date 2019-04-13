@@ -13,7 +13,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import "../Landing.css";
-import "./../App.css";
+
 
 //Material UI Icons for Menu
 import AccountBalance from "@material-ui/icons/AccountBalance";
@@ -176,7 +176,7 @@ class Landing extends Component {
                              *Don't forget you can also LOGIN and check out each location's updates from fellow Greenbelters 
                             or post your own statuses for others to see!*
                         </Typography>
-                        <Link to="/home" style={{ textDecoration: 'none', display: 'block' }}>
+                        <Link to="/home" style={{ textDecoration: 'none'}}>
                             <Button 
                                 className={classes.button} 
                                 color="primary" 
