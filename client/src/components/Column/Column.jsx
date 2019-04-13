@@ -8,6 +8,7 @@ import Weather from '../Weather/Weather';
 import WaterFlow from '../Water/WaterFlow';
 import WaterLevel from '../Water/WaterLevel';
 import WaterStatus from '../Water/WaterStatus';
+import WaterFlowStatus from '../Water/WaterFlowStatus';
 import '../../App.css'
 
 const styles = theme => ({
@@ -72,6 +73,7 @@ function PaperSheet(props) {
                 <Paper className={classes.paper}  elevation={20}>
                   <Typography variant="body1" component="h6" color='primary'>
                     <WaterStatus location={accessPoint.location}  />
+                    <WaterFlowStatus location={accessPoint.location}  />
                   </Typography>
                 </Paper> 
               </div>

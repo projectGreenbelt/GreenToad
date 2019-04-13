@@ -29,7 +29,7 @@ const styles = theme => ({
     padding: theme.spacing.unit * 2
   },
   button: {
-    margin: theme.spacing.unit
+    margin: `${theme.spacing.unit}px auto`
   },
   leftIcon: {
     marginRight: theme.spacing.unit
@@ -124,7 +124,7 @@ function PaperSheet(props) {
                   className={classes.button} 
                   href={directions}
                 >
-                  <Direction className={classes.leftIcon}/>  Directions: {name}
+                  <Direction className={classes.leftIcon}/> Directions: {name}
                 </Button>
               </Paper>
             </div>
