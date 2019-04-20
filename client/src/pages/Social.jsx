@@ -26,8 +26,6 @@ import Arrow from "@material-ui/icons/KeyboardArrowLeft";
 import Moment from 'react-moment';
 import Direction from "@material-ui/icons/Directions";
 
-
-
 //Material UI Icons for Menu
 import AccountBalance from "@material-ui/icons/AccountBalance";
 import LocationOn from "@material-ui/icons/FlightLand";
@@ -447,16 +445,16 @@ class Social extends Component {
               </Paper>
               <br />
               <Paper elevation={20}>
-              <Link to="/home" style={{ textDecoration: 'none', display: 'block' }}>
-                <Button 
-                  variant="contained"
-                  color="primary"
-                  size="large"
-                  className={classes.button}
-                >
-                  <Arrow/> Back
-                </Button>
-              </Link>    
+                <Link to="/home" style={{ textDecoration: 'none', display: 'block' }}>
+                  <Button 
+                    variant="contained"
+                    color="primary"
+                    size="large"
+                    className={classes.button}
+                  >
+                    <Arrow/> Back
+                  </Button>
+                </Link>    
               </Paper>
             </div>
             <br />

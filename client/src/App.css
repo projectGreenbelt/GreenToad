@@ -36,6 +36,12 @@
     transform: scale(1.1);
 }
 
+#back-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center
+}
 
 .Widget {
     margin-top: 4%;

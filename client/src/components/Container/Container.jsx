@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
@@ -14,6 +15,7 @@ import "../../App.css";
 
 //Material UI Icon
 import CheckIn from "@material-ui/icons/CheckCircleOutline";
+import Arrow from "@material-ui/icons/KeyboardArrowLeft";
 
 const styles = theme => ({
   root: {
@@ -30,6 +32,11 @@ const styles = theme => ({
   },
   button: {
     margin: `${theme.spacing.unit}px auto`
+  },
+  back: {
+    width: 122,
+    padding: theme.spacing.unit * 1,
+    margin: `${theme.spacing.unit}px auto`,
   },
   leftIcon: {
     marginRight: theme.spacing.unit
@@ -134,6 +141,18 @@ function PaperSheet(props) {
             </div>
           </Grid>
         </Grid>
+        <Paper className={classes.back} elevation={20} id="back-button">
+          <Link to="/landing" style={{ textDecoration: 'none', display: 'block' }}>
+            <Button 
+              variant="contained"
+              color="primary"
+              size="large"
+              className={classes.button} 
+            >
+              <Arrow/> Back
+            </Button>
+          </Link>    
+        </Paper>
       </Paper>
     </div>
   );
