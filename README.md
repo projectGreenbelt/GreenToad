@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="http://icons.iconarchive.com/icons/ph03nyx/super-mario/256/Mushroom-1UP-icon.png">
+</p>
+
 ## Project Greenbelt (GreenToad) 
 
 > The all-in-one app for status updates and current breakdowns of all the public access points on the Austin Greenbelt!
