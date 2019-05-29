@@ -31,7 +31,7 @@
 
 ![projectgreenbelt](https://user-images.githubusercontent.com/40775721/53996536-63b22180-40fe-11e9-85b8-e40e95267ee9.png)
 
-
+</br>
 
 - <b>User Posts Page:</b>
 
