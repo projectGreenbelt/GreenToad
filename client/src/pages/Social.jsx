@@ -155,16 +155,16 @@ class Social extends Component {
   };
   
   
-    handleRefresh = () => {
-      // Setting access point information in the state
-      this.setState({
-        showModal:true
-      });
-      this.handleRedirect = setTimeout(() => {
-        window.location.reload();
-      }, 1100);
-    };
-    
+  handleRefresh = () => {
+    // Setting access point information in the state
+    this.setState({
+      showModal:true
+    });
+    this.handleRedirect = setTimeout(() => {
+      window.location.reload();
+    });
+  };
+  
   //handleEmailChange
   componentDidMount() {
     window.scrollTo(0, 0);
@@ -307,12 +307,6 @@ class Social extends Component {
 
 
   render() {
-    if (!this.props.auth.isAuthenticated()) {
-      alert(
-        "Slow down! You have to log in first before you can access the GreenToad post area."
-      );
-      return <Redirect to="/home" />;
-    }
     const { classes } = this.props;
     const { isAuthenticated } = this.props.auth;
     const { anchorEl } = this.state;

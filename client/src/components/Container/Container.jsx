@@ -11,6 +11,7 @@ import Card from "../Card/Card";
 import { Button } from "@material-ui/core";
 import Modal from "@material-ui/core/Modal";
 import Direction from "@material-ui/icons/Directions"
+import TrailStatus from "../Trails/TrailStatus"
 import "../../App.css";
 
 //Material UI Icon
@@ -32,6 +33,11 @@ const styles = theme => ({
   },
   button: {
     margin: `${theme.spacing.unit}px auto`
+  },
+  table: {
+    maxWidth: 816.5,
+    margin: `${theme.spacing.unit}px auto`,
+    padding: theme.spacing.unit * 2
   },
   back: {
     width: 122,
@@ -90,50 +96,52 @@ function PaperSheet(props) {
                 </div>
               </Paper>
               <div className="Card">
-                <Description description={description} />
+                <Description description={description} elevation={20} />
               </div>
-              <Paper className={classes.paper} elevation={20}>
-                {name !== undefined ? (
-                  <div>
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      size="large"
-                      className={classes.button}
-                      onClick={() => props.handleCheckIn()}
-                      // onClick={() => props.handleLoading()}
-                    >
-                      <CheckIn className={classes.leftIcon} />
-                      Check in at: {name}
-                    </Button>
-                    <Modal
-                      aria-labelledby="simple-modal-title"
-                      aria-describedby="simple-modal-description"
-                      open={props.checkedIn}
-                    >
-                      <div style={getModalStyle()} className={classes.modal} id="modal">
-                        <Typography variant="h6" id="modal-title" color="primary">
-                          Checking in at {name}...
-                        </Typography>  
-                       {/*  <SimpleModalWrapped /> */}
-                      </div>
-                    </Modal>
-                  </div>
-                ) : (
-                  ""
-                )}
-              </Paper>
-              <Paper className={classes.paper} elevation={20}>
-                <Button 
-                  variant="contained"
-                  color="primary"
-                  size="large"
-                  className={classes.button} 
-                  href={directions}
-                >
-                  <Direction className={classes.leftIcon}/> Directions: {name}
-                </Button>
-              </Paper>
+              <div id="btns">
+                <Paper className={classes.paper} elevation={20}>
+                  {name !== undefined ? (
+                    <div className="buttons">
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        size="large"
+                        className={classes.button}
+                        onClick={() => props.handleCheckIn()}
+                        // onClick={() => props.handleLoading()}
+                      >
+                        <CheckIn className={classes.leftIcon} />
+                        Check in at: {name}
+                      </Button>
+                      <Modal
+                        aria-labelledby="simple-modal-title"
+                        aria-describedby="simple-modal-description"
+                        open={props.checkedIn}
+                      >
+                        <div style={getModalStyle()} className={classes.modal} id="modal">
+                          <Typography variant="h6" id="modal-title" color="primary">
+                            Checking in at {name}...
+                          </Typography>  
+                        {/*  <SimpleModalWrapped /> */}
+                        </div>
+                      </Modal>
+                    </div>
+                  ) : (
+                    ""
+                  )}
+                </Paper>
+                <Paper className={classes.paper} elevation={20}>
+                  <Button 
+                    variant="contained"
+                    color="primary"
+                    size="large"
+                    className={classes.button} 
+                    href={directions}
+                  >
+                    <Direction className={classes.leftIcon}/> Directions: {name}
+                  </Button>
+                </Paper>
+              </div>
             </div>
             <div>
               <Column accessPoint={accessPoint} />
@@ -141,6 +149,14 @@ function PaperSheet(props) {
             </div>
           </Grid>
         </Grid>
+        <br />
+        <Paper className={classes.table} elevation={20}>
+          <Typography variant="h6" component="h3">
+            Trails:
+          </Typography>
+            <TrailStatus location={accessPoint} elevation={20} />
+        </Paper>
+        <br />
         <Paper className={classes.back} elevation={20} id="back-button">
           <Link to="/landing" style={{ textDecoration: 'none', display: 'block' }}>
             <Button 
@@ -161,6 +177,5 @@ function PaperSheet(props) {
 PaperSheet.propTypes = {
   classes: PropTypes.object.isRequired
 };
-//const SimpleModalWrapped = withStyles(styles)(Modal);
 
 export default withStyles(styles)(PaperSheet);

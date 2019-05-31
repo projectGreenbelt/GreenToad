@@ -20,18 +20,7 @@ import Avatar from '@material-ui/core/Avatar';
 //Material UI Icons for Menu
 import LocationOn from "@material-ui/icons/FlightLand";
 import Person from "@material-ui/icons/Person";
-//enzyme to remove:
-// import { shallow, configure } from "enzyme";
-// import Adapter from "enzyme-adapter-react-16";
-// configure({ adapter: new Adapter() });
-// const wrapper = shallow(<App auth={{ isAuthenticated: () => true }} 
-//     state = {{
-//     anchorEl: null,
-//     toProfile: false
-//   } }/>);
-//   console.log(wrapper)
 
-//enzyme to remove
 const styles = theme => ({
   menuItem: {
     "&:hover": {

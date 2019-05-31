@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+
 // import water from "../../utils/WaterAPI";
 import axios from "axios";
 
@@ -19,11 +20,13 @@ class WaterStatus extends Component {
       response.data.value.timeSeries[1].values[0].value[0].value < 1
       ? this.setState({ status: "The water level is Low. No Diving!" })
       : response.data.value.timeSeries[1].values[0].value[0].value > 1 &&
-          response.data.value.timeSeries[1].values[0].value[0].value < 2.60
+        response.data.value.timeSeries[1].values[0].value[0].value < 2.60
       ? this.setState({ status: "The water level is OK."} )
       : response.data.value.timeSeries[1].values[0].value[0].value > 2.60 &&
-          response.data.value.timeSeries[1].values[0].value[0].value < 10
+        response.data.value.timeSeries[1].values[0].value[0].value < 6 
       ? this.setState({ status: "The water level is great!" })
+      : response.data.value.timeSeries[1].values[0].value[0].value > 6 
+      ? this.setState({ status: "Careful! Water level is very high!" })
       : this.setState({ status: "There is no water"}),
     )
     .catch();
@@ -45,8 +48,10 @@ class WaterStatus extends Component {
             response.data.value.timeSeries[1].values[0].value[0].value < 2.50
         ? this.setState({ status: "The water level is OK."} )
         : response.data.value.timeSeries[1].values[0].value[0].value > 2.50 &&
-            response.data.value.timeSeries[1].values[0].value[0].value < 10
+            response.data.value.timeSeries[1].values[0].value[0].value < 6
         ? this.setState({ status: "The water level is great!" })
+        : response.data.value.timeSeries[1].values[0].value[0].value > 6 
+          ? this.setState({ status: "Careful! Water level is very high!" })
         : this.setState({ status: "There is no water!"}),
     )    
     .catch();

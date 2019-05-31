@@ -224,6 +224,7 @@ class Main extends Component {
       currentAccessPoint: point
     });
   };
+  
   handleCheckIn = () => {
     // Setting access point information in the state
     this.setState({
