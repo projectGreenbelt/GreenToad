@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Router, Switch } from "react-router-dom";
+import { Router, Route, Switch } from "react-router-dom";
 import App from "./App";
 import Profile from "./components/Profile/Profile";
 import Callback from "./components/Callback/Callback";
@@ -36,7 +36,7 @@ const handleAuthentication = ({ location }) => {
     auth.handleAuthentication();
   }
 };
-const NoMatch = () => <h3>No match</h3>;
+//const NoMatch = () => <h3>No match</h3>;
 
 export const makeMainRoutes = () => {
   return (
@@ -77,7 +77,7 @@ export const makeMainRoutes = () => {
               return <Callback {...props} />;
             }}
           />
-          <Route component={NoMatch} />
+          {/* <Route component={NoMatch} /> */}
         </Switch>
         <Footer />
       </div>
