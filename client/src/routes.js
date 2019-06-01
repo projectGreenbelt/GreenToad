@@ -1,14 +1,15 @@
 import React from "react";
-import { Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import App from "./App";
 import Profile from "./components/Profile/Profile";
 import Callback from "./components/Callback/Callback";
 import Auth from "./components/Authorization/Authorization";
 import Landing from "./pages/Landing";
 import Social from "./pages/Social";
+import Footer from "./components/Footer/Footer";
+
 import history from "./history";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
-import Footer from "./components/Footer/Footer";
 
 const theme = createMuiTheme({
   palette: {
@@ -29,6 +30,7 @@ const theme = createMuiTheme({
     }
   }
 });
+
 const auth = new Auth();
 
 const handleAuthentication = ({ location }) => {
@@ -36,13 +38,13 @@ const handleAuthentication = ({ location }) => {
     auth.handleAuthentication();
   }
 };
-//const NoMatch = () => <h3>No match</h3>;
+
+const NoMatch = () => <h3>No match</h3>;
 
 export const makeMainRoutes = () => {
   return (
     <MuiThemeProvider theme={theme}>
       <Router history={history}>
-      <div>
         <Switch>
           <Route
             exact
@@ -77,10 +79,9 @@ export const makeMainRoutes = () => {
               return <Callback {...props} />;
             }}
           />
-          {/* <Route component={NoMatch} /> */}
+          <Route component={NoMatch} />
         </Switch>
         <Footer />
-      </div>
       </Router>
     </MuiThemeProvider>
   );
