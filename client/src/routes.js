@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Router, Route, Switch } from "react-router-dom";
 import App from "./App";
 import Profile from "./components/Profile/Profile";
 import Callback from "./components/Callback/Callback";
@@ -39,7 +39,7 @@ const handleAuthentication = ({ location }) => {
   }
 };
 
-const NoMatch = () => <h3>No match</h3>;
+const NoMatch = () => <h3>Wubalubadubdub</h3>;
 
 export const makeMainRoutes = () => {
   return (
