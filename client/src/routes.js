@@ -1,5 +1,5 @@
 import React from "react";
-import { Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import App from "./App";
 import Profile from "./components/Profile/Profile";
 import Callback from "./components/Callback/Callback";
@@ -30,7 +30,6 @@ const theme = createMuiTheme({
     }
   }
 });
-
 const auth = new Auth();
 
 const handleAuthentication = ({ location }) => {
@@ -39,49 +38,53 @@ const handleAuthentication = ({ location }) => {
   }
 };
 
-const NoMatch = () => <h3>Wubalubadubdub</h3>;
+const NoMatch = () => <h3>No match</h3>;
 
 export const makeMainRoutes = () => {
   return (
     <MuiThemeProvider theme={theme}>
       <Router history={history}>
-        <Switch>
-          <Route
-            exact
-            path="/landing"
-            render={props => <Landing auth={auth} {...props} />}
-          />
-          <Route
-            exact
-            path="/home"
-            render={props => <App auth={auth} {...props} />}
-          />
-          <Route
-            exact
-            path="/"
-            render={props => <Landing auth={auth} {...props} />}
-          />
-          <Route
-            exact
-            path="/profile"
-            render={props => <Profile auth={auth} {...props} />}
-          />
-          <Route
-            exact
-            path="/social/:checkInLocation"
-            render={props => <Social auth={auth} {...props} />}
-          />
-          <Route
-            exact
-            path="/callback"
-            render={props => {
-              handleAuthentication(props);
-              return <Callback {...props} />;
-            }}
-          />
-          <Route component={NoMatch} />
-        </Switch>
-        <Footer />
+        <div>
+          <Switch>
+            <div>
+              <Route
+                exact
+                path="/landing"
+                render={props => <Landing auth={auth} {...props} />}
+              />
+              <Route
+                exact
+                path="/home"
+                render={props => <App auth={auth} {...props} />}
+              />
+              <Route
+                exact
+                path="/"
+                render={props => <Landing auth={auth} {...props} />}
+              />
+              <Route
+                exact
+                path="/profile"
+                render={props => <Profile auth={auth} {...props} />}
+              />
+              <Route
+                exact
+                path="/social/:checkInLocation"
+                render={props => <Social auth={auth} {...props} />}
+              />
+              <Route
+                exact
+                path="/callback"
+                render={props => {
+                  handleAuthentication(props);
+                  return <Callback {...props} />;
+                }}
+              />
+            </div>
+            <Route component={NoMatch} />
+          </Switch>
+          <Footer />
+        </div>
       </Router>
     </MuiThemeProvider>
   );
