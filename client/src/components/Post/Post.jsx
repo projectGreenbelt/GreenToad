@@ -69,7 +69,6 @@ function PaperSheet(props) {
               variant="outlined"
               name="post"
               onChange={props.handleInputChange}
-              // handleInputChange={props.handleInputChange}
             />
             <Button
               variant="contained"

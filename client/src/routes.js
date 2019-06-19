@@ -46,41 +46,39 @@ export const makeMainRoutes = () => {
       <Router history={history}>
         <div>
           <Switch>
-            <div>
               <Route
                 exact
                 path="/landing"
-                render={props => <Landing auth={auth} {...props} />}
+                component={props => <Landing auth={auth} {...props} />}
               />
               <Route
                 exact
                 path="/home"
-                render={props => <App auth={auth} {...props} />}
+                component={props => <App auth={auth} {...props} />}
               />
               <Route
                 exact
                 path="/"
-                render={props => <Landing auth={auth} {...props} />}
+                component={props => <Landing auth={auth} {...props} />}
               />
               <Route
                 exact
                 path="/profile"
-                render={props => <Profile auth={auth} {...props} />}
+                component={props => <Profile auth={auth} {...props} />}
               />
               <Route
                 exact
                 path="/social/:checkInLocation"
-                render={props => <Social auth={auth} {...props} />}
+                component={props => <Social auth={auth} {...props} />}
               />
               <Route
                 exact
                 path="/callback"
-                render={props => {
+                component={props => {
                   handleAuthentication(props);
                   return <Callback {...props} />;
                 }}
               />
-            </div>
             <Route component={NoMatch} />
           </Switch>
           <Footer />

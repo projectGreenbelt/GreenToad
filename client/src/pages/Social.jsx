@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Post from "../components/Post/Post";
 import "../App.css";
 import API from "../utils/API";
@@ -114,6 +114,7 @@ const styles = theme => ({
     marginRight: theme.spacing.unit
   },
 });
+
 function getModalStyle() {
   return {
     position: `absolute`,
@@ -129,7 +130,6 @@ class Social extends Component {
     post: "",
     anchorEl: null,
     toProfile: false,
-    // emailInput: "", //set name of input taking in email to name='emailInput'
     date: Date.now(),
     currentUser: {},
     showModal:false
@@ -175,8 +175,8 @@ class Social extends Component {
       this.getUserInfo();
     }
     this.getCheckInLocation();
-    //console.log(this.props.match.params.checkInLocation)
-    switch(this.props.match.params.checkInLocation) {
+
+    switch (this.props.match.params.checkInLocation) {
       case "1":
         this.setState({ 
           currentLocation: "Trail Head",
@@ -247,7 +247,7 @@ class Social extends Component {
       
         default:
           // do nothing
-}
+    }
   }
   
   handleFormSubmit = event => {
@@ -271,12 +271,9 @@ class Social extends Component {
     API.getPosts()
       .then(res => this.setState({ otherPosts: res.data}))
       .catch(err => console.log(err));
-    /* console.log(this.state.otherPosts); */
   };
   
   getCheckInLocation = props => {
-    /* console.log(window.location.href);
-    console.log(window.location.href.split("social/")); */
     let checkInId = window.location.href.split("social/")[1];
     return checkInId;
   };
@@ -310,7 +307,6 @@ class Social extends Component {
     const { classes } = this.props;
     const { isAuthenticated } = this.props.auth;
     const { anchorEl } = this.state;
-    //console.log(isAuthenticated());
     if (this.state.toProfile === true) {
       return <Redirect to="/profile" />;
     }
@@ -426,7 +422,7 @@ class Social extends Component {
                 handleFormSubmit={this.handleFormSubmit}
               />
               <br />
-              <Paper elevation={20}>
+              <Paper elevation={24}>
                 <Button 
                   variant="contained"
                   color="primary"
@@ -434,11 +430,11 @@ class Social extends Component {
                   className={classes.button} 
                   href={`${this.state.opening + this.state.latitude + this.state.longtitude + this.state.closing}`}
                 >
-                  <Direction className={classes.leftIcon}/>  Directions: {this.state.currentLocation && this.state.currentLocation}
+                  <Direction className={classes.leftIcon}/>  Go: {this.state.currentLocation && this.state.currentLocation}
                 </Button>
               </Paper>
               <br />
-              <Paper elevation={20}>
+              <Paper elevation={24}>
                 <Link to="/home" style={{ textDecoration: 'none', display: 'block' }}>
                   <Button 
                     variant="contained"
@@ -452,14 +448,14 @@ class Social extends Component {
               </Paper>
             </div>
             <br />
-            <Paper className={classes.posts} elevation={20}>
+            <Paper className={classes.posts} elevation={24}>
               <Grid container wrap="nowrap" spacing={16}>
                 <Grid item xs>
                   <Typography variant="h5" component="h3">
                     {this.state.currentLocation && this.state.currentLocation} Updates:
                   </Typography>
                   <hr />
-                  <Paper className={classes.list}  elevation={20}>
+                  <Paper className={classes.list}  elevation={24}>
                     <List className={classes.postStyle} id="list">
                       <Modal
                         aria-labelledby="simple-modal-title"
@@ -470,46 +466,42 @@ class Social extends Component {
                           <Typography variant="h6" color="primary" id="modal-title">
                             Your Post has been added!
                           </Typography>
-                          <SimpleModalWrapped />
+                          
                         </div>
                       </Modal>
                       {this.state.otherPosts.filter(post=>{
                         return post.checkInId===this.getCheckInLocation()
                       }).map(post => {
                         return (
-                          <Typography>
-                            <ListItem key={post._id} alignItems="flex-start" className="smoothScroll">
-                              <ListItemAvatar>
-                                <Avatar src={post.picture} />
-                              </ListItemAvatar>
-                              <ListItemText
-                                secondary={
-                                  <React.Fragment>
-                                    <Typography
-                                      component="span"
-                                      className={classes.inline}
-                                      color="Primary"
-                                    >
-                                      {post.name}
-                                    </Typography>
-                                      <br />
-                                    <Paper className={classes.userPosts} elevation={20}>
-                                      {post.post}
-                                      <br /><br/>
-                                      <div>
-                                        <Typography color="primary">
-                                          Posted: 
-                                        </Typography>  
-                                        <Moment format="M/DD/YY">{(post.date)}</Moment>
-                                        <strong color="primary"> at </strong>
-                                        <Moment format="h:mm a">{(post.date)}</Moment>
-                                      </div>
-                                    </Paper>
-                                  </React.Fragment> 
-                                }
-                              />
-                            </ListItem> 
-                          </Typography>
+                          <ListItem key={post._id} alignItems="flex-start" className="smoothScroll">
+                            <ListItemAvatar >
+                              <Avatar src={post.picture} />
+                            </ListItemAvatar>
+                            <ListItemText
+                              secondary={
+                                <React.Fragment>
+                                  <Typography
+                                    component="span"
+                                    className={classes.inline}
+                                    color="primary"
+                                  >
+                                    {post.name}
+                                  </Typography>
+                                  <br />
+                                  <Paper className={classes.userPosts} elevation={24}>
+                                    {post.post}
+                                    <br /><br/>
+                                    <Typography color="primary">
+                                      Posted: 
+                                    </Typography>  
+                                    <Moment format="M/DD/YY">{(post.date)}</Moment>
+                                    <strong color="primary"> at </strong>
+                                    <Moment format="h:mm a">{(post.date)}</Moment>
+                                  </Paper>
+                                </React.Fragment> 
+                              }
+                            />
+                          </ListItem> 
                         );
                       })}
                     </List>
@@ -523,6 +515,6 @@ class Social extends Component {
     );
   }
 }
-const SimpleModalWrapped = withStyles(styles)(Modal);
+//const SimpleModalWrapped = withStyles(styles)(Modal);
 
-export default withStyles(styles)(withRouter(Social));
+export default withStyles(styles)(Social);

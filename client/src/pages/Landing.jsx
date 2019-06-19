@@ -104,7 +104,7 @@ class Landing extends Component {
             <div> 
                 {this.styles}
                 <div className={classes.root}>
-                    <AppBar position="static">
+                    <AppBar position="static" >
                         <Toolbar className="theme">
                             <Typography variant="h5" color="inherit" className={classes.grow}>
                                 GreenToad
@@ -176,18 +176,17 @@ class Landing extends Component {
                              *Don't forget you can also LOGIN and check out each location's updates from fellow Greenbelters 
                             or post your own statuses for others to see!*
                         </Typography>
-                        {/* <Link to="/home" style={{ textDecoration: 'none'}}> */}
+                        <Link to="/home" style={{ textDecoration: 'none'}}>
                             <Button 
-                                className={classes.button} 
+                                className={classes.button}
                                 color="primary" 
                                 variant="contained" 
                                 size="large"
-                                href="/home"
                             >
                                 <Arrow/>
                                 Continue
                             </Button>
-                        {/* </Link> */}
+                        </Link>
                     </Card>
                 </div>                  
             </div>

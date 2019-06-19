@@ -80,11 +80,11 @@ function PaperSheet(props) {
 
   return (
     <div>
-      <Paper className={classes.paper} elevation={20}>
+      <Paper className={classes.paper} elevation={24}>
         <Grid container wrap="nowrap" spacing={16}>
           <Grid item xs className="container">
             <div className="col1">
-              <Paper className={classes.paper} elevation={20}>
+              <Paper className={classes.paper} elevation={24}>
                 <Typography variant="h4" component="h3">
                   {name}
                 </Typography>
@@ -92,14 +92,14 @@ function PaperSheet(props) {
                   {address}
                 </Typography>
                 <div className="Card">
-                  <Card image={image} elevation={15} />
+                  <Card image={image} elevation={24} />
                 </div>
               </Paper>
               <div className="Card">
-                <Description description={description} elevation={20} />
+                <Description description={description} elevation={24} />
               </div>
               <div id="btns">
-                <Paper className={classes.paper} elevation={20}>
+                <Paper className={classes.paper} elevation={24}>
                   {name !== undefined ? (
                     <div className="buttons">
                       <Button
@@ -111,7 +111,7 @@ function PaperSheet(props) {
                         // onClick={() => props.handleLoading()}
                       >
                         <CheckIn className={classes.leftIcon} />
-                        Check in at: {name}
+                        Check in: {name}
                       </Button>
                       <Modal
                         aria-labelledby="simple-modal-title"
@@ -130,7 +130,7 @@ function PaperSheet(props) {
                     ""
                   )}
                 </Paper>
-                <Paper className={classes.paper} elevation={20}>
+                <Paper className={classes.paper} elevation={24}>
                   <Button 
                     variant="contained"
                     color="primary"
@@ -138,7 +138,7 @@ function PaperSheet(props) {
                     className={classes.button} 
                     href={directions}
                   >
-                    <Direction className={classes.leftIcon}/> Directions: {name}
+                    <Direction className={classes.leftIcon}/> Go: {name}
                   </Button>
                 </Paper>
               </div>
@@ -150,15 +150,15 @@ function PaperSheet(props) {
           </Grid>
         </Grid>
         <br />
-        <Paper className={classes.table} elevation={20}>
+        <Paper className={classes.table} elevation={24}>
           <Typography variant="h6" component="h3">
             Trails:
           </Typography>
-            <TrailStatus location={accessPoint} elevation={20} />
+            <TrailStatus location={accessPoint} elevation={24} />
         </Paper>
         <br />
-        <Paper className={classes.back} elevation={20} id="back-button">
-          <Link to="/landing" style={{ textDecoration: 'none', display: 'block' }}>
+        <Paper className={classes.back} elevation={24} id="back-button">
+          <Link to="/" style={{ textDecoration: 'none', display: 'block' }}>
             <Button 
               variant="contained"
               color="primary"

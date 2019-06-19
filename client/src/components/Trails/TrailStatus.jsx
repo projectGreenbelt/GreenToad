@@ -58,8 +58,8 @@ class TrailStatus extends Component {
     const { classes } = this.props
     
     return (
-      <Paper className={classes.root} elevation={20}>
-        <Table className={classes.table}>
+      <Paper className={classes.root} elevation={24}>
+        <Table className={classes.table} id="trails">
           <TableHead>
             <TableRow>
               <CustomTableCell>Trail</CustomTableCell>

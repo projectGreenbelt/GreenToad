@@ -109,6 +109,12 @@
      max-height: 600px;
      max-width: 500;
      overflow-y: scroll;
+     -webkit-overflow-scrolling: touch;
+ }
+
+ .trails {
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
  }
  
  .footer {
@@ -231,12 +237,6 @@
     align-items: center;
     justify-content: center;
 }
-
-/* .Button:hover,
-.Button:focus,
-.Button:active {
-    transform: scale(1.1);
-} */
 
 @media screen and (max-width: 700px) {
     #btns {

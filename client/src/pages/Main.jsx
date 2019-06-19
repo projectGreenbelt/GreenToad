@@ -15,7 +15,6 @@ import points from "../cards";
 import { withStyles } from "@material-ui/core";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
-/* import { CombineLatestSubscriber } from "rxjs/internal/observable/combineLatest"; */
 
 const styles = theme => ({
   iconButtons: {
@@ -42,6 +41,8 @@ const Map = withScriptjs(
       defaultOptions={{
         scrollwheel: false,
         zoomControl: true,
+        mapTypeId: 'terrain',
+        disableDefaultUI: true,
         styles: [
           {
             featureType: "water",
@@ -114,7 +115,6 @@ const Map = withScriptjs(
         onClick={() => props.handleMarkerClick(1)}
         position={{ lat: 30.264143, lng: -97.773334 }}
         title="Trail Head"
-        /* defaultLabel="Trail Head" */
       />
       <Marker
         icon={{
@@ -125,7 +125,6 @@ const Map = withScriptjs(
         onClick={() => props.handleMarkerClick(2)}
         position={{ lat: 30.257926, lng: -97.787518 }}
         title="Spyglass"
-        /* defaultLabel="Spyglass" */
       />
       <Marker
         icon={{
@@ -205,7 +204,6 @@ class Main extends Component {
   componentDidMount() {
     window.scrollTo(0, 0);
     document.body.scrollTop = 0;
-    // console.log(points); removed this console log because it throws every time I run Jest test.
   }
 
   // Custom function
@@ -273,7 +271,7 @@ class Main extends Component {
         />  : 
         <Paper
           className={classes.paper}
-          elevation={20}
+          elevation={24}
           id="Card"
         > 
           <Typography className={classes.text} variant="body2" component="h3" color="primary">

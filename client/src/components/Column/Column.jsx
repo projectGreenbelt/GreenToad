@@ -34,7 +34,7 @@ function PaperSheet(props) {
   
   return (
     <div>
-      <Paper className={classes.paper} elevation={20}>
+      <Paper className={classes.paper} elevation={24}>
         <Grid container wrap="nowrap" spacing={16} >
           <Grid item xs>
             <Typography variant="h5" component="h3">
@@ -45,7 +45,7 @@ function PaperSheet(props) {
                 Weather:
             </Typography>
             <div className="Widget">
-              <Paper elevation={20}>
+              <Paper elevation={24}>
                 <Weather />
               </Paper>
             </div>
@@ -59,7 +59,7 @@ function PaperSheet(props) {
               </Typography>
             </div>
             <div className="Widget" >
-              <Paper className="Water" elevation={20}>
+              <Paper className="Water" elevation={24}>
                 <WaterLevel location={accessPoint.location} />
                 <WaterFlow location={accessPoint.location} />
               </Paper> 
@@ -69,7 +69,7 @@ function PaperSheet(props) {
                 Water Status:
             </Typography>
             <div className="Widget"id="waterStatus">
-              <Paper className={classes.paper}  elevation={20}>
+              <Paper className={classes.paper}  elevation={24}>
                 <Typography variant="body1" component="h6" color='primary'>
                   <WaterStatus location={accessPoint.location}  />
                   <WaterFlowStatus location={accessPoint.location}  />
