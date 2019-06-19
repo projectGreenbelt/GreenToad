@@ -49,32 +49,32 @@ export const makeMainRoutes = () => {
               <Route
                 exact
                 path="/landing"
-                component={props => <Landing auth={auth} {...props} />}
+                render={props => <Landing auth={auth} {...props} />}
               />
               <Route
                 exact
                 path="/home"
-                component={props => <App auth={auth} {...props} />}
+                render={props => <App auth={auth} {...props} />}
               />
               <Route
                 exact
                 path="/"
-                component={props => <Landing auth={auth} {...props} />}
+                render={props => <Landing auth={auth} {...props} />}
               />
               <Route
                 exact
                 path="/profile"
-                component={props => <Profile auth={auth} {...props} />}
+                render={props => <Profile auth={auth} {...props} />}
               />
               <Route
                 exact
                 path="/social/:checkInLocation"
-                component={props => <Social auth={auth} {...props} />}
+                render={props => <Social auth={auth} {...props} />}
               />
               <Route
                 exact
                 path="/callback"
-                component={props => {
+                render={props => {
                   handleAuthentication(props);
                   return <Callback {...props} />;
                 }}

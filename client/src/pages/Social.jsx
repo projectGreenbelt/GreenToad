@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import Post from "../components/Post/Post";
 import "../App.css";
 import API from "../utils/API";
@@ -135,7 +135,8 @@ class Social extends Component {
     showModal:false
     
   };
-  getUserInfo = () => {
+
+  getUserInfo = user => {
     let token;
     token = localStorage.getItem("access_token");
     //console.log(token)
@@ -153,7 +154,6 @@ class Social extends Component {
       [e.target.name]: e.target.value
     });
   };
-  
   
   handleRefresh = () => {
     // Setting access point information in the state
@@ -304,6 +304,12 @@ class Social extends Component {
 
 
   render() {
+    if (!this.props.auth.isAuthenticated()) {
+      alert(
+        "Slow down! You have to log in first before you can access the GreenToad post area."
+      );
+      return <Redirect to="/home" />;
+    }
     const { classes } = this.props;
     const { isAuthenticated } = this.props.auth;
     const { anchorEl } = this.state;
@@ -466,7 +472,7 @@ class Social extends Component {
                           <Typography variant="h6" color="primary" id="modal-title">
                             Your Post has been added!
                           </Typography>
-                          
+                          <SimpleModalWrapped />
                         </div>
                       </Modal>
                       {this.state.otherPosts.filter(post=>{
@@ -515,6 +521,7 @@ class Social extends Component {
     );
   }
 }
-//const SimpleModalWrapped = withStyles(styles)(Modal);
 
-export default withStyles(styles)(Social);
+const SimpleModalWrapped = withStyles(styles)(Modal);
+
+export default withStyles(styles)(withRouter(Social));

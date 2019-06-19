@@ -108,7 +108,7 @@ function PaperSheet(props) {
                         size="large"
                         className={classes.button}
                         onClick={() => props.handleCheckIn()}
-                        // onClick={() => props.handleLoading()}
+                        //onClick={() => props.handleLoading()}
                       >
                         <CheckIn className={classes.leftIcon} />
                         Check in: {name}

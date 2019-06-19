@@ -42,7 +42,6 @@ const Map = withScriptjs(
         scrollwheel: false,
         zoomControl: true,
         mapTypeId: 'terrain',
-        disableDefaultUI: true,
         styles: [
           {
             featureType: "water",
@@ -236,12 +235,15 @@ class Main extends Component {
 
   // Render function
   render() {
-    const { currentAccessPoint } = this.state;
-    const { classes } = this.props;
+  
     let location = `/social/${this.state.checkInLocation.id}`;
+    
     if (this.state.toPosts === true) {
       return <Redirect to={location} />;
     }
+    
+    const { currentAccessPoint } = this.state;
+    const { classes } = this.props;
 
     return (
       <div>
