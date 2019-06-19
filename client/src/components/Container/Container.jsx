@@ -154,7 +154,7 @@ function PaperSheet(props) {
           <Typography variant="h6" component="h3">
             Trails:
           </Typography>
-            <TrailStatus location={accessPoint} elevation={24} />
+          <TrailStatus location={accessPoint} elevation={24} id="smoothScroll"/>
         </Paper>
         <br />
         <Paper className={classes.back} elevation={24} id="back-button">
