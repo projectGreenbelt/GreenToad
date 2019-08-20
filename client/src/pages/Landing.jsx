@@ -1,9 +1,6 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
-import { Link } from "react-router-dom";
-import API from "../utils/API";
+import { Redirect, Link} from "react-router-dom";
 import Card from "@material-ui/core/Card";
-import "./../App.css";
 import { withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -15,9 +12,8 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
 import "../Landing.css";
+
 
 //Material UI Icons for Menu
 import AccountBalance from "@material-ui/icons/AccountBalance";
@@ -96,21 +92,22 @@ class Landing extends Component {
 
     render() {
         const { isAuthenticated } = this.props.auth;
-        console.log(isAuthenticated());
         const { classes } = this.props;
         const { anchorEl } = this.state;
+        const styles = {withStyles}
+        
         if (this.state.toProfile === true) {
         return <Redirect to="/profile" />;
         }
-        const { profile } = this.state;
+        
         return (
-            <div>
-                {withStyles}
+            <div> 
+                {this.styles}
                 <div className={classes.root}>
-                    <AppBar position="static">
+                    <AppBar position="static" >
                         <Toolbar className="theme">
                             <Typography variant="h5" color="inherit" className={classes.grow}>
-                                Greentoad
+                                GreenToad
                             </Typography>
                             <IconButton
                                 className={styles.menuButton}
@@ -169,51 +166,29 @@ class Landing extends Component {
                             Barton Creek Greenbelt
                         </Typography>
                         <hr />
-                        <Typography className={classes.text} variant="body1">
+                        <Typography className={classes.text} variant="body2">
                             One of Austin’s most prized attractions, the Barton Creek Greenbelt is filled
                             with thrilling biking trails, pristine swimming holes, and beautiful limestone 
                             bluffs that provide for excellent rock climbing. Unfortunately for newcomers, accessing 
                             this local treasure can be a little confusing. To help, here is a complete guide to all the public 
-                            access points for Austin’s natural gem. Click CONTINUE to begin.  
+                            access points. Click CONTINUE to begin.  
                             <br/><br/>
                              *Don't forget you can also LOGIN and check out each location's updates from fellow Greenbelters 
                             or post your own statuses for others to see!*
                         </Typography>
-                        <Button 
-                            className={classes.button} 
-                            color="primary" 
-                            variant="contained" 
-                            size="large"
-                            href="/home"
-                        >
-                            <Arrow/>
-                            Continue
-                        </Button>
+                        <Link to="/home" style={{ textDecoration: 'none'}}>
+                            <Button 
+                                className={classes.button}
+                                color="primary" 
+                                variant="contained" 
+                                size="large"
+                            >
+                                <Arrow/>
+                                Continue
+                            </Button>
+                        </Link>
                     </Card>
-                </div>
-                <div className="footer">
-                    <div>
-                        <List>
-                        <ListItem>
-                            <div>
-                            &copy; {1900 + new Date().getYear()} ,{" "}
-                            Project Greenbelt
-                            </div>
-                            <IconButton
-                            justIcon
-                            color="primary"
-                            >
-                            <a 
-                                href="https://github.com/projectGreenbelt/projectGreenbelt"
-                                classname="iconButton"
-                            >
-                                <i className="fab fa-github-square" id="icon" aria-hidden="true" color="secondary" />
-                            </a>
-                            </IconButton>
-                        </ListItem>
-                        </List>
-                    </div>
-                </div>                      
+                </div>                  
             </div>
         );
     }

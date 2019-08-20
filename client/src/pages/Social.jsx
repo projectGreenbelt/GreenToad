@@ -22,11 +22,9 @@ import MenuIcon from "@material-ui/icons/Menu";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
-import Card from "@material-ui/core/Card";
-import CardMedia from '@material-ui/core/CardMedia';
 import Arrow from "@material-ui/icons/KeyboardArrowLeft";
 import Moment from 'react-moment';
-
+import Direction from "@material-ui/icons/Directions";
 
 //Material UI Icons for Menu
 import AccountBalance from "@material-ui/icons/AccountBalance";
@@ -111,8 +109,12 @@ const styles = theme => ({
     boxShadow: theme.shadows[5],
     padding: theme.spacing.unit * 4,
     outline: 'none',
-  }
+  },
+  leftIcon: {
+    marginRight: theme.spacing.unit
+  },
 });
+
 function getModalStyle() {
   return {
     position: `absolute`,
@@ -128,16 +130,16 @@ class Social extends Component {
     post: "",
     anchorEl: null,
     toProfile: false,
-    // emailInput: "", //set name of input taking in email to name='emailInput'
     date: Date.now(),
     currentUser: {},
     showModal:false
     
   };
+
   getUserInfo = user => {
     let token;
     token = localStorage.getItem("access_token");
-    console.log(token)
+    //console.log(token)
     this.props.auth.lock.getUserInfo(token, (err, profile) => {
       if (err) {
         console.log("problem with getting user data");
@@ -153,17 +155,16 @@ class Social extends Component {
     });
   };
   
+  handleRefresh = () => {
+    // Setting access point information in the state
+    this.setState({
+      showModal:true
+    });
+    this.handleRedirect = setTimeout(() => {
+      window.location.reload();
+    });
+  };
   
-    handleRefresh = () => {
-      // Setting access point information in the state
-      this.setState({
-        showModal:true
-      });
-      this.handleRedirect = setTimeout(() => {
-        window.location.reload();
-      }, 1100);
-    };
-    
   //handleEmailChange
   componentDidMount() {
     window.scrollTo(0, 0);
@@ -174,33 +175,79 @@ class Social extends Component {
       this.getUserInfo();
     }
     this.getCheckInLocation();
-    console.log(this.props.match.params.checkInLocation)
-    switch(this.props.match.params.checkInLocation) {
+
+    switch (this.props.match.params.checkInLocation) {
       case "1":
-        this.setState({ currentLocation: "Trail Head"});
+        this.setState({ 
+          currentLocation: "Trail Head",
+          latitude: "30.2644894",
+          longitude: "-97.8074639",
+          opening: "https://www.google.com/maps/dir//''/@",
+          closing: ",13z/data=!3m1!4b1!4m9!4m8!1m0!1m5!1m1!1s0x8644b53aeecd69b5:0xb7b4c9c89bcebf32!2m2!1d-97.7724445!2d30.2644941!3e1", 
+          photo: "Trail Photo"
+        });
         break;
       case "2":
-        this.setState({ currentLocation: "Spyglass"});
+        this.setState({ 
+          currentLocation: "Spyglass",
+          latitude: "30.257926",
+          longitude: "-97.787518",
+          opening: "https://www.google.com/maps/dir//''/@",
+          closing: ",17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x865b4ad30a2ba6c1:0x46d10571c8900bd7!2m2!1d-97.7876587!2d30.2577944", 
+          photo: "Spyglass Photo"
+        });
         break;
       case "3":
-        this.setState({ currentLocation: "Barton Hills"});
+        this.setState({ 
+          currentLocation: "Barton Hills",
+          latitude: "30.255326",
+          longitude: "-97.783981",
+          opening: "https://www.google.com/maps/dir//''/@",
+          closing: ",13z/data=!4m8!4m7!1m0!1m5!1m1!1s0x8644b52b5b47860d:0x7a4dcd3f88c55c0e!2m2!1d-97.7842272!2d30.255575",
+          photo: "Barton Hills Photo"
+      });
         break;
       case "4":
-        this.setState({ currentLocation: "Gus Fruh"});
+        this.setState({ 
+          currentLocation: "Gus Fruh",
+          latitude: "30.249326",
+          longitude: "-97.79515",
+          opening: "https://www.google.com/maps/dir//''/@",
+          closing: ",17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x865b4b281b6de51b:0x7b2969062fed0392!2m2!1d-97.795208!2d30.24941",
+          photo: "Gus Fruh Photo"
+        });
         break;
       case "5":
-        this.setState({ currentLocation: "Loop 360"});
+        this.setState({ 
+          currentLocation: "Loop 360",
+          latitude: "30.243766",
+          longitude: "-97.800123",
+          opening: "https://www.google.com/maps/dir//''/@",
+          closing: ",13z/data=!4m8!4m7!1m0!1m5!1m1!1s0x865b4b2422b94247:0x21bc03e7da138b0f!2m2!1d-97.8000041!2d30.2431916"
+        });
         break;
       case "6":
-        this.setState({ currentLocation: "Gaines"});
+        this.setState({ 
+          currentLocation: "Gaines",
+          latitude: "30.244221",
+          longitude: "-97.809666",
+          opening: "https://www.google.com/maps/dir//''/@",
+          closing: ",17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x865b4b1ee16d3b4b:0x64688b35c405ddad!2m2!1d-97.809824!2d30.244939"
+        });
         break;
       case "7":
-        this.setState({ currentLocation: "Trail's End"});
+        this.setState({
+          currentLocation: "Trail's End",
+          latitude: "30.2746493",
+          longitude: "-97.8306456",
+          opening: "https://www.google.com/maps/dir//''/@",
+          closing: ",17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x865b4a8bb82912cb:0xe957ecebdb94a485!2m2!1d-97.8252237!2d30.2751231"
+        });
         break;
-      default: 
-        this.setState({ currentLocation: "defaultPhrase"})
-
-}
+      
+        default:
+          // do nothing
+    }
   }
   
   handleFormSubmit = event => {
@@ -224,11 +271,9 @@ class Social extends Component {
     API.getPosts()
       .then(res => this.setState({ otherPosts: res.data}))
       .catch(err => console.log(err));
-    console.log(this.state.otherPosts);
   };
+  
   getCheckInLocation = props => {
-    console.log(window.location.href);
-    console.log(window.location.href.split("social/"));
     let checkInId = window.location.href.split("social/")[1];
     return checkInId;
   };
@@ -267,18 +312,17 @@ class Social extends Component {
     }
     const { classes } = this.props;
     const { isAuthenticated } = this.props.auth;
-    console.log(isAuthenticated());
     const { anchorEl } = this.state;
     if (this.state.toProfile === true) {
       return <Redirect to="/profile" />;
     }
+    
     return (
       <div>
-        {withStyles}
         <AppBar position="static">
           <Toolbar className="theme">
             <Typography variant="h5" color="inherit" className={classes.grow}>
-              Greentoad
+              GreenToad
             </Typography>
             {isAuthenticated() && (
               <Button onClick={this.logout.bind(this)} color="inherit">
@@ -384,85 +428,86 @@ class Social extends Component {
                 handleFormSubmit={this.handleFormSubmit}
               />
               <br />
-              <Paper elevation={20}>
+              <Paper elevation={24}>
                 <Button 
                   variant="contained"
                   color="primary"
                   size="large"
-                  className={classes.button}
-                  href="/home"
+                  className={classes.button} 
+                  href={`${this.state.opening + this.state.latitude + this.state.longtitude + this.state.closing}`}
                 >
-                  <Arrow /> Back
+                  <Direction className={classes.leftIcon}/>  Go: {this.state.currentLocation && this.state.currentLocation}
                 </Button>
+              </Paper>
+              <br />
+              <Paper elevation={24}>
+                <Link to="/home" style={{ textDecoration: 'none', display: 'block' }}>
+                  <Button 
+                    variant="contained"
+                    color="primary"
+                    size="large"
+                    className={classes.button}
+                  >
+                    <Arrow/> Back
+                  </Button>
+                </Link>    
               </Paper>
             </div>
             <br />
-            <Paper className={classes.posts} elevation={20}>
+            <Paper className={classes.posts} elevation={24}>
               <Grid container wrap="nowrap" spacing={16}>
                 <Grid item xs>
                   <Typography variant="h5" component="h3">
                     {this.state.currentLocation && this.state.currentLocation} Updates:
                   </Typography>
                   <hr />
-                  <Paper className={classes.list} elevation={20}>
+                  <Paper className={classes.list}  elevation={24}>
                     <List className={classes.postStyle} id="list">
-                    <Modal
-                      aria-labelledby="simple-modal-title"
-                      aria-describedby="simple-modal-description"
-                      open={this.state.showModal}
-                    >
-                      <div style={getModalStyle()} className={classes.modal} id="modal">
-                        <Typography variant="h6" color="primary" id="modal-title">
-                          Your Post has been added!
-                        </Typography>
-                          <span>
-                            <img
-                              src="https://3.bp.blogspot.com/-35XcSUkkKEw/WDZIEP8bteI/AAAAAAALaVk/rjrZxNa_nls4x_PxqjDJdtwonvdtlI_sQCLcB/s1600/AS002064_07.gif"
-                            />
-                          </span>
-                        <SimpleModalWrapped />
-                      </div>
-                    </Modal>
-                    {console.log(this.state.otherPosts)}
+                      <Modal
+                        aria-labelledby="simple-modal-title"
+                        aria-describedby="simple-modal-description"
+                        open={this.state.showModal}
+                      >
+                        <div style={getModalStyle()} className={classes.modal} id="modal">
+                          <Typography variant="h6" color="primary" id="modal-title">
+                            Your Post has been added!
+                          </Typography>
+                          <SimpleModalWrapped />
+                        </div>
+                      </Modal>
                       {this.state.otherPosts.filter(post=>{
                         return post.checkInId===this.getCheckInLocation()
                       }).map(post => {
                         return (
-                          <Typography>
-                            <ListItem key={post._id} alignItems="flex-start" className="smoothScroll">
-                              <ListItemAvatar>
-                                <Avatar src={post.picture} />
-                              </ListItemAvatar>
-                              <ListItemText
-                                primary={""}
-                                secondary={
-                                  <React.Fragment>
-                                    
-                                      <Typography
-                                        component="span"
-                                        className={classes.inline}
-                                        color="Primary"
-                                      >
-                                        {post.name}
-                                      </Typography>
-                                      <br />
-                                      <Paper className={classes.userPosts} elevation={20}>
-                                        {post.post}
-                                      <br /><br/>
-                                      <div>
-                                        <Typography color="primary">
-                                          Posted: 
-                                        </Typography>  
-                                        <Moment format="M/DD/YY">{(post.date)}</Moment>
-                                        <strong color="primary"> at </strong>
-                                        <Moment format="h:mm a">{(post.date)}</Moment>
-                                      </div>
-                                    </Paper>
-                                  </React.Fragment> 
-                                }
-                              />
-                            </ListItem> 
-                          </Typography>
+                          <ListItem key={post._id} alignItems="flex-start" className="smoothScroll">
+                            <ListItemAvatar >
+                              <Avatar src={post.picture} />
+                            </ListItemAvatar>
+                            <ListItemText
+                              secondary={
+                                <React.Fragment>
+                                  <Typography
+                                    component="span"
+                                    className={classes.inline}
+                                    color="primary"
+                                  >
+                                    {post.name}
+                                  </Typography>
+                                  <br />
+                                  <Paper className={classes.userPosts} elevation={24}>
+                                    {post.post}
+                                    <br /><br/>
+                                    <Typography color="primary">
+                                      Posted: 
+                                    </Typography>  
+                                    <Moment format="M/DD/YY">{(post.date)}</Moment>
+                                    <strong color="primary"> at </strong>
+                                    <Moment format="h:mm a">{(post.date)}</Moment>
+                                  </Paper>
+                                </React.Fragment> 
+                              }
+                            />
+                          </ListItem> 
                         );
                       })}
                     </List>
@@ -472,34 +517,11 @@ class Social extends Component {
             </Paper>
           </div> 
         </Paper>
-        <div className="footer">
-          <div>
-            <List>
-              <ListItem>
-                <div>
-                  &copy; {1900 + new Date().getYear()} , Project Greenbelt
-                </div>
-                <IconButton justIcon color="primary">
-                  <a
-                    href="https://github.com/projectGreenbelt/projectGreenbelt"
-                    classname="iconButton"
-                  >
-                    <i
-                      className="fab fa-github-square"
-                      id="icon"
-                      aria-hidden="true"
-                      color="secondary"
-                    />
-                  </a>
-                </IconButton>
-              </ListItem>
-            </List>
-          </div>
-        </div>
       </div>
     );
   }
 }
+
 const SimpleModalWrapped = withStyles(styles)(Modal);
 
 export default withStyles(styles)(withRouter(Social));

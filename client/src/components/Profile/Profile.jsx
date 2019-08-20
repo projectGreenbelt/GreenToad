@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Redirect, Link } from "react-router-dom";
-import "../../App.css";
 import API from "../../utils/API";
 import { withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
@@ -16,10 +15,9 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Paper from "@material-ui/core/Paper";
 import Card from "@material-ui/core/Card";
 import Arrow from "@material-ui/icons/KeyboardArrowLeft";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
+
 
 //Material UI Icons for Menu
 import AccountBalance from "@material-ui/icons/AccountBalance";
@@ -117,12 +115,11 @@ class Profile extends Component {
   };
 
   componentDidMount() {
-    const { userProfile, getUserInfo, userInfo } = this.props.auth;
+    /* const { userProfile, getUserInfo, userInfo  } = this.props.auth; */
     if (this.props.auth.isAuthenticated()) {
       let oldToken = localStorage.getItem("access_token");
       let newProfile;
       this.props.auth.lock.getUserInfo(oldToken, (err, profile) => {
-        console.log(profile);
         newProfile = profile;
         this.setState({ profile: newProfile });
       });
@@ -131,7 +128,6 @@ class Profile extends Component {
   
   render() {
     const { isAuthenticated } = this.props.auth;
-    console.log(isAuthenticated());
     const { classes } = this.props;
     const { anchorEl } = this.state;
     if (!this.props.auth.isAuthenticated()) {
@@ -144,9 +140,9 @@ class Profile extends Component {
       return <Redirect to="/profile" />;
     }
     const { profile } = this.state;
+    
     return (
       <div>
-        {withStyles}
         <div className={classes.root}>
           <AppBar position="static">
             <Toolbar className="theme">
@@ -196,7 +192,6 @@ class Profile extends Component {
                     classes={{ primary: classes.primary }}
                     inset
                     primary="Home"
-                    onclick
                   />
                 </MenuItem>
               </Link>  
@@ -227,16 +222,17 @@ class Profile extends Component {
                 </Card>
                 <br />
                 <Paper className={classes.paper}>
-                  <Button 
-                    color="primary" 
-                    variant="contained" 
-                    aria-label="Add" 
-                    size="large" 
-                    className={classes.margin}
-                    href="/home"
-                  >
-                    <Arrow/> Back
-                  </Button>
+                  <Link to="/home" style={{ textDecoration: 'none', display: 'block' }} >
+                    <Button 
+                      color="primary" 
+                      variant="contained" 
+                      aria-label="Add" 
+                      size="large" 
+                      className={classes.margin}
+                    >
+                      <Arrow/> Back
+                    </Button>
+                  </Link>
                 </Paper>
               </div>
               <br />
@@ -260,29 +256,6 @@ class Profile extends Component {
             </div>
           </Paper>
         </div>
-        <div className="footer">
-          <div>
-            <List>
-            <ListItem>
-                <div>
-                &copy; {1900 + new Date().getYear()} ,{" "}
-                Project Greenbelt
-                </div>
-                <IconButton
-                justIcon
-                color="primary"
-                >
-                <a 
-                  href="https://github.com/projectGreenbelt/projectGreenbelt"
-                  classname="iconButton"
-                >
-                  <i className="fab fa-github-square" id="icon" aria-hidden="true" color="secondary" />
-                </a>
-                </IconButton>
-            </ListItem>
-            </List>
-          </div>
-        </div>  
       </div>
     );
   }

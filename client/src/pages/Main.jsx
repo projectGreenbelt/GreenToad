@@ -12,13 +12,9 @@ import {
 } from "react-google-maps";
 import "./../App.css";
 import points from "../cards";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import IconButton from "@material-ui/core/IconButton";
 import { withStyles } from "@material-ui/core";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
-/* import { CombineLatestSubscriber } from "rxjs/internal/observable/combineLatest"; */
 
 const styles = theme => ({
   iconButtons: {
@@ -45,6 +41,7 @@ const Map = withScriptjs(
       defaultOptions={{
         scrollwheel: false,
         zoomControl: true,
+        mapTypeId: 'terrain',
         styles: [
           {
             featureType: "water",
@@ -117,7 +114,6 @@ const Map = withScriptjs(
         onClick={() => props.handleMarkerClick(1)}
         position={{ lat: 30.264143, lng: -97.773334 }}
         title="Trail Head"
-        /* defaultLabel="Trail Head" */
       />
       <Marker
         icon={{
@@ -128,7 +124,6 @@ const Map = withScriptjs(
         onClick={() => props.handleMarkerClick(2)}
         position={{ lat: 30.257926, lng: -97.787518 }}
         title="Spyglass"
-        /* defaultLabel="Spyglass" */
       />
       <Marker
         icon={{
@@ -163,12 +158,6 @@ const Map = withScriptjs(
         title="Loop 360"
         /* defaultLabel="Loop 360" */
       >
-        {/* <InfoWindow>
-          <div>
-            {" "}
-            Loop 360
-          </div>
-        </InfoWindow> */}
       </Marker>
       <Marker
         icon={{
@@ -214,7 +203,6 @@ class Main extends Component {
   componentDidMount() {
     window.scrollTo(0, 0);
     document.body.scrollTop = 0;
-    // console.log(points); removed this console log because it throws every time I run Jest test.
   }
 
   // Custom function
@@ -233,6 +221,7 @@ class Main extends Component {
       currentAccessPoint: point
     });
   };
+  
   handleCheckIn = () => {
     // Setting access point information in the state
     this.setState({
@@ -246,15 +235,18 @@ class Main extends Component {
 
   // Render function
   render() {
+  
     let location = `/social/${this.state.checkInLocation.id}`;
+    
     if (this.state.toPosts === true) {
       return <Redirect to={location} />;
     }
+    
     const { currentAccessPoint } = this.state;
     const { classes } = this.props;
+
     return (
       <div>
-        {withStyles}
         <div className="Map">
           <Map
             handleMarkerClick={this.handleMarkerClick}
@@ -281,38 +273,14 @@ class Main extends Component {
         />  : 
         <Paper
           className={classes.paper}
-          elevation={20}
+          elevation={24}
           id="Card"
         > 
-          <Typography className={classes.text} variant="body1" component="h3" color="primary">
-            Click on any of the access points above for a detailed
+          <Typography className={classes.text} variant="body2" component="h3" color="primary">
+            Click on any access point above for a detailed
             breakdown of that particular location!
           </Typography>
         </Paper>}
-        <div className="footer">
-          <div>
-            <List>
-              <ListItem>
-                <div>
-                  &copy; {1900 + new Date().getYear()} , GreenToad
-                </div>
-                <IconButton justIcon color="primary">
-                  <a
-                    href="https://github.com/projectGreenbelt/projectGreenbelt"
-                    classname="iconButton"
-                  >
-                    <i
-                      className="fab fa-github-square"
-                      id="icon"
-                      aria-hidden="true"
-                      color="secondary"
-                    />
-                  </a>
-                </IconButton>
-              </ListItem>
-            </List>
-          </div>
-        </div>
       </div>
     );
   }

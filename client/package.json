@@ -4,25 +4,24 @@
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.12",
-    "@fortawesome/free-solid-svg-icons": "^5.6.3",
-    "@fortawesome/react-fontawesome": "^0.1.4",
-    "@material-ui/core": "^3.8.1",
-    "@material-ui/icons": "^3.0.1",
-    "auth0-js": "^9.8.2",
-    "auth0-lock": "^11.13.0",
+    "@material-ui/core": "^3.9.3",
+    "@material-ui/icons": "^3.0.2",
+    "auth0-js": "^9.10.2",
+    "auth0-lock": "^11.15.0",
     "axios": "^0.18.0",
-    "bootstrap": "^4.2.1",
     "moment": "^2.24.0",
-    "react": "^16.7.0",
-    "react-bootstrap": "^0.32.4",
-    "react-dom": "^16.7.0",
-    "react-forecast": "^0.0.7",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "react-google-maps": "^9.4.5",
     "react-liquid-gauge": "^1.2.4",
     "react-moment": "^0.8.4",
+    "react-router": "^5.0.0",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "^2.1.1"
+    "react-scripts": "^2.1.8",
+    "terser": "3.14.1"
+  },
+  "resolutions": {
+    "terser": "3.14.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -30,15 +29,21 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "devDependencies": {
-    "enzyme": "^3.8.0",
-    "enzyme-adapter-react-16": "^1.7.1",
-    "react-test-renderer": "^16.7.0"
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.12.1",
+    "react-test-renderer": "^16.8.6"
   }
 }

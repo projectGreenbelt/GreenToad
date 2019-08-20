@@ -1,20 +1,42 @@
 var React = require('react');
 
-function Weather() {
-  return (
-      <div className="Weather" elevation={20}>
+class Weather extends React.Component {
+  state = {
+    href: "https://forecast7.com/en/30d27n97d74/austin/?unit=us",
+    dataLabel1: "Barton Creek",
+    dataLabel2: "WEATHER",
+    dataFont: "Roboto",
+    dataIcons: "Climacons Animated",
+    dataDays: "3",
+    dataTheme: "weather_one"
+  };
+
+  render() {
+    const { 
+      href,
+      dataLabel1,
+      dataLabel2,
+      dataFont,
+      dataIcons,
+      dataDays,
+      dataTheme
+    } = this.state;
+
+    return (
+      <div className="Weather">
         <a
           className="weatherwidget-io" 
-          href="https://forecast7.com/en/30d27n97d74/austin/?unit=us" 
-          data-label_1="Barton Creek" 
-          data-label_2="WEATHER" 
-          data-font="Roboto" 
-          data-icons="Climacons Animated" 
-          data-days="3" 
-          data-theme="weather_one" >Greenbelt Weather
+          href={href}
+          data-label_1={dataLabel1}
+          data-label_2={dataLabel2} 
+          data-font={dataFont} 
+          data-icons={dataIcons}          
+          data-days={dataDays} 
+          data-theme={dataTheme}>
         </a>
       </div> 
-  );
+    );
+  }
 }
 
 export default Weather;

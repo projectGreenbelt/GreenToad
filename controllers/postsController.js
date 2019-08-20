@@ -1,9 +1,14 @@
 const db = require("../models");
+var start = new Date();
+start.setHours(0,0,0,0);
+
+var end = new Date();
+end.setHours(23,59,59,999);
 
 // Defining methods for the booksController
 module.exports = {
   findAll: function(req, res) {
-    db.Posts.find({}).sort({date:-1})
+    db.Posts.find({date: {$gte: start, $lt: end}}).sort({date:-1})
 
       // Specify that we want to populate the retrieved users with any associated notes
       // .populate({ path: "posts", options: { sort: { date: -1 } } })

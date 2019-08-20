@@ -25,11 +25,6 @@
     transition-property: transform;
 }
 
-#card:hover,
-#card:focus,
-#card:active {
-    transform: scale(1.1);
-}
 
 .footer {
     margin-top: 0%;
@@ -37,13 +32,24 @@
 }
 
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 500px) {
     #card {
         margin-top: 25%;
         margin-left: 0%;
         padding: 2%;
     }
 }
+
+@media all and (min-width: 800) {
+    #card:hover,
+    #card:focus,
+    #card:active {
+        transform: scale(1.1);
+    }
+}
+
+
+
 
 
 

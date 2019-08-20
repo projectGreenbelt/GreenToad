@@ -20,18 +20,7 @@ import Avatar from '@material-ui/core/Avatar';
 //Material UI Icons for Menu
 import LocationOn from "@material-ui/icons/FlightLand";
 import Person from "@material-ui/icons/Person";
-//enzyme to remove:
-// import { shallow, configure } from "enzyme";
-// import Adapter from "enzyme-adapter-react-16";
-// configure({ adapter: new Adapter() });
-// const wrapper = shallow(<App auth={{ isAuthenticated: () => true }} 
-//     state = {{
-//     anchorEl: null,
-//     toProfile: false
-//   } }/>);
-//   console.log(wrapper)
 
-//enzyme to remove
 const styles = theme => ({
   menuItem: {
     "&:hover": {
@@ -65,7 +54,7 @@ class App extends Component {
   getUserInfo = user => {
     let token;
     token = localStorage.getItem("access_token");
-    console.log(token)
+    /* console.log(token) */
     if (token) {
       this.props.auth.lock.getUserInfo(token, (err, profile) => {
         if (err) {
@@ -119,20 +108,19 @@ class App extends Component {
   //if sending as a default prop, would have to be a function that
   render() {
     const { isAuthenticated } = this.props.auth;
-    console.log(isAuthenticated());
     const { classes } = this.props;
     const { anchorEl } = this.state;
     if (this.state.toProfile === true) {
       return <Redirect to="/profile" />;
     }
+    
     return (
       <div data-name>
-        {withStyles}
         <div className={classes.root}>
           <AppBar position="static">
             <Toolbar className="theme">
               <Typography variant="h5" color="inherit"  className={classes.grow}>
-                Greentoad
+                GreenToad
               </Typography>
               {isAuthenticated() && (
                 <React.Fragment>
