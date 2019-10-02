@@ -250,7 +250,7 @@ class Main extends Component {
         <div className="Map">
           <Map
             handleMarkerClick={this.handleMarkerClick}
-            googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh_URgHgmsx6M6uNR7BQ0J9udoszW9zIg"
+            googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6kASRMis5abYOVOoo-j6Q-RT4RwBlKno"
             loadingElement={<div style={{ height: `100%` }} />}
             containerElement={
               <div
