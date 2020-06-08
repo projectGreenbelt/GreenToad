@@ -34,7 +34,7 @@ app.use(routes);
 
 // Connect to the Mongo DB
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://heroku_ks04zxhk:1234ma@ds149700.mlab.com:49700",
+  process.env.MONGODB_URI || "mongodb://mm1642:04301987Ma!@ds161764.mlab.com:61764/heroku_99zb0pt8",
   {useNewUrlParser: true }
    //the correct db
 );
